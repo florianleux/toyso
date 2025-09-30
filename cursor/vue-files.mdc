@@ -1,0 +1,71 @@
+---
+alwaysApply: true
+---
+
+# Vue Files Structure Rule
+
+## Template First, Script Second, No Styles
+
+When working with Vue files (.vue), follow this specific structure:
+
+1. **Template section** must come first
+2. **Script section** must come second  
+3. **Style sections** should be removed entirely
+
+### Example Structure
+
+```vue
+<template>
+  <!-- Your HTML template content here -->
+  <div>
+    <h1>Component Title</h1>
+  </div>
+</template>
+
+<script setup lang="ts">
+// Your TypeScript/JavaScript logic here
+</script>
+```
+
+### Rules
+
+- ✅ Template tags must be placed above script tags
+- ✅ Remove all `<style>` tags and their contents
+- ✅ Maintain proper indentation and formatting
+- ❌ Do not include any style sections
+- ❌ Do not place script tags before template tags
+
+This rule ensures consistent Vue file structure across the project and removes unnecessary styling in favor of external CSS or component libraries.# Vue Files Structure Rule
+
+## Template First, Script Second, No Styles
+
+When working with Vue files (.vue), follow this specific structure:
+
+1. **Template section** must come first
+2. **Script section** must come second  
+3. **Style sections** should be removed entirely
+
+### Example Structure
+
+```vue
+<template>
+  <!-- Your HTML template content here -->
+  <div>
+    <h1>Component Title</h1>
+  </div>
+</template>
+
+<script setup lang="ts">
+// Your TypeScript/JavaScript logic here
+</script>
+```
+
+### Rules
+
+- ✅ Template tags must be placed above script tags
+- ✅ Remove all `<style>` tags and their contents
+- ✅ Maintain proper indentation and formatting
+- ❌ Do not include any style sections
+- ❌ Do not place script tags before template tags
+
+This rule ensures consistent Vue file structure across the project and removes unnecessary styling in favor of external CSS or component libraries.
