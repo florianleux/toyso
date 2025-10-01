@@ -14,7 +14,7 @@
             <div v-for="(row, rowIndex) in imageRows" :key="rowIndex" class="mb-[16px]">
                 <div v-if="row.type === 'portrait'" class="grid grid-cols-4 gap-[16px]">
                     <router-link :to="`/artwork/${image.fileName}`" v-for="(image, imgIndex) in row.images"
-                        :key="imgIndex">
+                        :key="imgIndex" class=" placeholder">
                         <img :src="`/artworks/${getFullFileName(image)}`" :alt="image.title" loading="lazy"
                             class="w-full h-auto object-cover" />
                     </router-link>
@@ -24,14 +24,14 @@
                 <div v-else-if="row.type === 'landscape'" class="grid grid-cols-4 gap-[16px]">
                     <template v-for="(item, itemIndex) in row.items" :key="itemIndex">
                         <router-link v-if="item.type === 'landscape'" :to="`/artwork/${item.image.fileName}`"
-                            class="col-span-2">
-                            <img :src="`/artworks/${getFullFileName(item.image)}`" :alt="item.image.title"
-                                loading="lazy" class="w-full h-auto object-cover" />
+                            class=" placeholder col-span-2">
+                            <img preload="auto" :src="`/artworks/${getFullFileName(item.image)}`"
+                                :alt="item.image.title" loading="lazy" class="w-full h-auto object-cover" />
                         </router-link>
                         <router-link v-else v-for="(img, imgIdx) in item.images" :key="`${itemIndex}-${imgIdx}`"
-                            :to="`/artwork/${img.fileName}`">
-                            <img :src="`/artworks/${getFullFileName(img)}`" :alt="img.title" loading="lazy"
-                                class="w-full h-auto object-cover" />
+                            :to="`/artwork/${img.fileName}`" class=" placeholder">
+                            <img preload="auto" :src="`/artworks/${getFullFileName(img)}`" :alt="img.title"
+                                loading="lazy" class="w-full h-auto object-cover" />
                         </router-link>
                     </template>
                 </div>

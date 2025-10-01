@@ -6,13 +6,25 @@
         </div>
 
         <div :class="isLandscape ? 'grid grid-cols-2 gap-[16px]' : 'grid grid-cols-4 gap-[16px]'">
-            <img class="w-full h-full object-cover" :src="`/sketches/${artwork.fileName}.webp`"
-                :alt="artwork.fileName" />
-            <img class="w-full h-full object-cover" :src="`/inkings/${artwork.fileName}.webp`"
-                :alt="artwork.fileName" />
-            <img class="w-full h-full object-cover" :src="`/artworks/${artwork.fileName}.webp`" :alt="artworkId" />
-            <video class="w-full h-full object-cover" :src="`/timelapses/${artwork.fileName}.mp4`"
-                :alt="artwork.fileName" autoplay loop muted />
+            <div class="placeholder ">
+                <img preload="auto" class="w-full h-full object-cover" :src="`/sketches/${artwork.fileName}.webp`"
+                    :alt="artwork.fileName" />
+            </div>
+
+            <div class="placeholder">
+
+                <img preload="auto" class="w-full h-full object-cover" :src="`/inkings/${artwork.fileName}.webp`"
+                    :alt="artwork.fileName" />
+
+            </div>
+            <div class="placeholder">
+                <img preload="auto" class="w-full h-full object-cover" :src="`/artworks/${artwork.fileName}.webp`"
+                    :alt="artworkId" />
+            </div>
+            <div class="placeholder">
+                <video preload="auto" class="w-full h-full object-cover" :src="`/timelapses/${artwork.fileName}.mp4`"
+                    :alt="artwork.fileName" autoplay loop muted />
+            </div>
         </div>
         <p class="text-subtitle text-right font-dm mb-[32px]">Vous pouvez en découvrir <router-link
                 :to="randomArtworkUrl"
@@ -48,4 +60,14 @@ const randomArtworkUrl = computed(() => {
 
 </script>
 
-<style scoped></style>
+<style>
+.placeholder {
+    height: 100%;
+    background-color: #f0f0f0;
+    background-image: url('/sceau.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+    background-size: 30%;
+}
+</style>
