@@ -7,64 +7,46 @@
             illustrations
         </div>
         <p class="mb-[35px] text-right text-subtitle font-dm">
-            J'utilise
-            <span class="text-marker">Procreate</span>
-            pour tout mon processus de création numérique.
+            Cliquez sur une illustration pour voir le détail de son processus de création.
         </p>
 
         <div class="container">
             <div v-for="(row, rowIndex) in imageRows" :key="rowIndex" class="mb-[16px]">
                 <div v-if="row.type === 'portrait'" class="grid grid-cols-4 gap-[16px]">
-                    <img v-for="(image, imgIndex) in row.images" :key="imgIndex" :src="`/artworks/${image}`"
-                        :alt="image" loading="lazy" class="w-full h-auto object-cover" />
+                    <router-link :to="`/artwork/${image.fileName}`" v-for="(image, imgIndex) in row.images"
+                        :key="imgIndex">
+                        <img :src="`/artworks/${getFullFileName(image)}`" :alt="image.title" loading="lazy"
+                            class="w-full h-auto object-cover" />
+                    </router-link>
+
                 </div>
 
                 <div v-else-if="row.type === 'landscape'" class="grid grid-cols-4 gap-[16px]">
                     <template v-for="(item, itemIndex) in row.items" :key="itemIndex">
-                        <img v-if="item.type === 'landscape'" :src="`/artworks/${item.image}`" :alt="item.image"
-                            loading="lazy" class="w-full h-auto object-cover col-span-2" />
-                        <img v-else v-for="(img, imgIdx) in item.images" :key="`${itemIndex}-${imgIdx}`"
-                            :src="`/artworks/${img}`" :alt="img" loading="lazy" class="w-full h-auto object-cover" />
+                        <router-link v-if="item.type === 'landscape'" :to="`/artwork/${item.image.fileName}`"
+                            class="col-span-2">
+                            <img :src="`/artworks/${getFullFileName(item.image)}`" :alt="item.image.title"
+                                loading="lazy" class="w-full h-auto object-cover" />
+                        </router-link>
+                        <router-link v-else v-for="(img, imgIdx) in item.images" :key="`${itemIndex}-${imgIdx}`"
+                            :to="`/artwork/${img.fileName}`">
+                            <img :src="`/artworks/${getFullFileName(img)}`" :alt="img.title" loading="lazy"
+                                class="w-full h-auto object-cover" />
+                        </router-link>
                     </template>
                 </div>
             </div>
         </div>
     </div>
-
-
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { PORTRAIT_ILLUSTRATIONS, LANDSCAPE_ILLUSTRATIONS } from '@/constants/images'
 
-const PORTRAIT_ILLUSTRATIONS = [
-    'abyss.jpg',
-    'Molitor.png',
-    'game-night.png',
-    'gatcha.jpg',
-    'soup.png',
-    'morning-hunt.jpg',
-    'houston.jpg',
-    'sento.jpg',
-    'all-in.jpg',
-    'bivouac.jpg',
-    'checkmate.jpg',
-    'cheese.jpg',
-    'crisis-room.jpg',
-    'fish-markets.jpg',
-    'monster.jpg',
-    'mushroom.jpg',
-    'night-shift.jpg',
-    'scarecrow.jpg',
-]
-
-const LANDSCAPE_ILLUSTRATIONS = [
-    'gladiator.jpg',
-    'king.jpg',
-    'bonsai.jpg',
-    'game-night.jpg',
-    'izakaya.jpg',
-]
+const getFullFileName = (imageObj: { fileName: string; title: string }) => {
+    return `${imageObj.fileName}.webp`
+}
 
 const imageRows = computed(() => {
     const rows = []
