@@ -55,3 +55,15 @@ const randomArtworkUrl = computed(() => {
 
 
 </script>
+
+<style>
+.placeholder {
+    height: 100%;
+    background-color: #f0f0f0;
+    background-image: url('/sceau.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+    background-size: 30%;
+}
+</style>
