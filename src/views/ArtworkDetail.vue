@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="text-subtitle font-dm">plongez dans le processus de création de mon illustration</div>
+        <div class="text-subtitle font-dm">les étapes de création de</div>
         <div class="text-title mb-[5vw] highlight font-gasoek lowercase">
             {{ artwork.title }}
         </div>
@@ -12,7 +12,6 @@
             </div>
 
             <div class="placeholder">
-
                 <img preload="auto" class="w-full h-full object-cover" :src="`/inkings/${artwork.fileName}.webp`"
                     :alt="artwork.fileName" />
 

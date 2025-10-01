@@ -26,6 +26,7 @@
   }
 
   .placeholder {
+    min-height: 100px;
     height: 100%;
     background-color: #f0f0f0;
     background-image: url('/sceau.png');
@@ -44,19 +45,19 @@
   }
 
   .text-title {
-    font-size: 9vw;
-    line-height: 10vw;
+    font-size: 12vw;
+    line-height: 12vw;
   }
 
   .text-subtitle {
-    font-size: 5vw;
-    line-height: 0.9;
+    font-size: 6vw;
+    line-height: 1;
     text-wrap: balance;
   }
 
   .text-body {
     font-size: 4vw;
-    line-height: 1.2;
+    line-height: 1.6;
   }
 
   .text-marker:hover {
@@ -78,13 +79,34 @@
 
 
 
-  @media (min-width: 640) {
+  @media (min-width: 640px) {
     .text-marker {
       color: #fafafa;
       background-color: #d00408;
       padding-left: 8px;
       padding-right: 8px;
       border-radius: 6px;
+    }
+
+    .text-marker:hover {
+      color: white;
+      background-color: #1e293b;
+    }
+
+    .text-title {
+      font-size: 9vw;
+      line-height: 10vw;
+    }
+
+    .text-subtitle {
+      font-size: 5vw;
+      line-height: 0.9;
+      text-wrap: balance;
+    }
+
+    .text-body {
+      font-size: 4vw;
+      line-height: 1.2;
     }
 
   }
