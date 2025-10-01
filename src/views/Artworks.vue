@@ -1,18 +1,18 @@
 <template>
 
-    <div class="container mx-auto px-8 py-16">
+    <div class=" mx-auto py-16">
 
         <div class="text-subtitle font-dm">voici une sélection de mes</div>
-        <div class="text-title mb-[64px] highlight font-gasoek ">
+        <div class="text-title mb-[5vw] highlight font-gasoek ">
             illustrations
         </div>
-        <p class="mb-[35px] text-right text-subtitle font-dm">
+        <p class="mb-[35px] text-right text-body font-dm">
             Cliquez sur une illustration pour voir le détail de son processus de création.
         </p>
 
-        <div class="container">
-            <div v-for="(row, rowIndex) in imageRows" :key="rowIndex" class="mb-[16px]">
-                <div v-if="row.type === 'portrait'" class="grid grid-cols-4 gap-[16px]">
+        <div>
+            <div v-for="(row, rowIndex) in imageRows" :key="rowIndex" class="mb-[1vw]">
+                <div v-if="row.type === 'portrait'" class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-[1vw]">
                     <router-link :to="`/artwork/${image.fileName}`" v-for="(image, imgIndex) in row.images"
                         :key="imgIndex" class=" placeholder">
                         <img :src="`/artworks/${getFullFileName(image)}`" :alt="image.title" loading="lazy"
@@ -21,10 +21,11 @@
 
                 </div>
 
-                <div v-else-if="row.type === 'landscape'" class="grid grid-cols-4 gap-[16px]">
+                <div v-else-if="row.type === 'landscape'"
+                    class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-[1vw]">
                     <template v-for="(item, itemIndex) in row.items" :key="itemIndex">
                         <router-link v-if="item.type === 'landscape'" :to="`/artwork/${item.image.fileName}`"
-                            class=" placeholder col-span-2">
+                            class=" placeholder  sm:col-span-2">
                             <img preload="auto" :src="`/artworks/${getFullFileName(item.image)}`"
                                 :alt="item.image.title" loading="lazy" class="w-full h-auto object-cover" />
                         </router-link>

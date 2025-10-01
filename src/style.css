@@ -1,13 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   html {
     font-family: 'DM Serif Text', serif;
     color: #1e293b;
     background-color: #fafafa;
-    background-image:  linear-gradient(#e9eaeb 3.2px, transparent 3.2px), linear-gradient(to right, #f1f3f4 3.2px, #fafafa 3.2px);
+    background-image: linear-gradient(#e9eaeb 3.2px, transparent 3.2px), linear-gradient(to right, #f1f3f4 3.2px, #fafafa 3.2px);
     background-size: 64px 64px;
     scrollbar-gutter: stable
   }
@@ -18,69 +16,128 @@
   .font-gasoek {
     font-family: 'Gasoek One', cursive;
   }
+
   .font-dm {
     font-family: 'DM Serif Text', serif;
   }
+
   .highlight {
     color: #d00408
   }
-  
-  .text-hero {
-    font-size: 70px;
-    line-height: 0.6;
+
+  .placeholder {
+    height: 100%;
+    background-color: #f0f0f0;
+    background-image: url('/sceau.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+    background-size: 30%;
   }
+
+  .gap-vw {
+    gap: 1vw;
+  }
+
+  .mb-vw {
+    margin-bottom: 1vw;
+  }
+
   .text-title {
-    font-size: 45px;
-    line-height: 0.6
-    ;
+    font-size: 9vw;
+    line-height: 10vw;
   }
+
   .text-subtitle {
-    font-size: 18px;
+    font-size: 5vw;
+    line-height: 0.9;
+    text-wrap: balance;
   }
+
   .text-body {
-    font-size: 16px;
+    font-size: 4vw;
+    line-height: 1.2;
   }
+
+  .text-marker:hover {
+    color: #1e293b;
+    text-decoration: underline;
+    text-decoration-color: #1e293b;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 2px;
+  }
+
   .text-marker {
-    color:#fafafa;
-    background-color: #d00408;
-    padding-left:8px;  
-    padding-right: 8px; 
-    border-radius: 6px;
+    color: #d00408;
+    text-decoration: underline;
+    text-decoration-color: #d00408;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 2px;
   }
-  
-  
+
+
+
+
+  @media (min-width: 640) {
+    .text-marker {
+      color: #fafafa;
+      background-color: #d00408;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-radius: 6px;
+    }
+
+  }
+
+
   @media (min-width: 768px) {
-    .text-hero {
-      font-size: 140px;
-      line-height: 0.6;
-    }
     .text-title {
-      font-size: 60px;
-      line-height: 0.7;
+      font-size: 7vw;
     }
+
     .text-subtitle {
-      font-size: 24px;
-    }
-    .text-body {
-      font-size: 18px;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .text-hero {
-      font-size:  160px;
-      line-height: 0.7;
-    }
-    .text-title {
-      font-size: 80px;
-      line-height: 0.7;
-    }
-    .text-subtitle {
-      font-size: 30px;
+      font-size: 4vw;
 
     }
+
     .text-body {
-      font-size: 20px;
+      font-size: 3vw;
+    }
+  }
+
+
+
+  @media (min-width: 1024px) {
+    .text-title {
+      font-size: 5vw;
+      line-height: 4vw;
+    }
+
+    .text-subtitle {
+      font-size: 3vw;
+      line-height: 0.9;
+    }
+
+    .text-body {
+      font-size: 2vw;
+      line-height: 1.8;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .text-title {
+      font-size: 4vw;
+      line-height: 4vw;
+    }
+
+    .text-subtitle {
+      font-size: 2vw;
+      line-height: 0.9;
+    }
+
+    .text-body {
+      font-size: 1.5vw;
+      line-height: 1.8;
     }
   }
 }

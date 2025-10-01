@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="text-subtitle font-dm">plongez dans le processus de création de mon illustration</div>
-        <div class="text-title mb-[64px] highlight font-gasoek lowercase">
+        <div class="text-title mb-[5vw] highlight font-gasoek lowercase">
             {{ artwork.title }}
         </div>
 
-        <div class="grid grid-cols-4 gap-[16px]">
+        <div class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2  gap-[16px]">
             <div class="placeholder ">
                 <img preload="auto" class="w-full h-full object-cover" :src="`/sketches/${artwork.fileName}.webp`"
                     :alt="artwork.fileName" />
@@ -26,8 +26,7 @@
                     :alt="artwork.fileName" autoplay loop muted />
             </div>
         </div>
-        <p class="text-subtitle text-right font-dm mb-[32px]">Vous pouvez en découvrir <router-link
-                :to="randomArtworkUrl"
+        <p class="text-body text-right font-dm mt-[5vw]">Vous pouvez en découvrir <router-link :to="randomArtworkUrl"
                 class="text-marker hover:opacity-80 transition-opacity duration-300 cursor-pointer">une
                 autre</router-link>
             ou revenir à la liste des <router-link to="/artworks"
