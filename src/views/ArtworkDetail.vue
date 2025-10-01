@@ -5,7 +5,7 @@
             {{ artwork.title }}
         </div>
 
-        <div :class="isLandscape ? 'grid grid-cols-2 gap-[16px]' : 'grid grid-cols-4 gap-[16px]'">
+        <div class="grid grid-cols-4 gap-[16px]">
             <div class="placeholder ">
                 <img preload="auto" class="w-full h-full object-cover" :src="`/sketches/${artwork.fileName}.webp`"
                     :alt="artwork.fileName" />
@@ -47,10 +47,6 @@ const artwork = computed(() => {
     return ALL_ILLUSTRATIONS.find((artwork) => artwork.fileName === route.params.id)
 })
 
-const isLandscape = computed(() => {
-    return LANDSCAPE_ILLUSTRATIONS.some(landscapeArtwork => landscapeArtwork.fileName === route.params.id)
-})
-
 const randomArtworkUrl = computed(() => {
     const otherArtworks = ALL_ILLUSTRATIONS.filter(art => art.fileName !== route.params.id)
     const randomArtwork = otherArtworks[Math.floor(Math.random() * otherArtworks.length)]
@@ -59,15 +55,3 @@ const randomArtworkUrl = computed(() => {
 
 
 </script>
-
-<style>
-.placeholder {
-    height: 100%;
-    background-color: #f0f0f0;
-    background-image: url('/sceau.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: luminosity;
-    background-size: 30%;
-}
-</style>
