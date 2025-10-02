@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const Home = () => import('../views/Home.vue')
 const ArtHome = () => import('../views/art/Home.vue')
-const ArtworkDetail = () => import('../views/art/ArtworkDetail.vue')
-const Artworks = () => import('../views/art/Artworks.vue')
+const IllustrationDetail = () => import('../views/art/IllustrationDetail.vue')
+const Illustrations = () => import('../views/art/Illustrations.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -11,26 +11,32 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
       path: '/art',
       name: 'art',
       component: ArtHome,
-      meta: { breadcrumb: 'Art' }
+      meta: { breadcrumb: 'Art' },
     },
     {
-      path: '/art/artworks',
-      name: 'artworks',
-      component: Artworks,
-      meta: { breadcrumb: 'Illustrations', parent: 'art' }
+      path: '/art/illustrations',
+      name: 'illustrations',
+      component: Illustrations,
+      meta: { breadcrumb: 'Illustrations', parent: 'art' },
     },
     {
-      path: '/art/artworks/:id',
-      name: 'artwork',
-      component: ArtworkDetail,
-      meta: { breadcrumb: 'Detail', parent: 'artworks' }
-    }
+      path: '/art/traditional-drawings',
+      name: 'traditional-drawings',
+      component: Illustrations,
+      meta: { breadcrumb: 'Dessin traditionnel', parent: 'art' },
+    },
+    {
+      path: '/art/illustrations/:id',
+      name: 'illustration',
+      component: IllustrationDetail,
+      meta: { breadcrumb: 'Detail', parent: 'illustrations' },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -38,7 +44,7 @@ const router = createRouter({
     } else {
       return { top: 0, behavior: 'smooth' }
     }
-  }
+  },
 })
 
 export default router

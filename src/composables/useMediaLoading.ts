@@ -9,4 +9,3 @@ export function useMediaLoading() {
 
   return { isLoading, handleLoad }
 }
-

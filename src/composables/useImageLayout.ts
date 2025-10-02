@@ -1,15 +1,15 @@
 import { computed } from 'vue'
-import type { Illustration } from '@/types/illustration'
+import type { Artwork } from '@/types/artwork'
 
 interface PortraitRow {
   type: 'portrait'
-  images: Illustration[]
+  images: Artwork[]
 }
 
 interface LandscapeRowItem {
   type: 'landscape' | 'portrait'
-  image?: Illustration
-  images?: Illustration[]
+  image?: Artwork
+  images?: Artwork[]
 }
 
 interface LandscapeRow {
@@ -20,8 +20,8 @@ interface LandscapeRow {
 type ImageRow = PortraitRow | LandscapeRow
 
 export function useImageLayout(
-  portraitIllustrations: Illustration[],
-  landscapeIllustrations: Illustration[]
+  portraitIllustrations: Artwork[],
+  landscapeIllustrations: Artwork[]
 ) {
   const imageRows = computed<ImageRow[]>(() => {
     const rows: ImageRow[] = []
@@ -32,7 +32,6 @@ export function useImageLayout(
     let processedImages = 0
 
     while (processedImages < totalImages) {
-      // Portrait row (4 portrait images)
       if (rows.length % 2 === 0) {
         const portraitRow = createPortraitRow(
           portraitIllustrations,
@@ -50,9 +49,7 @@ export function useImageLayout(
         if (portraitRow.images.length > 0) {
           rows.push({ type: 'portrait', images: portraitRow.images })
         }
-      }
-      // Landscape row (2 landscape images OR 4 portrait images total)
-      else {
+      } else {
         const landscapeRow = createLandscapeRow(
           portraitIllustrations,
           landscapeIllustrations,
@@ -79,14 +76,14 @@ export function useImageLayout(
 }
 
 function createPortraitRow(
-  portraitIllustrations: Illustration[],
-  landscapeIllustrations: Illustration[],
+  portraitIllustrations: Artwork[],
+  landscapeIllustrations: Artwork[],
   portraitIndex: number,
   landscapeIndex: number,
   totalImages: number,
   processedImages: number
 ) {
-  const portraitRow: Illustration[] = []
+  const portraitRow: Artwork[] = []
 
   for (let i = 0; i < 4 && processedImages < totalImages; i++) {
     if (portraitIndex < portraitIllustrations.length) {
@@ -94,7 +91,6 @@ function createPortraitRow(
       portraitIndex++
       processedImages++
     } else if (landscapeIndex < landscapeIllustrations.length) {
-      // Fallback to landscape if portraits are exhausted
       portraitRow.push(landscapeIllustrations[landscapeIndex])
       landscapeIndex++
       processedImages++
@@ -105,13 +101,13 @@ function createPortraitRow(
     images: portraitRow,
     newPortraitIndex: portraitIndex,
     newLandscapeIndex: landscapeIndex,
-    newProcessedImages: processedImages
+    newProcessedImages: processedImages,
   }
 }
 
 function createLandscapeRow(
-  portraitIllustrations: Illustration[],
-  landscapeIllustrations: Illustration[],
+  portraitIllustrations: Artwork[],
+  landscapeIllustrations: Artwork[],
   portraitIndex: number,
   landscapeIndex: number,
   totalImages: number,
@@ -119,20 +115,21 @@ function createLandscapeRow(
 ) {
   const landscapeRow: LandscapeRowItem[] = []
 
-  // Try to fill 2 landscape slots
   for (let i = 0; i < 2 && processedImages < totalImages; i++) {
     if (landscapeIndex < landscapeIllustrations.length) {
-      // Add a landscape image
       landscapeRow.push({
         type: 'landscape',
-        image: landscapeIllustrations[landscapeIndex]
+        image: landscapeIllustrations[landscapeIndex],
       })
       landscapeIndex++
       processedImages++
     } else {
-      // No landscapes left, use 2 portraits to fill this landscape slot
-      const portraits: Illustration[] = []
-      for (let j = 0; j < 2 && portraitIndex < portraitIllustrations.length && processedImages < totalImages; j++) {
+      const portraits: Artwork[] = []
+      for (
+        let j = 0;
+        j < 2 && portraitIndex < portraitIllustrations.length && processedImages < totalImages;
+        j++
+      ) {
         portraits.push(portraitIllustrations[portraitIndex])
         portraitIndex++
         processedImages++
@@ -141,7 +138,7 @@ function createLandscapeRow(
       if (portraits.length > 0) {
         landscapeRow.push({
           type: 'portrait',
-          images: portraits
+          images: portraits,
         })
       }
     }
@@ -151,7 +148,6 @@ function createLandscapeRow(
     items: landscapeRow,
     newPortraitIndex: portraitIndex,
     newLandscapeIndex: landscapeIndex,
-    newProcessedImages: processedImages
+    newProcessedImages: processedImages,
   }
 }
-

@@ -1,6 +1,6 @@
-import type { Illustration } from '@/types/illustration'
+import type { Artwork } from '@/types/artwork'
 
-export const PORTRAIT_ILLUSTRATIONS: Illustration[] = [
+export const PORTRAIT_ILLUSTRATIONS: Artwork[] = [
   { fileName: 'abyss', title: 'abyss', ratio: 'portrait' },
   { fileName: 'molitor', title: 'molitor', ratio: 'portrait' },
   { fileName: 'game-night', title: 'game night', ratio: 'portrait' },
@@ -21,7 +21,7 @@ export const PORTRAIT_ILLUSTRATIONS: Illustration[] = [
   { fileName: 'scarecrow', title: 'Scarecrow', ratio: 'portrait' },
 ]
 
-export const LANDSCAPE_ILLUSTRATIONS: Illustration[] = [
+export const LANDSCAPE_ILLUSTRATIONS: Artwork[] = [
   { fileName: 'gladiator', title: 'Morituri te salutant', ratio: 'landscape' },
   { fileName: 'legacy', title: 'legacy', ratio: 'landscape' },
   { fileName: 'bonsai', title: 'Bonsai', ratio: 'landscape' },
@@ -29,7 +29,4 @@ export const LANDSCAPE_ILLUSTRATIONS: Illustration[] = [
   { fileName: 'izakaya', title: 'Izakaya', ratio: 'landscape' },
 ]
 
-export const ALL_ILLUSTRATIONS: Illustration[] = [
-  ...PORTRAIT_ILLUSTRATIONS,
-  ...LANDSCAPE_ILLUSTRATIONS,
-]
+export const ALL_ILLUSTRATIONS: Artwork[] = [...PORTRAIT_ILLUSTRATIONS, ...LANDSCAPE_ILLUSTRATIONS]

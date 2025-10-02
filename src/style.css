@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer base {
   :root {
@@ -13,11 +13,12 @@
     font-family: 'DM Serif Text', serif;
     color: var(--color-text);
     background-color: var(--color-background);
-    background-image: linear-gradient(var(--color-grid-line) 3.2px, transparent 3.2px), linear-gradient(to right, var(--color-grid-line-alt) 3.2px, var(--color-background) 3.2px);
+    background-image:
+      linear-gradient(var(--color-grid-line) 3.2px, transparent 3.2px),
+      linear-gradient(to right, var(--color-grid-line-alt) 3.2px, var(--color-background) 3.2px);
     background-size: 64px 64px;
-    scrollbar-gutter: stable
+    scrollbar-gutter: stable;
   }
-
 }
 
 @layer utilities {
@@ -63,9 +64,6 @@
     text-decoration-color: var(--color-text);
   }
 
-
-
-
   @media (min-width: 640px) {
     .text-marker {
       color: var(--color-background);
@@ -95,9 +93,7 @@
       font-size: 4vw;
       line-height: 1.2;
     }
-
   }
-
 
   @media (min-width: 768px) {
     .text-title {
@@ -106,15 +102,12 @@
 
     .text-subtitle {
       font-size: 4vw;
-
     }
 
     .text-body {
       font-size: 3vw;
     }
   }
-
-
 
   @media (min-width: 1024px) {
     .text-title {
