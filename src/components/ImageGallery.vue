@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 import Image from '@/components/Image.vue'
 import type { Artwork } from '@/types/artwork'
@@ -61,13 +61,16 @@ import {
     getTraditionalDrawingAlt,
 } from '@/composables/useAltText'
 
+// Support Artwork with optional folderName extension
+type ArtworkWithFolder = Artwork & { folderName?: string }
+
 interface ImageRow {
     type: 'portrait' | 'landscape'
-    images?: Artwork[]
+    images?: ArtworkWithFolder[]
     items?: Array<{
         type: 'landscape' | 'portrait'
-        image?: Artwork
-        images?: Artwork[]
+        image?: ArtworkWithFolder
+        images?: ArtworkWithFolder[]
     }>
 }
 
@@ -101,10 +104,10 @@ const getArtworkPath = (id: string) => {
     return `${route.path}/${id}`
 }
 
-const getImagePath = (imageObj: Artwork) => {
+const getImagePath = (imageObj: ArtworkWithFolder) => {
     // Si l'image a un folderName spécifique (pour la page "all"), l'utiliser
     // Sinon utiliser le folderName de la galerie
-    const folder = (imageObj as any).folderName || props.folderName
+    const folder = imageObj.folderName || props.folderName
     return `/${folder}/${imageObj.fileName}.webp`
 }
 
@@ -129,6 +132,14 @@ const handleMouseLeave = () => {
 
     isHovering.value = false
 }
+
+// Clean up timeout on component unmount to prevent memory leaks
+onBeforeUnmount(() => {
+    if (hoverTimeout) {
+        clearTimeout(hoverTimeout)
+        hoverTimeout = null
+    }
+})
 </script>
 
 <style scoped>

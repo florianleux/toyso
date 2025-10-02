@@ -5,7 +5,7 @@ const Contact = () => import('../views/Contact.vue')
 const ArtHome = () => import('../views/art/Home.vue')
 const IllustrationDetail = () => import('../views/art/IllustrationDetail.vue')
 const Illustrations = () => import('../views/art/Illustrations.vue')
-const TraditionalDrawings = () => import('../views/art/TraditionnalDrawings.vue')
+const TraditionalDrawings = () => import('../views/art/TraditionalDrawings.vue')
 const Animations = () => import('../views/art/Animations.vue')
 const All = () => import('../views/art/All.vue')
 

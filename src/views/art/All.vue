@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
@@ -38,20 +37,18 @@ interface ArtworkWithFolder extends Artwork {
     folderName: string
 }
 
-// Combiner toutes les collections automatiquement
-const allArtworks = computed<ArtworkWithFolder[]>(() => {
-    const allArtworksArray = ALL_COLLECTIONS.flatMap(collection =>
+// Combiner toutes les collections automatiquement et les mélanger
+const allArtworks: ArtworkWithFolder[] = shuffleArray(
+    ALL_COLLECTIONS.flatMap(collection =>
         collection.artworks.map(art => ({
             ...art,
             folderName: collection.folderName
         }))
     )
-
-    return shuffleArray(allArtworksArray)
-})
+)
 
 // Utiliser le layout automatique avec le type étendu
-const { imageRows } = useImageLayout(allArtworks.value as any)
+const { imageRows } = useImageLayout(allArtworks)
 
 // SEO
 useHead({

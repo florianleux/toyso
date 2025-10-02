@@ -47,63 +47,6 @@ export function usePersonSchema() {
 }
 
 /**
- * Add structured data for an artwork/creative work
- */
-export function useCreativeWorkSchema(artwork: {
-  name: string
-  description: string
-  image: string
-  url: string
-  dateCreated?: string
-}) {
-  useHead({
-    script: [
-      {
-        type: 'application/ld+json',
-        children: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'CreativeWork',
-          name: artwork.name,
-          description: artwork.description,
-          image: artwork.image,
-          url: artwork.url,
-          creator: {
-            '@type': 'Person',
-            name: 'Florian Leux',
-            alternateName: 'Toyso',
-          },
-          dateCreated: artwork.dateCreated,
-          inLanguage: 'fr-FR',
-        }),
-      },
-    ],
-  })
-}
-
-/**
- * Add breadcrumb structured data for better navigation in search results
- */
-export function useBreadcrumbSchema(breadcrumbs: Array<{ name: string; url: string }>) {
-  useHead({
-    script: [
-      {
-        type: 'application/ld+json',
-        children: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: breadcrumbs.map((crumb, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            name: crumb.name,
-            item: crumb.url,
-          })),
-        }),
-      },
-    ],
-  })
-}
-
-/**
  * Add portfolio/collection structured data
  */
 export function usePortfolioSchema() {

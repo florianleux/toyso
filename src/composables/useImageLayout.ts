@@ -1,30 +1,30 @@
 import { computed } from 'vue'
 import type { Artwork } from '@/types/artwork'
 
-interface PortraitRow {
+interface PortraitRow<T extends Artwork = Artwork> {
   type: 'portrait'
-  images: Artwork[]
+  images: T[]
 }
 
-interface LandscapeRowItem {
+interface LandscapeRowItem<T extends Artwork = Artwork> {
   type: 'landscape' | 'portrait'
-  image?: Artwork
-  images?: Artwork[]
+  image?: T
+  images?: T[]
 }
 
-interface LandscapeRow {
+interface LandscapeRow<T extends Artwork = Artwork> {
   type: 'landscape'
-  items: LandscapeRowItem[]
+  items: LandscapeRowItem<T>[]
 }
 
-type ImageRow = PortraitRow | LandscapeRow
+export type ImageRow<T extends Artwork = Artwork> = PortraitRow<T> | LandscapeRow<T>
 
-export function useImageLayout(illustrations: Artwork[]) {
-  const imageRows = computed<ImageRow[]>(() => {
+export function useImageLayout<T extends Artwork = Artwork>(illustrations: T[]) {
+  const imageRows = computed<ImageRow<T>[]>(() => {
     const portraitIllustrations = illustrations.filter((img) => img.ratio === 'portrait')
     const landscapeIllustrations = illustrations.filter((img) => img.ratio === 'landscape')
 
-    const rows: ImageRow[] = []
+    const rows: ImageRow<T>[] = []
     let portraitIndex = 0
     let landscapeIndex = 0
 
@@ -75,15 +75,15 @@ export function useImageLayout(illustrations: Artwork[]) {
   return { imageRows }
 }
 
-function createPortraitRow(
-  portraitIllustrations: Artwork[],
-  landscapeIllustrations: Artwork[],
+function createPortraitRow<T extends Artwork>(
+  portraitIllustrations: T[],
+  landscapeIllustrations: T[],
   portraitIndex: number,
   landscapeIndex: number,
   totalImages: number,
   processedImages: number
 ) {
-  const portraitRow: Artwork[] = []
+  const portraitRow: T[] = []
 
   for (let i = 0; i < 4 && processedImages < totalImages; i++) {
     if (portraitIndex < portraitIllustrations.length) {
@@ -105,15 +105,15 @@ function createPortraitRow(
   }
 }
 
-function createLandscapeRow(
-  portraitIllustrations: Artwork[],
-  landscapeIllustrations: Artwork[],
+function createLandscapeRow<T extends Artwork>(
+  portraitIllustrations: T[],
+  landscapeIllustrations: T[],
   portraitIndex: number,
   landscapeIndex: number,
   totalImages: number,
   processedImages: number
 ) {
-  const landscapeRow: LandscapeRowItem[] = []
+  const landscapeRow: LandscapeRowItem<T>[] = []
 
   for (let i = 0; i < 2 && processedImages < totalImages; i++) {
     if (landscapeIndex < landscapeIllustrations.length) {
@@ -124,7 +124,7 @@ function createLandscapeRow(
       landscapeIndex++
       processedImages++
     } else {
-      const portraits: Artwork[] = []
+      const portraits: T[] = []
       for (
         let j = 0;
         j < 2 && portraitIndex < portraitIllustrations.length && processedImages < totalImages;

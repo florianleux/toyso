@@ -26,6 +26,16 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=DM+Serif+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <title>Florian Leux - Toyso - Développeur web et illustrateur</title>
+
+    <!-- Prevent FOUC by initializing dark mode before app loads -->
+    <script>
+      (function() {
+        const saved = localStorage.getItem('darkMode');
+        if (saved === 'true' || (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>
