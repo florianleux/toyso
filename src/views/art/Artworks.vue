@@ -1,7 +1,7 @@
 <template>
+    <Breadcrumb />
 
-    <div class=" mx-auto py-16">
-
+    <div class=" mx-auto">
         <div class="text-subtitle font-dm">voici une sélection de mes</div>
         <div class="text-title mb-[5vw] highlight font-gasoek ">
             illustrations
@@ -13,10 +13,10 @@
         <div>
             <div v-for="(row, rowIndex) in imageRows" :key="rowIndex" class="mb-[1vw]">
                 <div v-if="row.type === 'portrait'" class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-[1vw]">
-                    <router-link :to="`/artwork/${image.fileName}`" v-for="(image, imgIndex) in row.images"
-                        :key="imgIndex" class=" placeholder">
-                        <img :src="`/artworks/${getFullFileName(image)}`" :alt="image.title" loading="lazy"
-                            class="w-full h-auto object-cover" />
+                    <router-link :to="`/art/artworks/${image.fileName}`" v-for="(image, imgIndex) in row.images"
+                        :key="imgIndex">
+                        <Image :src="`/artworks/${getFullFileName(image)}`" :alt="image.title" :ratio="image.ratio"
+                            :class="'w-full h-auto object-cover'" />
                     </router-link>
 
                 </div>
@@ -24,15 +24,15 @@
                 <div v-else-if="row.type === 'landscape'"
                     class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-[1vw]">
                     <template v-for="(item, itemIndex) in row.items" :key="itemIndex">
-                        <router-link v-if="item.type === 'landscape'" :to="`/artwork/${item.image.fileName}`"
-                            class=" placeholder  sm:col-span-2">
-                            <img preload="auto" :src="`/artworks/${getFullFileName(item.image)}`"
-                                :alt="item.image.title" loading="lazy" class="w-full h-auto object-cover" />
+                        <router-link v-if="item.type === 'landscape'" :to="`/art/artworks/${item.image.fileName}`"
+                            class=" sm:col-span-2">
+                            <Image :src="`/artworks/${getFullFileName(item.image)}`" :alt="item.image.title"
+                                :ratio="item.image.ratio" :class="'w-full h-auto object-cover'" />
                         </router-link>
                         <router-link v-else v-for="(img, imgIdx) in item.images" :key="`${itemIndex}-${imgIdx}`"
-                            :to="`/artwork/${img.fileName}`" class=" placeholder">
-                            <img preload="auto" :src="`/artworks/${getFullFileName(img)}`" :alt="img.title"
-                                loading="lazy" class="w-full h-auto object-cover" />
+                            :to="`/art/artworks/${img.fileName}`">
+                            <Image :src="`/artworks/${getFullFileName(img)}`" :alt="img.title" :ratio="img.ratio"
+                                class="w-full h-auto object-cover" />
                         </router-link>
                     </template>
                 </div>
@@ -43,8 +43,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 import { PORTRAIT_ILLUSTRATIONS, LANDSCAPE_ILLUSTRATIONS } from '@/constants/images'
-
+import Image from '@/components/Image.vue'
 const getFullFileName = (imageObj: { fileName: string; title: string }) => {
     return `${imageObj.fileName}.webp`
 }

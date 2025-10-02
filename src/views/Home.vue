@@ -15,7 +15,7 @@
         <p class="text-subtitle text-center font-dm mb-[32px]">Je suis <span class="text-marker">
             développeur
             web</span>
-          et <router-link to="/artworks#"
+          et <router-link to="/art/artworks"
             class="text-marker hover:opacity-80 transition-opacity duration-300 cursor-pointer">illustrateur</router-link>
         </p>
       </div>

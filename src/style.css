@@ -25,16 +25,6 @@
     color: #d00408
   }
 
-  .placeholder {
-    min-height: 100px;
-    height: 100%;
-    background-color: #f0f0f0;
-    background-image: url('/sceau.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: luminosity;
-    background-size: 30%;
-  }
 
   .gap-vw {
     gap: 1vw;
@@ -74,6 +64,16 @@
     text-decoration-color: #d00408;
     text-decoration-thickness: 4px;
     text-underline-offset: 2px;
+  }
+
+  .placeholder {
+    height: 100%;
+    background-color: #ebebeb;
+    background-image: url('/sceau.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+    background-size: 30%;
   }
 
 

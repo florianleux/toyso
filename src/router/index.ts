@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import ArtworkDetail from '../views/ArtworkDetail.vue'
-import Artworks from '../views/Artworks.vue'
+import ArtHome from '../views/art/Home.vue'
+import ArtworkDetail from '../views/art/ArtworkDetail.vue'
+import Artworks from '../views/art/Artworks.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,14 +13,22 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/artworks',
-      name: 'artworks',
-      component: Artworks
+      path: '/art',
+      name: 'art',
+      component: ArtHome,
+      meta: { breadcrumb: 'Art' }
     },
     {
-      path: '/artwork/:id',
+      path: '/art/artworks',
+      name: 'artworks',
+      component: Artworks,
+      meta: { breadcrumb: 'Illustrations', parent: 'art' }
+    },
+    {
+      path: '/art/artworks/:id',
       name: 'artwork',
-      component: ArtworkDetail 
+      component: ArtworkDetail,
+      meta: { breadcrumb: 'Detail', parent: 'artworks' }
     }
   ],
   scrollBehavior(to, from, savedPosition) {
