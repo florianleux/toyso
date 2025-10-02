@@ -30,13 +30,32 @@ export const ILLUSTRATIONS: ArtworkCollection = {
 }
 
 export const TRADITIONAL_DRAWINGS: ArtworkCollection = {
-  folderName: 'markers',
+  folderName: 'traditional',
   artworks: [
-    { fileName: 'trad-1', title: 'trad-1', ratio: 'portrait' },
-    { fileName: 'trad-2', title: 'trad-2', ratio: 'portrait' },
-    { fileName: 'trad-3', title: 'trad-3', ratio: 'portrait' },
-    { fileName: 'trad-4', title: 'trad-4', ratio: 'portrait' },
-    { fileName: 'trad-5', title: 'trad-5', ratio: 'portrait' },
-    { fileName: 'trad-6', title: 'trad-6', ratio: 'portrait' },
+    { fileName: 'worker', title: 'worker', ratio: 'portrait' },
+    { fileName: 'blue', title: 'blue jeleton', ratio: 'portrait' },
+    { fileName: 'pink', title: 'pink jeleton', ratio: 'portrait' },
+    { fileName: 'mammoth', title: 'mammoth', ratio: 'landscape' },
+    { fileName: 'unicorn', title: 'unicorn', ratio: 'landscape' },
+    { fileName: 'red', title: 'red jeleton', ratio: 'landscape' },
+    { fileName: 'boxer', title: 'sparring partner', ratio: 'landscape' },
+    { fileName: 'green', title: 'green jeleton', ratio: 'portrait' },
+    { fileName: 'green-2', title: 'green jeleton 2', ratio: 'portrait' },
+    { fileName: 'daruma', title: 'daruma', ratio: 'portrait' },
+    { fileName: 'white', title: 'white jeleton', ratio: 'portrait' },
+    { fileName: 'dino', title: 'dino jeleton', ratio: 'portrait' },
+    { fileName: 'hammond', title: 'before the park', ratio: 'portrait' },
+  ],
+}
+
+export const ANIMATIONS: ArtworkCollection = {
+  folderName: 'animations',
+  artworks: [
+    { fileName: 'sorcerer', title: 'Sorcerer', ratio: 'portrait' },
+    { fileName: 'feur', title: 'Feur', ratio: 'portrait' },
+    { fileName: 'glurp', title: 'Glurp', ratio: 'portrait' },
+    { fileName: 'hand', title: 'Hand', ratio: 'portrait' },
+    { fileName: 'hey', title: 'Hey', ratio: 'portrait' },
+
   ],
 }

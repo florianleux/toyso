@@ -8,11 +8,7 @@
       J'utilise les feutres à alcools et l'encre.
     </p>
 
-    <ImageGallery
-      :image-rows="imageRows"
-      :folder-name="TRADITIONAL_DRAWINGS.folderName"
-      :has-links="true"
-    />
+    <ImageGallery :image-rows="imageRows" :folder-name="TRADITIONAL_DRAWINGS.folderName" />
   </div>
 </template>
 
