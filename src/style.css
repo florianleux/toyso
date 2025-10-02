@@ -7,16 +7,14 @@
     --color-background: #fafafa;
     --color-grid-line: #e9eaeb;
     --color-grid-line-alt: #f1f3f4;
-    --color-marker-hover: white;
   }
 
   .dark {
-    --color-highlight: #4deeea;
-    --color-text: #4BFF36;
+    --color-highlight: #ff3aaa;
+    --color-text: #fafafa;
     --color-background: #0c0f0a;
     --color-grid-line: #334155;
     --color-grid-line-alt: #334155;
-    --color-marker-hover: #0c0f0a;
   }
 
   html {
