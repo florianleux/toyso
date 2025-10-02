@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const Home = () => import('../views/Home.vue')
+const Contact = () => import('../views/Contact.vue')
 const ArtHome = () => import('../views/art/Home.vue')
 const IllustrationDetail = () => import('../views/art/IllustrationDetail.vue')
 const Illustrations = () => import('../views/art/Illustrations.vue')
 const TraditionalDrawings = () => import('../views/art/TraditionnalDrawings.vue')
 const Animations = () => import('../views/art/Animations.vue')
+const All = () => import('../views/art/All.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +16,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
+      meta: { breadcrumb: 'Contact' },
     },
     {
       path: '/art',
@@ -44,6 +52,12 @@ const router = createRouter({
       name: 'animations',
       component: Animations,
       meta: { breadcrumb: 'Animations', parent: 'art' },
+    },
+    {
+      path: '/art/all',
+      name: 'all',
+      component: All,
+      meta: { breadcrumb: 'Tout', parent: 'art' },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

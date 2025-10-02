@@ -17,10 +17,41 @@
 </template>
 
 <script setup lang="ts">
+import { useHead } from '@vueuse/head'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { ILLUSTRATIONS } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
 
 const { imageRows } = useImageLayout(ILLUSTRATIONS.artworks)
+
+useHead({
+  title: 'Illustrations Digitales - Florian Leux (Toyso) | Illustrateur Freelance Bordeaux',
+  meta: [
+    {
+      name: 'description',
+      content:
+        "Portfolio d'illustrations digitales de Florian Leux (Toyso). Character design, illustrations pour livres et jeux de société. Découvrez le processus de création de chaque illustration.",
+    },
+    {
+      name: 'keywords',
+      content:
+        'illustrations digitales, character design, illustration livre, illustration jeu de société, portfolio illustration, florian leux, toyso',
+    },
+    {
+      property: 'og:title',
+      content: 'Illustrations Digitales - Florian Leux (Toyso)',
+    },
+    {
+      property: 'og:url',
+      content: 'https://florianleux.fr/art/illustrations',
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://florianleux.fr/art/illustrations',
+    },
+  ],
+})
 </script>

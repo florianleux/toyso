@@ -1,6 +1,21 @@
-# toyso-site
+# florianleux.fr (toyso)
 
-This template should help get you started developing with Vue 3 in Vite.
+Portfolio personnel combinant développement web et illustration.  
+Site de Florian Leux (Toyso) - Développeur Frontend & Illustrateur Freelance à Bordeaux.
+
+## 🚀 Quick Start
+
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # Build production
+```
+
+## 📚 Documentation
+
+**SEO & Déploiement** : Consulte [`docs/SEO-GUIDE.md`](./docs/SEO-GUIDE.md)
+
+---
 
 ## Recommended IDE Setup
 
@@ -23,26 +38,58 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 
 See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Project Setup
+## 📦 Stack Technique
 
-```sh
-yarn
+- **Framework** : Vue 3 + TypeScript
+- **Build** : Vite
+- **Styling** : Tailwind CSS
+- **Routing** : Vue Router
+- **SEO** : @vueuse/head + Structured Data (JSON-LD)
+
+## 🎯 Features
+
+- ✅ Meta tags dynamiques sur toutes les pages
+- ✅ Structured Data (Schema.org)
+- ✅ Sitemap XML automatique (29 routes)
+- ✅ Optimisé SEO pour "Florian Leux", "Toyso" et mots-clés locaux Bordeaux
+- ✅ Portfolio illustrations avec timelapses
+- ✅ Responsive design
+
+## 🛠️ Commandes
+
+```bash
+# Développement
+npm install          # Installation des dépendances
+npm run dev          # Serveur de dev (http://localhost:5173)
+
+# Build
+npm run build        # Build production (génère dist/)
+npm run preview      # Preview du build
+
+# Qualité
+npm run type-check   # Vérification TypeScript
+npm run lint         # Linter + auto-fix
+npm run format       # Prettier
 ```
 
-### Compile and Hot-Reload for Development
+## 📂 Structure
 
-```sh
-yarn dev
+```
+src/
+├── components/      # Composants réutilisables
+├── composables/     # Composables Vue (useImageLayout, useStructuredData)
+├── constants/       # Données (images, illustrations)
+├── router/          # Configuration Vue Router
+├── types/           # Types TypeScript
+└── views/           # Pages/vues
+    ├── Home.vue
+    └── art/         # Section portfolio
 ```
 
-### Type-Check, Compile and Minify for Production
+## 🚢 Déploiement
 
-```sh
-yarn build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
-```
+1. Build : `npm run build`
+2. Upload le dossier `dist/` vers ton hébergement
+3. Vérifie que `/sitemap.xml` et `/robots.txt` sont accessibles
+4. Configure Google Search Console
+5. Consulte [`docs/SEO-GUIDE.md`](./docs/SEO-GUIDE.md) pour les étapes SEO

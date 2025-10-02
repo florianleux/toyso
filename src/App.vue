@@ -1,7 +1,8 @@
 <template>
   <div id="app" class="h-full">
-    <Header />
+
     <div class="px-[5vw] py-[28px]">
+      <Header />
       <router-view />
     </div>
   </div>

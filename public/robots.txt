@@ -1,0 +1,13 @@
+# Robots.txt pour florianleux.fr (Toyso)
+# Permet à tous les moteurs de recherche de crawler le site
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://florianleux.fr/sitemap.xml
+
+# Optionnel : bloquer des fichiers spécifiques si nécessaire
+# Disallow: /admin/
+# Disallow: /private/
+

@@ -56,6 +56,11 @@ export const ANIMATIONS: ArtworkCollection = {
     { fileName: 'glurp', title: 'Glurp', ratio: 'portrait' },
     { fileName: 'hand', title: 'Hand', ratio: 'portrait' },
     { fileName: 'hey', title: 'Hey', ratio: 'portrait' },
-
   ],
 }
+
+export const ALL_COLLECTIONS: ArtworkCollection[] = [
+  ILLUSTRATIONS,
+  ANIMATIONS,
+  TRADITIONAL_DRAWINGS,
+]

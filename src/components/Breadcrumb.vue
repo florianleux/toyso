@@ -6,7 +6,7 @@
                 {{ crumb.label }}
             </router-link>
             <span v-else>{{ crumb.label }}</span>
-            <span class="text-(--color-highlight)" v-if="index < breadcrumbs.length - 1"> • </span>
+            <span class="text-(--color-highlight)" v-if="index < breadcrumbs.length - 1">&nbsp;•&nbsp</span>
         </template>
     </div>
 </template>

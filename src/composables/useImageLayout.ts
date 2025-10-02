@@ -87,11 +87,11 @@ function createPortraitRow(
 
   for (let i = 0; i < 4 && processedImages < totalImages; i++) {
     if (portraitIndex < portraitIllustrations.length) {
-      portraitRow.push(portraitIllustrations[portraitIndex])
+      portraitRow.push(portraitIllustrations[portraitIndex]!)
       portraitIndex++
       processedImages++
     } else if (landscapeIndex < landscapeIllustrations.length) {
-      portraitRow.push(landscapeIllustrations[landscapeIndex])
+      portraitRow.push(landscapeIllustrations[landscapeIndex]!)
       landscapeIndex++
       processedImages++
     }
@@ -119,7 +119,7 @@ function createLandscapeRow(
     if (landscapeIndex < landscapeIllustrations.length) {
       landscapeRow.push({
         type: 'landscape',
-        image: landscapeIllustrations[landscapeIndex],
+        image: landscapeIllustrations[landscapeIndex]!,
       })
       landscapeIndex++
       processedImages++
@@ -130,7 +130,7 @@ function createLandscapeRow(
         j < 2 && portraitIndex < portraitIllustrations.length && processedImages < totalImages;
         j++
       ) {
-        portraits.push(portraitIllustrations[portraitIndex])
+        portraits.push(portraitIllustrations[portraitIndex]!)
         portraitIndex++
         processedImages++
       }
