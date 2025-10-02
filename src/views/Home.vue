@@ -15,7 +15,7 @@
           toyso
         </div>
         <p class="text-subtitle text-center font-dm mb-[4vw]">
-          Je propose mes services en tant de
+          Je propose mes services en tant que
           <span class="text-marker">développeur web</span>
           et
           <router-link :to="{ name: 'art' }" class="text-marker cursor-pointer">
