@@ -32,7 +32,7 @@
         <div>
           <Image
             class="w-full h-full object-cover"
-            :src="`/artworks/${artwork.fileName}.webp`"
+            :src="`/illustrations/${artwork.fileName}.webp`"
             :alt="artwork.fileName"
             :ratio="artwork.ratio"
           />
@@ -74,19 +74,20 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { ALL_ILLUSTRATIONS } from '@/constants/images'
+import { ILLUSTRATIONS } from '@/constants/images'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import Image from '@/components/Image.vue'
 import Video from '@/components/Video.vue'
 const route = useRoute()
 
 const artwork = computed(() => {
-  return ALL_ILLUSTRATIONS.find((artwork) => artwork.fileName === route.params.id)
+  return ILLUSTRATIONS.artworks.find((artwork) => artwork.fileName === route.params.id)
 })
 
 const getRandomArtworkUrl = () => {
-  const otherArtworks = ALL_ILLUSTRATIONS.filter((art) => art.fileName !== route.params.id)
-  const randomArtwork = otherArtworks[Math.floor(Math.random() * otherArtworks.length)]
+  const otherArtworks = ILLUSTRATIONS.artworks.filter((art) => art.fileName !== route.params.id)
+  const list = otherArtworks.length > 0 ? otherArtworks : ILLUSTRATIONS.artworks
+  const randomArtwork = list[Math.floor(Math.random() * list.length)]!
   return { name: 'illustration', params: { id: randomArtwork.fileName } }
 }
 </script>

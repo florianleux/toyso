@@ -14,7 +14,7 @@
             @mouseleave="handleMouseLeave"
           >
             <Image
-              :src="`/artworks/${getFullFileName(image)}`"
+              :src="getImagePath(image)"
               :alt="image.title"
               :ratio="image.ratio"
               :class="'w-full h-auto object-cover'"
@@ -27,7 +27,7 @@
             @mouseleave="handleMouseLeave"
           >
             <Image
-              :src="`/artworks/${getFullFileName(image)}`"
+              :src="getImagePath(image)"
               :alt="image.title"
               :ratio="image.ratio"
               :class="'w-full h-auto object-cover'"
@@ -56,7 +56,7 @@
             @mouseleave="handleMouseLeave"
           >
             <Image
-              :src="`/artworks/${getFullFileName(item.image)}`"
+              :src="getImagePath(item.image)"
               :alt="item.image.title"
               :ratio="item.image.ratio"
               :class="'w-full h-auto object-cover'"
@@ -69,7 +69,7 @@
             @mouseleave="handleMouseLeave"
           >
             <Image
-              :src="`/artworks/${getFullFileName(item.image)}`"
+              :src="getImagePath(item.image)"
               :alt="item.image.title"
               :ratio="item.image.ratio"
               :class="'w-full h-auto object-cover'"
@@ -84,7 +84,7 @@
               @mouseleave="handleMouseLeave"
             >
               <Image
-                :src="`/artworks/${getFullFileName(img)}`"
+                :src="getImagePath(img)"
                 :alt="img.title"
                 :ratio="img.ratio"
                 class="w-full h-auto object-cover"
@@ -97,7 +97,7 @@
               @mouseleave="handleMouseLeave"
             >
               <Image
-                :src="`/artworks/${getFullFileName(img)}`"
+                :src="getImagePath(img)"
                 :alt="img.title"
                 :ratio="img.ratio"
                 class="w-full h-auto object-cover"
@@ -128,6 +128,7 @@ interface ImageRow {
 
 interface Props {
   imageRows: ImageRow[]
+  folderName: string
   hasLinks?: boolean
 }
 
@@ -141,8 +142,8 @@ const getArtworkPath = (id: string) => {
   return `${route.path}/${id}`
 }
 
-const getFullFileName = (imageObj: Artwork) => {
-  return `${imageObj.fileName}.webp`
+const getImagePath = (imageObj: Artwork) => {
+  return `/${props.folderName}/${imageObj.fileName}.webp`
 }
 
 const isHovering = ref(false)

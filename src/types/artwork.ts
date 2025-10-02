@@ -3,3 +3,8 @@ export interface Artwork {
   title: string
   ratio: 'portrait' | 'landscape'
 }
+
+export interface ArtworkCollection {
+  folderName: string
+  artworks: Artwork[]
+}

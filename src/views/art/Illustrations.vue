@@ -8,15 +8,19 @@
       Cliquez sur une illustration pour voir le détail de son processus de création.
     </p>
 
-    <ImageGallery :image-rows="imageRows" :has-links="true" />
+    <ImageGallery
+      :image-rows="imageRows"
+      :folder-name="ILLUSTRATIONS.folderName"
+      :has-links="true"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
-import { PORTRAIT_ILLUSTRATIONS, LANDSCAPE_ILLUSTRATIONS } from '@/constants/images'
+import { ILLUSTRATIONS } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
 
-const { imageRows } = useImageLayout(PORTRAIT_ILLUSTRATIONS, LANDSCAPE_ILLUSTRATIONS)
+const { imageRows } = useImageLayout(ILLUSTRATIONS.artworks)
 </script>

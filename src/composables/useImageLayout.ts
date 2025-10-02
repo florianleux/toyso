@@ -19,16 +19,16 @@ interface LandscapeRow {
 
 type ImageRow = PortraitRow | LandscapeRow
 
-export function useImageLayout(
-  portraitIllustrations: Artwork[],
-  landscapeIllustrations: Artwork[]
-) {
+export function useImageLayout(illustrations: Artwork[]) {
   const imageRows = computed<ImageRow[]>(() => {
+    const portraitIllustrations = illustrations.filter((img) => img.ratio === 'portrait')
+    const landscapeIllustrations = illustrations.filter((img) => img.ratio === 'landscape')
+
     const rows: ImageRow[] = []
     let portraitIndex = 0
     let landscapeIndex = 0
 
-    const totalImages = portraitIllustrations.length + landscapeIllustrations.length
+    const totalImages = illustrations.length
     let processedImages = 0
 
     while (processedImages < totalImages) {

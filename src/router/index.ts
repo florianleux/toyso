@@ -4,6 +4,8 @@ const Home = () => import('../views/Home.vue')
 const ArtHome = () => import('../views/art/Home.vue')
 const IllustrationDetail = () => import('../views/art/IllustrationDetail.vue')
 const Illustrations = () => import('../views/art/Illustrations.vue')
+const TraditionalDrawings = () => import('../views/art/TraditionnalDrawings.vue')
+const ArtworkDetail = () => import('../views/art/ArtworkDetail.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -28,7 +30,7 @@ const router = createRouter({
     {
       path: '/art/traditional-drawings',
       name: 'traditional-drawings',
-      component: Illustrations,
+      component: TraditionalDrawings,
       meta: { breadcrumb: 'Dessin traditionnel', parent: 'art' },
     },
     {
