@@ -1,20 +1,28 @@
 <template>
     <img fetchpriority="high" :src="`/placeholders/placeholder-${ratio}.webp`" v-show="isLoading" :class
         loading="lazy" />
-    <video v-show="!isLoading" @canplay="handleLoad" autoplay loop muted :alt :src :class />
+    <video ref="videoRef" v-show="!isLoading" @canplay="handleLoad" autoplay loop muted :aria-label="alt" :src :class />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
+import { useMediaLoading } from '@/composables/useMediaLoading'
+
 const props = defineProps<{
-    ratio: string
+    ratio: 'portrait' | 'landscape'
     class?: string
     src: string
     alt: string
 }>()
-const isLoading = ref(true)
 
-function handleLoad() {
-    isLoading.value = false
-}
+const { isLoading, handleLoad } = useMediaLoading()
+const videoRef = ref<HTMLVideoElement>()
+
+onBeforeUnmount(() => {
+    if (videoRef.value) {
+        videoRef.value.pause()
+        videoRef.value.src = ''
+        videoRef.value.load()
+    }
+})
 </script>

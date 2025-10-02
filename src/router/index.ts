@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import ArtHome from '../views/art/Home.vue'
-import ArtworkDetail from '../views/art/ArtworkDetail.vue'
-import Artworks from '../views/art/Artworks.vue'
+
+const Home = () => import('../views/Home.vue')
+const ArtHome = () => import('../views/art/Home.vue')
+const ArtworkDetail = () => import('../views/art/ArtworkDetail.vue')
+const Artworks = () => import('../views/art/Artworks.vue')
 
 const router = createRouter({
   history: createWebHistory(),

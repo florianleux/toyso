@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'base': '#e85d04',
-        'bg': '#000000',
-        'highlight': '#ffba08',
+        'highlight': 'var(--color-highlight)',
+        'text': 'var(--color-text)',
+        'background': 'var(--color-background)',
       },
           fontFamily: {
             'gasoek': ['Gasoek One', 'cursive'],

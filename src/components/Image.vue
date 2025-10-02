@@ -4,16 +4,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useMediaLoading } from '@/composables/useMediaLoading'
+
 const props = defineProps<{
-    ratio: string
+    ratio: 'portrait' | 'landscape'
     class?: string
     src: string
     alt: string
 }>()
-const isLoading = ref(true)
 
-function handleLoad() {
-    isLoading.value = false
-}
+const { isLoading, handleLoad } = useMediaLoading()
 </script>
