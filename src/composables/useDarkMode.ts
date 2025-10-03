@@ -35,6 +35,7 @@ export const useDarkMode = () => {
       isDark.value = false
       document.documentElement.classList.remove('dark-mode')
       localStorage.setItem('darkMode', 'false')
+      el.classList.remove('full')
       requestAnimationFrame(() => {
         el.classList.remove('active')
       })
@@ -50,6 +51,8 @@ export const useDarkMode = () => {
         el.classList.add('active')
       })
       setTimeout(() => {
+        el.classList.remove('active')
+        el.classList.add('full')
         isAnimating.value = false
       }, 800)
     }
@@ -63,7 +66,7 @@ export const useDarkMode = () => {
     if (isDark.value) {
       document.documentElement.classList.add('dark-mode')
       const el = createOverlay()
-      el.classList.add('active')
+      el.classList.add('full')
       el.style.transition = 'none'
       requestAnimationFrame(() => {
         el.style.transition = ''

@@ -39,6 +39,10 @@
     clip-path: circle(150vmax at var(--x) var(--y));
   }
 
+  .dark-mode-overlay.full {
+    clip-path: circle(100%);
+  }
+
   /* Placer les images et vidéos au-dessus du dark-mode-overlay, sauf le logo */
   img:not(.logo-header), video {
     position: relative;
