@@ -145,6 +145,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .artwork-link {
     position: relative;
+    z-index: 2;
     transition:
         filter 500ms,
         transform 500ms ease-out;
@@ -165,6 +166,7 @@ onBeforeUnmount(() => {
     opacity: 0;
     transition: opacity 1000ms;
     pointer-events: none;
+    z-index: 2;
 }
 
 .artwork-gallery:has(.artwork-link:hover) .artwork-link {

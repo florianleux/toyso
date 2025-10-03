@@ -1,36 +1,5 @@
 @import 'tailwindcss';
 
-/* Rendre les variables CSS animables */
-@property --color-highlight {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #d00408;
-}
-
-@property --color-text {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #1e293b;
-}
-
-@property --color-background {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #fafafa;
-}
-
-@property --color-grid-line {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #e9eaeb;
-}
-
-@property --color-grid-line-alt {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #f1f3f4;
-}
-
 @layer base {
   :root {
     --color-highlight: #d00408;
@@ -38,15 +7,6 @@
     --color-background: #fafafa;
     --color-grid-line: #e9eaeb;
     --color-grid-line-alt: #f1f3f4;
-    transition: --color-highlight 0.6s ease, --color-text 0.6s ease, --color-background 0.6s ease, --color-grid-line 0.6s ease, --color-grid-line-alt 0.6s ease;
-  }
-
-  .dark {
-    --color-highlight: #ff3aaa;
-    --color-text: #fafafa;
-    --color-background: #0c0f0a;
-    --color-grid-line: #334155;
-    --color-grid-line-alt: #334155;
   }
 
   html {
@@ -58,6 +18,31 @@
       linear-gradient(to right, var(--color-grid-line-alt) 3.2px, var(--color-background) 3.2px);
     background-size: 64px 64px;
     scrollbar-gutter: stable;
+  }
+
+  /* Dark mode transition overlay */
+  .dark-mode-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    background: #fff;
+    mix-blend-mode: difference;
+    clip-path: circle(0px at var(--x) var(--y));
+    transition: clip-path 0.8s ease-in-out;
+  }
+
+  .dark-mode-overlay.active {
+    clip-path: circle(150vmax at var(--x) var(--y));
+  }
+
+  /* Placer les images et vidéos au-dessus du dark-mode-overlay */
+  img, video {
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -106,7 +91,7 @@
 
   @media (min-width: 640px) {
     .text-marker {
-      color: var(--color-text);
+      color: var(--color-background);
       background-color: var(--color-highlight);
       padding-left: 8px;
       padding-right: 8px;

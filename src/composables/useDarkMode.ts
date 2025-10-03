@@ -1,47 +1,72 @@
-import { ref, watch, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const isDark = ref(false)
+const isAnimating = ref(false)
+let overlay: HTMLElement | null = null
 
 export const useDarkMode = () => {
-  const toggle = () => {
-    isDark.value = !isDark.value
+  const createOverlay = () => {
+    if (overlay) return overlay
+
+    overlay = document.createElement('div')
+    overlay.className = 'dark-mode-overlay'
+    overlay.style.setProperty('--x', '50%')
+    overlay.style.setProperty('--y', '50%')
+    document.body.appendChild(overlay)
+    return overlay
   }
 
-  const setDark = (value: boolean) => {
-    isDark.value = value
-  }
+  const toggleWithAnimation = (buttonElement: HTMLElement) => {
+    if (isAnimating.value) return
+    isAnimating.value = true
 
-  // Appliquer la classe dark sur le document
-  const applyTheme = (dark: boolean) => {
-    if (dark) {
-      document.documentElement.classList.add('dark')
+    const el = createOverlay()
+
+    // Calculer la position du bouton
+    const rect = buttonElement.getBoundingClientRect()
+    const x = rect.left + rect.width / 2
+    const y = rect.top + rect.height / 2
+
+    el.style.setProperty('--x', `${x}px`)
+    el.style.setProperty('--y', `${y}px`)
+
+    if (isDark.value) {
+      // On passe en mode clair : rétrécir le cercle
+      el.classList.remove('active')
+      setTimeout(() => {
+        isDark.value = false
+        localStorage.setItem('darkMode', 'false')
+        isAnimating.value = false
+      }, 800)
     } else {
-      document.documentElement.classList.remove('dark')
+      // On passe en mode dark : agrandir le cercle
+      el.classList.add('active')
+      setTimeout(() => {
+        isDark.value = true
+        localStorage.setItem('darkMode', 'true')
+        isAnimating.value = false
+      }, 800)
     }
   }
 
-  // Initialiser le mode depuis localStorage ou mode clair par défaut
+  // Initialiser le mode depuis localStorage
   onMounted(() => {
     const saved = localStorage.getItem('darkMode')
-    if (saved !== null) {
-      isDark.value = saved === 'true'
-    } else {
-      // Mode clair par défaut
-      isDark.value = false
-    }
-    applyTheme(isDark.value)
-  })
+    isDark.value = saved === 'true'
 
-  // Sauvegarder dans localStorage et appliquer le thème
-  watch(isDark, (newValue) => {
-    localStorage.setItem('darkMode', String(newValue))
-    applyTheme(newValue)
+    if (isDark.value) {
+      const el = createOverlay()
+      el.classList.add('active')
+      el.style.transition = 'none'
+      requestAnimationFrame(() => {
+        el.style.transition = ''
+      })
+    }
   })
 
   return {
     isDark,
-    toggle,
-    setDark,
+    toggleWithAnimation,
   }
 }
 

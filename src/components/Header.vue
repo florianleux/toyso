@@ -2,11 +2,11 @@
   <header class="flex justify-between items-center pt-[8px]">
     <div class="w-12"></div>
     <router-link :to="{ name: 'home' }">
-      <img src="/sceau.png" alt="Logo toyso" class="w-[100px]" />
+      <img src="/sceau.png" alt="Logo toyso" class="w-[100px] hover:scale-110 transition-transform duration-500" />
     </router-link>
-    <button @click="toggleDarkMode"
+    <button ref="darkModeButton" @click="handleToggle"
       class="hover:cursor-pointer hover:scale-150 transition-all w-12 flex justify-end text-[var(--color-text)] hover:text-[var(--color-highlight)]"
-      aria-label="Passe au mode sombre">
+      aria-label="Passe au mode sombre" :title="isDark ? 'Activer le mode clair' : 'Activer le mode sombre'">
       <Transition name="icon-rotate" mode="out-in">
         <Sun v-if="isDark" key="sun" :size="36" :stroke-width="1.5" />
         <Moon v-else key="moon" :size="36" :stroke-width="1.5" />
@@ -16,10 +16,18 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { Sun, Moon } from 'lucide-vue-next'
 import { useDarkMode } from '@/composables/useDarkMode'
 
-const { isDark, toggle: toggleDarkMode } = useDarkMode()
+const { isDark, toggleWithAnimation } = useDarkMode()
+const darkModeButton = ref<HTMLElement>()
+
+const handleToggle = () => {
+  if (darkModeButton.value) {
+    toggleWithAnimation(darkModeButton.value)
+  }
+}
 </script>
 
 <style scoped>
