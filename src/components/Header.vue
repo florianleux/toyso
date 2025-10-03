@@ -5,7 +5,7 @@
       <img src="/sceau.png" alt="Logo toyso" class="w-[100px]" />
     </router-link>
     <button @click="toggleDarkMode"
-      class="text-4xl hover:opacity-70 hover:cursor-pointer transition-opacity w-12 text-right"
+      class="text-5xl hover:opacity-70 hover:cursor-pointer hover:text-(--color-highlight) hover:text-6xl transition-opacity w-12 text-right"
       aria-label="Passe au mode sombre">
       {{ isDark ? '☼' : '☽' }}
     </button>

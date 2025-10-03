@@ -3,9 +3,9 @@
         <div class="text-subtitle font-dm">je suis</div>
         <div class="text-title mb-[6vw] text-highlight font-gasoek">illustrateur</div>
         <p class="mb-[2vw] text-left text-body font-dm">
-            J'ai eu l'occasion de travailler pour le youtubeur Cyprien ou illustrer un projet de jeu de
-            société
-        </p>
+            J'ai eu l'occasion de travailler pour le youtubeur <router-link :to="{ name: 'epopee-temporelle' }"
+                class="text-marker cursor-pointer">Cyprien</router-link>, illustrer un projet de jeu de
+            société et même un jeu vidéo web que j'ai conçu et développé. </p>
         <p class="mb-[2vw] text-right text-body font-dm">
             J'ai réalisé des
             <router-link :to="{ name: 'illustrations' }" class="text-marker cursor-pointer">
