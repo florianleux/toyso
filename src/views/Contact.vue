@@ -21,7 +21,7 @@
         </p>
 
         <div class="max-w-4xl mx-auto">
-            <div v-if="formSubmitted" class="bg-opacity-10 bg-green-500 p-8 rounded-lg text-center">
+            <div v-if="formSubmitted" class="rounded-lg text-center">
                 <div class="text-2xl mb-4">✓</div>
                 <h3 class="text-xl font-gasoek text-highlight mb-2">Message envoyé !</h3>
                 <p class="text-body font-dm">
@@ -29,7 +29,8 @@
                 </p>
             </div>
 
-            <form v-else name="contact" method="POST" netlify @submit.prevent="handleSubmit" class="space-y-6">
+            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field"
+                @submit.prevent="handleSubmit" class="space-y-6">
                 <input type="hidden" name="form-name" value="contact" />
                 <p class="hidden">
                     <label>
