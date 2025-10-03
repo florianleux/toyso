@@ -5,11 +5,11 @@
     <div class="text-subtitle font-dm">j'aime faire des</div>
     <div class="text-title mb-[5vw] text-highlight font-gasoek">planches d'études</div>
     <p class="mb-[35px] text-right text-body font-dm">
-      Je choisis un mot au hasard et je dessine des variations en dessin automatique sur ce theme. <br />
+      Je choisis un thème au hasard et je dessine des variations sur ce sujet. <br />
       Cela me permet de m'exercer sur des sujets inédits et construire des réferences futures.
     </p>
 
-    <ImageGallery :image-rows="imageRows" :folder-name="STUDIES.folderName" :has-links="false" />
+    <ImageGallery :image-rows="imageRows" :folder-name="STUDIES.folderName" has-links />
   </div>
 </template>
 

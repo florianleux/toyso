@@ -106,11 +106,12 @@
 
   @media (min-width: 640px) {
     .text-marker {
-      color: var(--color-background);
+      color: var(--color-text);
       background-color: var(--color-highlight);
       padding-left: 8px;
       padding-right: 8px;
       border-radius: 6px;
+      text-decoration: none;
     }
 
     .text-marker:hover {
