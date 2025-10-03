@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex items-center justify-center pt-[100px]">
+  <div class="w-full flex items-center justify-center py-16 ">
     <div class="grid grid-cols-12 sm:gap-8 items-center w-full mx-auto">
       <div class="col-span-12 text-center md:text-left">
         <div class="text-subtitle font-dm">Bienvenue! Je m'appelle</div>
@@ -15,7 +15,7 @@
           toyso
         </div>
         <p class="text-subtitle text-center font-dm mb-[4vh]">
-          Je propose mes services en tant que
+          Je suis
           <router-link :to="{ name: 'dev' }" class="text-marker cursor-pointer">
             développeur web</router-link>
           et

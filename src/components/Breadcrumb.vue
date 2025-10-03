@@ -1,17 +1,12 @@
 <template>
-  <div class="text-body font-dm text-highlight lowercase sm:mb-[1vw] mb-[5vw]">
+  <div class="text-body font-dm  lowercase sm:mb-[1vw] mb-[5vw]">
     <template v-for="(crumb, index) in breadcrumbs" :key="crumb.name">
-      <router-link
-        class="underline hover:text-(--color-highlight)"
-        v-if="index < breadcrumbs.length - 1"
-        :to="crumb.path"
-      >
+      <router-link class="underline hover:text-(--color-highlight)" v-if="index < breadcrumbs.length - 1"
+        :to="crumb.path">
         {{ crumb.label }}
       </router-link>
       <span v-else>{{ crumb.label }}</span>
-      <span class="text-(--color-highlight)" v-if="index < breadcrumbs.length - 1"
-        >&nbsp;•&nbsp</span
-      >
+      <span class="text-(--color-highlight)" v-if="index < breadcrumbs.length - 1">&nbsp;•&nbsp</span>
     </template>
   </div>
 </template>
