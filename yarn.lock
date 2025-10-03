@@ -1746,6 +1746,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lucide-vue-next@^0.544.0:
+  version "0.544.0"
+  resolved "https://registry.npmjs.org/lucide-vue-next/-/lucide-vue-next-0.544.0.tgz"
+  integrity sha512-mDp/AdGOPIDkpFHnFiTWgQgCST9aBXHVaiobZfOMIvv7nrOukzF/TP+7KoOwrngdWRaH9TMiepMBIX1vsgKJ3g==
+
 magic-string@^0.30.18, magic-string@^0.30.19, magic-string@^0.30.4:
   version "0.30.19"
   resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.30.19.tgz"
@@ -2481,7 +2486,7 @@ vue-tsc@^3.1.0:
     "@volar/typescript" "2.4.23"
     "@vue/language-core" "3.1.0"
 
-vue@^3.0.0, vue@^3.2.0, vue@^3.2.25, vue@^3.4.0, vue@^3.5.22, "vue@>=2.7 || >=3", vue@3.5.22:
+vue@^3.0.0, vue@^3.2.0, vue@^3.2.25, vue@^3.4.0, vue@^3.5.22, "vue@>=2.7 || >=3", vue@>=3.0.1, vue@3.5.22:
   version "3.5.22"
   resolved "https://registry.npmjs.org/vue/-/vue-3.5.22.tgz"
   integrity sha512-toaZjQ3a/G/mYaLSbV+QsQhIdMo9x5rrqIpYRObsJ6T/J+RyCSFwN2LHNVH9v8uIcljDNa3QzPVdv3Y6b9hAJQ==

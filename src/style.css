@@ -1,5 +1,36 @@
 @import 'tailwindcss';
 
+/* Rendre les variables CSS animables */
+@property --color-highlight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #d00408;
+}
+
+@property --color-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1e293b;
+}
+
+@property --color-background {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #fafafa;
+}
+
+@property --color-grid-line {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e9eaeb;
+}
+
+@property --color-grid-line-alt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f1f3f4;
+}
+
 @layer base {
   :root {
     --color-highlight: #d00408;
@@ -7,6 +38,7 @@
     --color-background: #fafafa;
     --color-grid-line: #e9eaeb;
     --color-grid-line-alt: #f1f3f4;
+    transition: --color-highlight 0.6s ease, --color-text 0.6s ease, --color-background 0.6s ease, --color-grid-line 0.6s ease, --color-grid-line-alt 0.6s ease;
   }
 
   .dark {

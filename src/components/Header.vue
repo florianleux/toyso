@@ -5,15 +5,36 @@
       <img src="/sceau.png" alt="Logo toyso" class="w-[100px]" />
     </router-link>
     <button @click="toggleDarkMode"
-      class="text-5xl hover:opacity-70 hover:cursor-pointer hover:text-(--color-highlight) hover:text-6xl transition-opacity w-12 text-right"
+      class="hover:cursor-pointer hover:scale-110 transition-all w-12 flex justify-end text-[var(--color-text)] hover:text-[var(--color-highlight)]"
       aria-label="Passe au mode sombre">
-      {{ isDark ? '☼' : '☽' }}
+      <Transition name="icon-rotate" mode="out-in">
+        <Sun v-if="isDark" key="sun" :size="36" :stroke-width="1.5" />
+        <Moon v-else key="moon" :size="36" :stroke-width="1.5" />
+      </Transition>
     </button>
   </header>
 </template>
 
 <script setup lang="ts">
+import { Sun, Moon } from 'lucide-vue-next'
 import { useDarkMode } from '@/composables/useDarkMode'
 
 const { isDark, toggle: toggleDarkMode } = useDarkMode()
 </script>
+
+<style scoped>
+.icon-rotate-enter-active,
+.icon-rotate-leave-active {
+  transition: all 0.3s ease;
+}
+
+.icon-rotate-enter-from {
+  transform: rotate(-180deg);
+  opacity: 0;
+}
+
+.icon-rotate-leave-to {
+  transform: rotate(180deg);
+  opacity: 0;
+}
+</style>
