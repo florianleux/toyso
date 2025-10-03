@@ -60,6 +60,7 @@ import {
     getAnimationAlt,
     getTraditionalDrawingAlt,
 } from '@/utils/altText'
+import { HOVER_DELAY_MS } from '@/constants/animations'
 
 // Support Artwork with optional folderName extension
 type ArtworkWithFolder = Artwork & { folderName?: string }
@@ -112,22 +113,22 @@ const getImagePath = (imageObj: ArtworkWithFolder) => {
 }
 
 const isHovering = ref(false)
-let hoverTimeout: number | null = null
+const hoverTimeout = ref<number | null>(null)
 
 const handleMouseEnter = () => {
-    if (hoverTimeout) {
-        clearTimeout(hoverTimeout)
+    if (hoverTimeout.value) {
+        clearTimeout(hoverTimeout.value)
     }
 
-    hoverTimeout = window.setTimeout(() => {
+    hoverTimeout.value = window.setTimeout(() => {
         isHovering.value = true
-    }, 800)
+    }, HOVER_DELAY_MS)
 }
 
 const handleMouseLeave = () => {
-    if (hoverTimeout) {
-        clearTimeout(hoverTimeout)
-        hoverTimeout = null
+    if (hoverTimeout.value) {
+        clearTimeout(hoverTimeout.value)
+        hoverTimeout.value = null
     }
 
     isHovering.value = false
@@ -135,9 +136,9 @@ const handleMouseLeave = () => {
 
 // Clean up timeout on component unmount to prevent memory leaks
 onBeforeUnmount(() => {
-    if (hoverTimeout) {
-        clearTimeout(hoverTimeout)
-        hoverTimeout = null
+    if (hoverTimeout.value) {
+        clearTimeout(hoverTimeout.value)
+        hoverTimeout.value = null
     }
 })
 </script>

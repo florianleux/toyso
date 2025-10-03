@@ -1,4 +1,5 @@
 import { ref, onMounted } from 'vue'
+import { DARK_MODE_TRANSITION_MS } from '@/constants/animations'
 
 const isDark = ref(false)
 const isAnimating = ref(false)
@@ -41,7 +42,7 @@ export const useDarkMode = () => {
       })
       setTimeout(() => {
         isAnimating.value = false
-      }, 800)
+      }, DARK_MODE_TRANSITION_MS)
     } else {
       // On passe en mode dark : changer l'icône immédiatement, puis agrandir le cercle
       isDark.value = true
@@ -54,7 +55,7 @@ export const useDarkMode = () => {
         el.classList.remove('active')
         el.classList.add('full')
         isAnimating.value = false
-      }, 800)
+      }, DARK_MODE_TRANSITION_MS)
     }
   }
 
