@@ -11,6 +11,9 @@ const All = () => import('../views/art/All.vue')
 const EpopeeTemporelle = () => import('../views/art/EpopeeTemporelle.vue')
 const Studies = () => import('../views/art/Studies.vue')
 const StudyDetail = () => import('../views/art/StudyDetail.vue')
+const Characters = () => import('../views/art/Characters.vue')
+const CharacterDetail = () => import('../views/art/CharacterDetail.vue')
+const DevHome = () => import('../views/dev/Home.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -72,13 +75,31 @@ const router = createRouter({
       path: '/art/studies',
       name: 'studies',
       component: Studies,
-      meta: { breadcrumb: 'Planches d\'études', parent: 'art' },
+      meta: { breadcrumb: "Planches d'études", parent: 'art' },
     },
     {
       path: '/art/studies/:id',
       name: 'study',
       component: StudyDetail,
       meta: { breadcrumb: 'Detail', parent: 'studies' },
+    },
+    {
+      path: '/art/characters',
+      name: 'characters',
+      component: Characters,
+      meta: { breadcrumb: 'Personnages', parent: 'art' },
+    },
+    {
+      path: '/art/characters/:id',
+      name: 'character',
+      component: CharacterDetail,
+      meta: { breadcrumb: 'Detail', parent: 'characters' },
+    },
+    {
+      path: '/dev',
+      name: 'dev',
+      component: DevHome,
+      meta: { breadcrumb: 'Dev' },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

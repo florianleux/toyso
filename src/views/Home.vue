@@ -3,7 +3,7 @@
     <div class="grid grid-cols-12 sm:gap-8 items-center w-full mx-auto">
       <div class="col-span-12 text-center md:text-left">
         <div class="text-subtitle font-dm">Bienvenue! Je m'appelle</div>
-        <div class="text-title mb-[64px] text-center md:text-left text-highlight font-gasoek">
+        <div class="text-title mb-[5vh] text-center md:text-left text-highlight font-gasoek">
           florian leux
         </div>
 
@@ -11,11 +11,13 @@
           mais je suis aussi connu sous le nom de
         </div>
 
-        <div class="text-title mb-[120px] text-center md:text-right font-gasoek text-highlight">
+        <div class="text-title mb-[6vh] text-center md:text-right font-gasoek text-highlight">
           toyso
         </div>
-        <p class="text-subtitle text-center font-dm mb-[4vw]">
-          Je propose mes services en tant que développeur web
+        <p class="text-subtitle text-center font-dm mb-[4vh]">
+          Je propose mes services en tant que
+          <router-link :to="{ name: 'dev' }" class="text-marker cursor-pointer">
+            développeur web</router-link>
           et
           <router-link :to="{ name: 'art' }" class="text-marker cursor-pointer">
             illustrateur
@@ -23,7 +25,8 @@
         </p>
 
         <p class="text-body text-center font-dm mb-[32px]">
-          Vous avez un projet en tête ? <br /> N'hésitez pas à
+          Vous avez un projet en tête ? <br />
+          N'hésitez pas à
           <router-link :to="{ name: 'contact' }" class="text-marker cursor-pointer">
             me contacter
           </router-link>

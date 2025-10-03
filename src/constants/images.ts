@@ -73,7 +73,7 @@ export const STUDIES: ArtworkCollection = {
     { fileName: 'desserts', title: 'des desserts', ratio: 'landscape' },
     { fileName: 'detectives', title: 'des détectives', ratio: 'landscape' },
     { fileName: 'dogs', title: 'des chiens', ratio: 'landscape' },
-    { fileName: 'engines', title: 'des moteurs', ratio: 'landscape' },
+    { fileName: 'engines', title: 'des engins de chantier', ratio: 'landscape' },
     { fileName: 'fair', title: 'des américains', ratio: 'landscape' },
     { fileName: 'far-west', title: 'le Far West', ratio: 'landscape' },
     { fileName: 'fighters', title: 'des combattants', ratio: 'landscape' },
@@ -99,9 +99,36 @@ export const STUDIES: ArtworkCollection = {
   ],
 }
 
+export const CHARACTERS: ArtworkCollection = {
+  folderName: 'characters',
+  artworks: [
+    { fileName: 'ant', title: 'Salahzhar', ratio: 'portrait' },
+    { fileName: 'cars', title: 'Rusty', ratio: 'landscape' },
+    { fileName: 'chainsaw', title: 'Tronchatonneuse', ratio: 'portrait' },
+    { fileName: 'dandelion', title: 'Volgar', ratio: 'portrait' },
+    { fileName: 'et', title: 'X-124-BG', ratio: 'landscape' },
+    { fileName: 'farmer', title: 'Richard', ratio: 'portrait' },
+    { fileName: 'forge', title: 'forgeron', ratio: 'portrait' },
+    { fileName: 'harry', title: 'Harry', ratio: 'portrait' },
+    { fileName: 'hagrid', title: 'Hagrid', ratio: 'portrait' },
+    { fileName: 'jacko', title: 'Jack-o', ratio: 'portrait' },
+    { fileName: 'kombat', title: 'Fatal K', ratio: 'landscape' },
+    { fileName: 'lovegirl', title: 'Love Girl', ratio: 'portrait' },
+    { fileName: 'luchalibre', title: 'Los hermanos', ratio: 'landscape' },
+    { fileName: 'oktoberfest', title: 'Octo Berfest', ratio: 'portrait' },
+    { fileName: 'perfume', title: 'Le parfumeur', ratio: 'landscape' },
+    { fileName: 'pigbot', title: 'Pigbot', ratio: 'landscape' },
+    { fileName: 'pirate', title: 'R4CKH4M', ratio: 'landscape' },
+    { fileName: 'tournesol', title: 'Triphon', ratio: 'portrait' },
+    { fileName: 'vlad', title: 'Vlad', ratio: 'portrait' },
+    { fileName: 'yellow', title: 'Monsieur jaune', ratio: 'portrait' },
+  ],
+}
+
 export const ALL_COLLECTIONS: ArtworkCollection[] = [
   ILLUSTRATIONS,
   ANIMATIONS,
   TRADITIONAL_DRAWINGS,
   STUDIES,
+  CHARACTERS,
 ]

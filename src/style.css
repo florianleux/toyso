@@ -44,7 +44,8 @@
   }
 
   /* Placer les images et vidéos au-dessus du dark-mode-overlay, sauf le logo */
-  img:not(.logo-header), video {
+  img:not(.logo-header),
+  video {
     position: relative;
     z-index: 2;
   }
@@ -78,6 +79,10 @@
   .text-body {
     font-size: 4vw;
     line-height: 1.6;
+  }
+
+  .text-highlight {
+    color: var(--color-highlight);
   }
 
   .text-marker {
@@ -115,13 +120,13 @@
 
     .text-subtitle {
       font-size: 5vw;
-      line-height: 0.9;
+      line-height: 1.2;
       text-wrap: balance;
     }
 
     .text-body {
       font-size: 4vw;
-      line-height: 1.2;
+      line-height: 1;
     }
   }
 

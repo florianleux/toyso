@@ -1,7 +1,23 @@
 <template>
-  <img fetchpriority="high" :src="`/placeholders/placeholder-${ratio}.webp`" v-show="isLoading" :class loading="lazy" />
-  <video ref="videoRef" v-show="!isLoading" @canplay="handleLoad" :autoplay="autoplay" :controls="!autoplay" loop muted
-    :aria-label="alt" :src :class />
+  <img
+    fetchpriority="high"
+    :src="`/placeholders/placeholder-${ratio}.webp`"
+    v-show="isLoading"
+    :class
+    loading="lazy"
+  />
+  <video
+    ref="videoRef"
+    v-show="!isLoading"
+    @canplay="handleLoad"
+    :autoplay="autoplay"
+    :controls="!autoplay"
+    loop
+    muted
+    :aria-label="alt"
+    :src
+    :class
+  />
 </template>
 
 <script setup lang="ts">
@@ -17,7 +33,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  autoplay: true
+  autoplay: true,
 })
 
 const { isLoading, handleLoad } = useMediaLoading()

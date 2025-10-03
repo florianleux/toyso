@@ -8,23 +8,45 @@
         {{ artwork.title }}
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-[16px]" :key="artwork.fileName">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-[16px]"
+        :key="artwork.fileName"
+      >
         <div>
-          <Image class="w-full h-full object-cover" :src="`/sketches/${artwork.fileName}.webp`" :alt="sketchAlt"
-            :ratio="artwork.ratio" />
+          <Image
+            class="w-full h-full object-cover"
+            :src="`/sketches/${artwork.fileName}.webp`"
+            :alt="sketchAlt"
+            :ratio="artwork.ratio"
+          />
         </div>
 
         <div>
-          <Image class="w-full h-full object-cover" :src="`/inkings/${artwork.fileName}.webp`" :alt="inkingAlt"
-            :ratio="artwork.ratio" />
+          <Image
+            class="w-full h-full object-cover"
+            :src="`/inkings/${artwork.fileName}.webp`"
+            :alt="inkingAlt"
+            :ratio="artwork.ratio"
+          />
         </div>
         <div>
-          <Image class="w-full h-full object-cover" :src="`/illustrations/${artwork.fileName}.webp`"
-            :alt="illustrationAlt" :ratio="artwork.ratio" />
+          <Image
+            class="w-full h-full object-cover"
+            :src="`/illustrations/${artwork.fileName}.webp`"
+            :alt="illustrationAlt"
+            :ratio="artwork.ratio"
+          />
         </div>
         <div>
-          <Video class="w-full h-full object-cover" :src="`/timelapses/${artwork.fileName}.mp4`" :alt="timelapseAlt"
-            :ratio="artwork.ratio" autoplay loop muted />
+          <Video
+            class="w-full h-full object-cover"
+            :src="`/timelapses/${artwork.fileName}.mp4`"
+            :alt="timelapseAlt"
+            :ratio="artwork.ratio"
+            autoplay
+            loop
+            muted
+          />
         </div>
       </div>
       <p class="text-body text-right font-dm mt-[5vw]">

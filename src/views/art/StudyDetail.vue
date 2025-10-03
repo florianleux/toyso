@@ -7,25 +7,34 @@
       <div class="text-title mb-[3vw] text-highlight font-gasoek lowercase">
         {{ artwork.title }}
       </div>
-      <p class="text-body text-right font-dm mb-[3vw]">
+
+      <div class="grid grid-cols-1 gap-[16px]" :key="artwork.fileName">
+        <div>
+          <Image
+            class="w-full max-w-[1000px] mx-auto h-full object-cover"
+            :src="`/studies/${artwork.fileName}.webp`"
+            :alt="sketchAlt"
+            :ratio="artwork.ratio"
+          />
+        </div>
+      </div>
+      <p class="text-body text-right font-dm mt-[3vh]">
         Vous pouvez en découvrir
-        <router-link :to="getRandomArtworkUrl()" class="text-marker cursor-pointer">
-          une autre
-        </router-link>
-        ou revenir à la liste des
-        <router-link :to="{ name: 'studies' }" class="text-marker cursor-pointer">
+        <router-link :to="getRandomArtworkUrl()" class="text-marker cursor-pointer"
+          >une autre</router-link
+        >
+        ou revenir à la liste des<router-link
+          :to="{ name: 'studies' }"
+          class="text-marker cursor-pointer"
+        >
           planches d'études
         </router-link>
       </p>
-      <div class="grid grid-cols-1 gap-[16px]" :key="artwork.fileName">
-        <div>
-          <Image class="w-full max-w-[1000px] mx-auto h-full object-cover" :src="`/studies/${artwork.fileName}.webp`"
-            :alt="sketchAlt" :ratio="artwork.ratio" />
-        </div>
-      </div>
     </div>
 
-    <div v-else class="text-center text-subtitle font-dm mt-[5vw]">Planche d'études non trouvée</div>
+    <div v-else class="text-center text-subtitle font-dm mt-[5vw]"
+      >Planche d'études non trouvée</div
+    >
   </div>
 </template>
 
@@ -37,7 +46,7 @@ import { STUDIES } from '@/constants/images'
 import { getSketchAlt } from '@/utils/altText'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import Image from '@/components/Image.vue'
-import Video from '@/components/Video.vue'
+
 const route = useRoute()
 
 const artwork = computed(() => {
@@ -62,7 +71,7 @@ useHead(
   computed(() => ({
     title: artwork.value
       ? `${artwork.value.title} - Planche d\'études par Florian Leux (Toyso) | Processus de Création`
-      : 'Planche d\'études - Florian Leux (Toyso) Portfolio',
+      : "Planche d'études - Florian Leux (Toyso) Portfolio",
     meta: [
       {
         name: 'description',
@@ -72,13 +81,13 @@ useHead(
       },
       {
         name: 'keywords',
-        content: `${artwork.value?.title || 'planche d\'études'}, processus création planche d'études, timelapse planche d'études, florian leux, toyso, planche d'études digitale`,
+        content: `${artwork.value?.title || "planche d'études"}, processus création planche d'études, timelapse planche d'études, florian leux, toyso, planche d'études digitale`,
       },
       {
         property: 'og:title',
         content: artwork.value
           ? `${artwork.value.title} - Florian Leux (Toyso)`
-          : 'Planche d\'études - Florian Leux (Toyso)',
+          : "Planche d'études - Florian Leux (Toyso)",
       },
       {
         property: 'og:description',

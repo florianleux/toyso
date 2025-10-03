@@ -9,6 +9,6 @@
   "bracketSpacing": true,
   "arrowParens": "always",
   "vueIndentScriptAndStyle": false,
-  "htmlWhitespaceSensitivity": "ignore",
+  "htmlWhitespaceSensitivity": "strict",
   "endOfLine": "lf"
 }

@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 import Sitemap from 'vite-plugin-sitemap'
-import { ILLUSTRATIONS, STUDIES } from './src/constants/images'
+import { ILLUSTRATIONS, STUDIES, CHARACTERS } from './src/constants/images'
 
 // Generate all routes for sitemap from single source of truth
 const illustrationRoutes = ILLUSTRATIONS.artworks.map(
@@ -14,6 +14,10 @@ const illustrationRoutes = ILLUSTRATIONS.artworks.map(
 
 const studyRoutes = STUDIES.artworks.map(
   (art: { fileName: string }) => `/art/studies/${art.fileName}`
+)
+
+const characterRoutes = CHARACTERS.artworks.map(
+  (art: { fileName: string }) => `/art/characters/${art.fileName}`
 )
 
 const routes = [
@@ -26,8 +30,11 @@ const routes = [
   '/art/all',
   '/art/epopee-temporelle',
   '/art/studies',
+  '/art/characters',
+  '/dev',
   ...illustrationRoutes,
-  ...studyRoutes
+  ...studyRoutes,
+  ...characterRoutes
 ]
 
 // https://vite.dev/config/

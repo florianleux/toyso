@@ -37,6 +37,7 @@ export const useDarkMode = () => {
       document.documentElement.classList.remove('dark-mode')
       localStorage.setItem('darkMode', 'false')
       el.classList.remove('full')
+      el.classList.add('active')
       requestAnimationFrame(() => {
         el.classList.remove('active')
       })
@@ -88,4 +89,3 @@ export const useDarkMode = () => {
     toggleWithAnimation,
   }
 }
-

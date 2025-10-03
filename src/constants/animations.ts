@@ -8,4 +8,3 @@ export const HOVER_DELAY_MS = 800
 
 /** Duration of dark mode circle transition animation (ms) */
 export const DARK_MODE_TRANSITION_MS = 800
-

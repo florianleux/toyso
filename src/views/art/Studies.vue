@@ -25,7 +25,7 @@ function shuffleArray<T>(array: readonly T[]): T[] {
   const shuffled = [...array]
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-      ;[shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!]
+    ;[shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!]
   }
   return shuffled
 }
@@ -35,21 +35,20 @@ const shuffledStudies = shuffleArray(STUDIES.artworks)
 const { imageRows } = useImageLayout(shuffledStudies)
 
 useHead({
-  title: 'Planches d\'études - Florian Leux (Toyso) ',
+  title: "Planches d'études - Florian Leux (Toyso) ",
   meta: [
     {
       name: 'description',
-      content:
-        "Planches d'études par Florian Leux (Toyso). Portfolio de planches d'études.",
+      content: "Planches d'études par Florian Leux (Toyso). Portfolio de planches d'études.",
     },
     {
       name: 'keywords',
       content:
-        'planches d\'études, dessin automatique, florian leux, toyso, procreate, dessin sur tablette',
+        "planches d'études, dessin automatique, florian leux, toyso, procreate, dessin sur tablette",
     },
     {
       property: 'og:title',
-      content: 'Planches d\'études - Florian Leux (Toyso)',
+      content: "Planches d'études - Florian Leux (Toyso)",
     },
     {
       property: 'og:url',
