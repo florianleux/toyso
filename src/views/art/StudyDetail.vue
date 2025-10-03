@@ -34,7 +34,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHead } from '@vueuse/head'
 import { STUDIES } from '@/constants/images'
-import { getSketchAlt, getInkingAlt, getIllustrationAlt } from '@/composables/useAltText'
+import { getSketchAlt } from '@/utils/altText'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import Image from '@/components/Image.vue'
 import Video from '@/components/Video.vue'
@@ -44,17 +44,8 @@ const artwork = computed(() => {
   return STUDIES.artworks.find((artwork) => artwork.fileName === route.params.id)
 })
 
-// Alt texts SEO pour chaque étape du processus
+// Alt text SEO
 const sketchAlt = computed(() => (artwork.value ? getSketchAlt(artwork.value.title) : ''))
-const inkingAlt = computed(() => (artwork.value ? getInkingAlt(artwork.value.title) : ''))
-const illustrationAlt = computed(() =>
-  artwork.value ? getIllustrationAlt(artwork.value.title) : ''
-)
-const timelapseAlt = computed(() =>
-  artwork.value
-    ? `Timelapse création ${artwork.value.title} - Processus illustration par Florian Leux (Toyso)`
-    : ''
-)
 
 const getRandomArtworkUrl = () => {
   const otherArtworks = STUDIES.artworks.filter((art) => art.fileName !== route.params.id)
