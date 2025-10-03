@@ -20,17 +20,6 @@
             Et bien entendu, je peux combiner mes deux métiers pour un projet complet!
         </p>
 
-        <div class="space-y-8">
-            <div>
-                <p class="text-body font-dm mb-4"></p>
-                <p class="text-body font-dm opacity-80"></p>
-            </div>
-
-            <div>
-                <p class="text-body font-dm mb-4"></p>
-            </div>
-        </div>
-
         <div class="max-w-4xl mx-auto">
             <div v-if="formSubmitted" class="bg-opacity-10 bg-green-500 p-8 rounded-lg text-center">
                 <div class="text-2xl mb-4">✓</div>
@@ -40,7 +29,8 @@
                 </p>
             </div>
 
-            <form v-else name="contact" netlify class="space-y-6">
+            <form v-else name="contact" method="POST" netlify @submit.prevent="handleSubmit" class="space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
                 <p class="hidden">
                     <label>
                         Don't fill this out:
@@ -94,9 +84,9 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <button type="submit"
-                        class="!px-8 py-4 hover:cursor-pointer text-marker rounded-lg font-gasoek text-body hover:opacity-90 transition-opacity duration-300">
-                        ENVOYER
+                    <button type="submit" :disabled="isSubmitting"
+                        class="!px-8 py-4 hover:cursor-pointer text-marker rounded-lg font-gasoek text-body hover:opacity-90 transition-opacity duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                        {{ isSubmitting ? 'ENVOI EN COURS...' : 'ENVOYER' }}
                     </button>
                 </div>
             </form>
@@ -146,7 +136,7 @@ useHead({
 
 usePersonSchema()
 
-// Form state (juste pour le v-model)
+// Form state
 const formData = ref({
     name: '',
     email: '',
@@ -155,4 +145,31 @@ const formData = ref({
 })
 
 const formSubmitted = ref(false)
+const isSubmitting = ref(false)
+
+// Handle form submission
+const handleSubmit = async (event: Event) => {
+    if (isSubmitting.value) return
+
+    isSubmitting.value = true
+    const form = event.target as HTMLFormElement
+
+    try {
+        // Encode form data
+        const formDataEncoded = new FormData(form)
+
+        await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formDataEncoded as any).toString(),
+        })
+
+        formSubmitted.value = true
+    } catch (error) {
+        console.error('Form submission error:', error)
+        alert('Une erreur est survenue. Veuillez réessayer.')
+    } finally {
+        isSubmitting.value = false
+    }
+}
 </script>
