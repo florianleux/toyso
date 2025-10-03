@@ -31,19 +31,25 @@ export const useDarkMode = () => {
     el.style.setProperty('--y', `${y}px`)
 
     if (isDark.value) {
-      // On passe en mode clair : rétrécir le cercle
-      el.classList.remove('active')
+      // On passe en mode clair : changer l'icône immédiatement, puis rétrécir le cercle
+      isDark.value = false
+      document.documentElement.classList.remove('dark-mode')
+      localStorage.setItem('darkMode', 'false')
+      requestAnimationFrame(() => {
+        el.classList.remove('active')
+      })
       setTimeout(() => {
-        isDark.value = false
-        localStorage.setItem('darkMode', 'false')
         isAnimating.value = false
       }, 800)
     } else {
-      // On passe en mode dark : agrandir le cercle
-      el.classList.add('active')
+      // On passe en mode dark : changer l'icône immédiatement, puis agrandir le cercle
+      isDark.value = true
+      document.documentElement.classList.add('dark-mode')
+      localStorage.setItem('darkMode', 'true')
+      requestAnimationFrame(() => {
+        el.classList.add('active')
+      })
       setTimeout(() => {
-        isDark.value = true
-        localStorage.setItem('darkMode', 'true')
         isAnimating.value = false
       }, 800)
     }
@@ -55,6 +61,7 @@ export const useDarkMode = () => {
     isDark.value = saved === 'true'
 
     if (isDark.value) {
+      document.documentElement.classList.add('dark-mode')
       const el = createOverlay()
       el.classList.add('active')
       el.style.transition = 'none'

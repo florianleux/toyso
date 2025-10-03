@@ -2,7 +2,8 @@
   <header class="flex justify-between items-center pt-[8px]">
     <div class="w-12"></div>
     <router-link :to="{ name: 'home' }">
-      <img src="/sceau.png" alt="Logo toyso" class="w-[100px] hover:scale-110 transition-transform duration-500" />
+      <img src="/sceau.png" alt="Logo toyso"
+        class="w-[100px] hover:scale-110 transition-transform duration-500 logo-header" />
     </router-link>
     <button ref="darkModeButton" @click="handleToggle"
       class="hover:cursor-pointer hover:scale-150 transition-all w-12 flex justify-end text-[var(--color-text)] hover:text-[var(--color-highlight)]"

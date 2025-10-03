@@ -169,6 +169,10 @@ onBeforeUnmount(() => {
     z-index: 2;
 }
 
+.dark-mode .artwork-link::after {
+    background-color: #000;
+}
+
 .artwork-gallery:has(.artwork-link:hover) .artwork-link {
     transform: scale(0.97);
 }
