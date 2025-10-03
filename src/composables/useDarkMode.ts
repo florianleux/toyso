@@ -58,10 +58,18 @@ export const useDarkMode = () => {
     }
   }
 
-  // Initialiser le mode depuis localStorage
+  // Initialiser le mode depuis localStorage ou selon l'heure
   onMounted(() => {
     const saved = localStorage.getItem('darkMode')
-    isDark.value = saved === 'true'
+
+    if (saved !== null) {
+      // L'utilisateur a déjà fait un choix
+      isDark.value = saved === 'true'
+    } else {
+      // Pas de préférence : activer dark mode entre 23h et 5h
+      const hour = new Date().getHours()
+      isDark.value = hour >= 23 || hour < 5
+    }
 
     if (isDark.value) {
       document.documentElement.classList.add('dark-mode')
