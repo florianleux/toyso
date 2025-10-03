@@ -9,6 +9,7 @@ const TraditionalDrawings = () => import('../views/art/TraditionalDrawings.vue')
 const Animations = () => import('../views/art/Animations.vue')
 const All = () => import('../views/art/All.vue')
 const EpopeeTemporelle = () => import('../views/art/EpopeeTemporelle.vue')
+const Studies = () => import('../views/art/Studies.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -65,6 +66,12 @@ const router = createRouter({
       name: 'epopee-temporelle',
       component: EpopeeTemporelle,
       meta: { breadcrumb: 'Épopée temporelle', parent: 'art' },
+    },
+    {
+      path: '/art/studies',
+      name: 'studies',
+      component: Studies,
+      meta: { breadcrumb: 'Planches d\'études', parent: 'art' },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

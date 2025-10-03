@@ -13,7 +13,8 @@
             en pleine page et des personnages.
         </p>
         <p class="mb-[2vw] text-left text-body font-dm">
-            En parallèle, j'aime dessiner des planches d'études et me suis même essayé à
+            En parallèle, j'aime dessiner <router-link :to="{ name: 'studies' }" class="text-marker cursor-pointer">
+                planches d'études</router-link> et me suis même essayé à
             <router-link :to="{ name: 'animations' }" class="text-marker cursor-pointer">
                 l'animation 2D
             </router-link>

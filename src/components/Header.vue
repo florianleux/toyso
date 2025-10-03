@@ -5,7 +5,7 @@
       <img src="/sceau.png" alt="Logo toyso" class="w-[100px]" />
     </router-link>
     <button @click="toggleDarkMode"
-      class="hover:cursor-pointer hover:scale-110 transition-all w-12 flex justify-end text-[var(--color-text)] hover:text-[var(--color-highlight)]"
+      class="hover:cursor-pointer hover:scale-150 transition-all w-12 flex justify-end text-[var(--color-text)] hover:text-[var(--color-highlight)]"
       aria-label="Passe au mode sombre">
       <Transition name="icon-rotate" mode="out-in">
         <Sun v-if="isDark" key="sun" :size="36" :stroke-width="1.5" />
