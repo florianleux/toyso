@@ -59,7 +59,7 @@ import {
     getIllustrationAlt,
     getAnimationAlt,
     getTraditionalDrawingAlt,
-} from '@/composables/useAltText'
+} from '@/utils/altText'
 
 // Support Artwork with optional folderName extension
 type ArtworkWithFolder = Artwork & { folderName?: string }
