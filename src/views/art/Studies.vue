@@ -49,7 +49,7 @@ useHead({
     },
     {
       property: 'og:title',
-      content: 'Dessins Traditionnels - Florian Leux (Toyso)',
+      content: 'Planches d\'études - Florian Leux (Toyso)',
     },
     {
       property: 'og:url',
