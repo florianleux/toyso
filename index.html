@@ -31,7 +31,8 @@
     <script>
       (function() {
         const saved = localStorage.getItem('darkMode');
-        if (saved === 'true' || (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Mode clair par défaut, sombre uniquement si explicitement sauvegardé
+        if (saved === 'true') {
           document.documentElement.classList.add('dark');
         }
       })();

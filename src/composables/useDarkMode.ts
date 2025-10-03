@@ -20,14 +20,14 @@ export const useDarkMode = () => {
     }
   }
 
-  // Initialiser le mode depuis localStorage ou préférences système
+  // Initialiser le mode depuis localStorage ou mode clair par défaut
   onMounted(() => {
     const saved = localStorage.getItem('darkMode')
     if (saved !== null) {
       isDark.value = saved === 'true'
     } else {
-      // Utiliser les préférences système par défaut
-      isDark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+      // Mode clair par défaut
+      isDark.value = false
     }
     applyTheme(isDark.value)
   })

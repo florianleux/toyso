@@ -138,14 +138,17 @@
   @media (min-width: 768px) {
     .text-title {
       font-size: 7vw;
+      line-height: 0.7;
     }
 
     .text-subtitle {
       font-size: 4vw;
+      line-height: 1.4;
     }
 
     .text-body {
       font-size: 3vw;
+      line-height: 1.4;
     }
   }
 
@@ -157,12 +160,12 @@
 
     .text-subtitle {
       font-size: 3vw;
-      line-height: 0.9;
+      line-height: 1.4;
     }
 
     .text-body {
       font-size: 2vw;
-      line-height: 1.8;
+      line-height: 1.3;
     }
   }
 
