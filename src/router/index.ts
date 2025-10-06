@@ -14,6 +14,7 @@ const StudyDetail = () => import('../views/art/StudyDetail.vue')
 const Characters = () => import('../views/art/Characters.vue')
 const CharacterDetail = () => import('../views/art/CharacterDetail.vue')
 const DevHome = () => import('../views/dev/Home.vue')
+const NotFound = () => import('../views/NotFound.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -100,6 +101,11 @@ const router = createRouter({
       name: 'dev',
       component: DevHome,
       meta: { breadcrumb: 'Dev' },
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFound,
     },
   ],
   scrollBehavior(to, from, savedPosition) {
