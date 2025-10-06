@@ -5,22 +5,29 @@
             <div class="text-title text-highlight font-gasoek">développeur web</div>
         </div>
         <p class="text-justify sm:text-left text-body font-dm">
-            Depuis 2022, je suis Senior Frontend Engineer chez Back Market.<br />
+            Je suis developpeur web depuis plus de 10 ans, mon activité principale est <a
+                href="https://www.linkedin.com/in/florian-leux-255b9384/" class="text-marker cursor-pointer">Senior
+                Frontend Engineer</a>chez
+            Back Market depuis 2022. En parallele, j'aime m'essayer à différents <a
+                href="https://github.com/florianleux" class="text-marker cursor-pointer">projets</a>, pour me former ou
+            m'amuser.
+        </p>
+        <p class="text-justify sm:text-right text-body font-dm">
             Ma stack de prédilection : Vue.js et Nuxt, mais en 10 ans de carrière, j'ai travaillé avec
             beaucoup de technos différentes.
         </p>
-        <p class="text-justify sm:text-right text-body font-dm">
+        <p class="text-justify sm:text-left text-body font-dm">
             J'ai conçu, développé et illustré deux jeux vidéo pour navigateurs, Ahoy! et Facettes.
         </p>
 
-        <p class="text-justify sm:text-left text-body font-dm">
+        <p class="text-justify sm:text-right text-body font-dm">
             Avec mes enfants, j'ai imaginé Scrountch, une application Android familiale que j'ai designée
             et développée avec Flutter et Dart.
         </p>
-        <p class="text-justify sm:text-right text-body font-dm">
+        <p class="text-justify sm:text-left text-body font-dm">
             De la direction artistique jusqu'à la dernière ligne de code, j'ai aussi réalisé ce site!<br />
         </p>
-        <p class="text-center text-body font-dm">
+        <p class="text-center text-subtitle font-dm">
             Vous avez un projet en tête ? <br />
             N'hésitez pas à
             <router-link :to="{ name: 'contact' }" class="text-marker cursor-pointer">

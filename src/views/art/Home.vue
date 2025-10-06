@@ -33,7 +33,7 @@
                 dessin traditionnel</router-link>
         </p>
 
-        <p class="text-center text-body font-dm">
+        <p class="text-center text-subtitle font-dm">
             Vous hésitez ? <br />
             Découvrez
             <router-link :to="{ name: 'all' }" class="text-marker cursor-pointer">
