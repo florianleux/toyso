@@ -1,6 +1,6 @@
 <template>
   <header class="flex justify-between items-center pt-[8px]">
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-[3vw] sm:gap-4">
       <router-link :to="{ name: 'home' }">
         <img src="/sceau.png" alt="Logo toyso"
           class="w-[100px] min-w-[100px] hover:scale-110 transition-transform duration-500 logo-header" />
@@ -20,27 +20,27 @@
       </router-link>
     </div>
 
-    <div class="flex items-center gap-[2vw]">
+    <div class="flex items-center gap-[3vw] sm:gap-4">
       <a href="https://www.linkedin.com/in/florian-leux-255b9384/" target="_blank" rel="noopener noreferrer"
         aria-label="LinkedIn" title="LinkedIn">
-        <Linkedin :size="36" :stroke-width="1.5"
-          class="hover:cursor-pointer hover:scale-150 transition-all text-[var(--color-text)] hover:text-[var(--color-highlight)]" />
+        <Linkedin :size="36" :stroke-width="1.8"
+          class="hidden sm:block hover:cursor-pointer hover:scale-150 transition-all text-[var(--color-text)] hover:text-[var(--color-highlight)]" />
       </a>
       <a href="https://github.com/florianleux" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
         title="GitHub">
-        <Github :size="36" :stroke-width="1.5"
-          class="hover:cursor-pointer hover:scale-150 transition-all text-[var(--color-text)] hover:text-[var(--color-highlight)]" />
+        <Github :size="36" :stroke-width="1.8"
+          class="hidden sm:block hover:cursor-pointer hover:scale-150 transition-all text-[var(--color-text)] hover:text-[var(--color-highlight)]" />
       </a>
       <router-link :to="{ name: 'contact' }" aria-label="Contactez-moi" title="Contactez-moi">
-        <Mail :size="36" :stroke-width="1.5"
+        <Mail :size="36" :stroke-width="1.8"
           class="hover:cursor-pointer hover:scale-150 transition-all text-[var(--color-text)] hover:text-[var(--color-highlight)]" />
       </router-link>
       <button ref="darkModeButton" @click="handleToggle"
         class="hover:cursor-pointer hover:scale-150 transition-all text-[var(--color-text)] hover:text-[var(--color-highlight)]"
         aria-label="Passe au mode sombre" :title="isDark ? 'Activer le mode clair' : 'Activer le mode sombre'">
         <Transition name="icon-rotate" mode="out-in">
-          <Sun v-if="isDark" key="sun" :size="36" :stroke-width="1.5" />
-          <Moon v-else key="moon" :size="36" :stroke-width="1.5" />
+          <Sun v-if="isDark" key="sun" :size="36" :stroke-width="1.8" />
+          <Moon v-else key="moon" :size="36" :stroke-width="1.8" />
         </Transition>
       </button>
     </div>

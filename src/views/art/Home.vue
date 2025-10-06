@@ -1,8 +1,10 @@
 <template>
-    <div class="mx-auto py-16">
-        <div class="text-subtitle font-dm">je suis</div>
-        <div class="text-title mb-[6vw] text-highlight font-gasoek">illustrateur</div>
-        <p class="mb-[2vw] text-left text-body font-dm">
+    <div class="mx-auto py-16 flex flex-col gap-[6vh]">
+        <div>
+            <div class="text-subtitle font-dm">je suis</div>
+            <div class="text-title text-highlight font-gasoek">illustrateur</div>
+        </div>
+        <p class="text-justify sm:text-left text-body font-dm">
             Je réalise principalement des
             <router-link :to="{ name: 'illustrations' }" class="text-marker cursor-pointer">
                 illustrations</router-link>
@@ -10,13 +12,13 @@
             <router-link :to="{ name: 'characters' }" class="text-marker cursor-pointer">
                 personnages</router-link>.
         </p>
-        <p class="mb-[2vw] text-right text-body font-dm">
+        <p class="text-justify sm:text-right text-body font-dm">
             J'ai eu l'occasion de travailler pour le youtubeur
             <router-link :to="{ name: 'epopee-temporelle' }" class="text-marker cursor-pointer">Cyprien</router-link>,
             illustrer un projet de jeu de société et même un jeu vidéo web que j'ai conçu et développé.
         </p>
 
-        <p class="mb-[2vw] text-left text-body font-dm">
+        <p class="text-justify sm:text-left text-body font-dm">
             En parallèle, j'aime dessiner des
             <router-link :to="{ name: 'studies' }" class="text-marker cursor-pointer">
                 planches d'études</router-link>
@@ -25,12 +27,13 @@
                 l'animation 2D
             </router-link>
         </p>
-        <p class="mb-[2vw] text-right text-body font-dm">
+        <p class="text-justify sm:text-justify text-body font-dm">
             J'ai aussi pratiqué le
             <router-link :to="{ name: 'traditional-drawings' }" class="text-marker cursor-pointer">
                 dessin traditionnel</router-link>
         </p>
-        <p class="mt-[4vw] text-center text-body font-dm">
+
+        <p class="text-center text-body font-dm">
             Vous hésitez ? <br />
             Découvrez
             <router-link :to="{ name: 'all' }" class="text-marker cursor-pointer">
