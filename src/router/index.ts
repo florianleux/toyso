@@ -14,6 +14,9 @@ const StudyDetail = () => import('../views/art/StudyDetail.vue')
 const Characters = () => import('../views/art/Characters.vue')
 const CharacterDetail = () => import('../views/art/CharacterDetail.vue')
 const DevHome = () => import('../views/dev/Home.vue')
+const Keynotes = () => import('../views/dev/Keynotes.vue')
+const OnceUponATimeInFrontend = () => import('../views/dev/OnceUponATimeInFrontend.vue')
+const LetsBuildbALighthouse = () => import('../views/dev/LetsBuildbALighthouse.vue')
 const NotFound = () => import('../views/NotFound.vue')
 
 const router = createRouter({
@@ -101,6 +104,24 @@ const router = createRouter({
       name: 'dev',
       component: DevHome,
       meta: { breadcrumb: 'Dev' },
+    },
+    {
+      path: '/dev/keynotes',
+      name: 'keynotes',
+      component: Keynotes,
+      meta: { breadcrumb: 'Keynotes', parent: 'dev' },
+    },
+    {
+      path: '/dev/keynotes/once-upon-a-time-in-frontend',
+      name: 'once-upon-a-time-in-frontend',
+      component: OnceUponATimeInFrontend,
+      meta: { breadcrumb: 'Once upon a time in frontend', parent: 'keynotes' },
+    },
+    {
+      path: '/dev/keynotes/lets-build-a-lighthouse',
+      name: 'lets-build-a-lighthouse',
+      component: LetsBuildbALighthouse,
+      meta: { breadcrumb: "Let's build a Lighthouse", parent: 'keynotes' },
     },
     {
       path: '/:pathMatch(.*)*',

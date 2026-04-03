@@ -17,15 +17,20 @@
             beaucoup de technos différentes.
         </p>
         <p class="text-justify sm:text-left text-body font-dm">
-            J'ai conçu, développé et illustré deux jeux vidéo pour navigateurs, Ahoy! et Facettes.
+            J'ai imaginé, conçu et développé deux jeux vidéo pour navigateurs, Ahoy! et Facettes.
         </p>
 
         <p class="text-justify sm:text-right text-body font-dm">
-            Avec mes enfants, j'ai imaginé Scrountch, une application Android familiale que j'ai designée
-            et développée avec Flutter et Dart.
+            Avec mes enfants, j'ai conçu et développé Scrountch, une application Android familiale avec Flutter et Dart.
         </p>
         <p class="text-justify sm:text-left text-body font-dm">
-            De la direction artistique jusqu'à la dernière ligne de code, j'ai aussi réalisé ce site!<br />
+            J'aime aussi concevoir et illustrer des
+            <router-link :to="{ name: 'keynotes' }" class="text-marker cursor-pointer">
+                conférences techniques</router-link>
+            originales.
+        </p>
+        <p class="text-justify sm:text-right text-body font-dm">
+            Du web design jusqu'à la dernière ligne de code, j'ai aussi réalisé ce site!<br />
         </p>
         <p class="text-center text-subtitle font-dm">
             Vous avez un projet en tête ? <br />

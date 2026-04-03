@@ -125,6 +125,101 @@ export const CHARACTERS: ArtworkCollection = {
   ],
 }
 
+export const ONCE_UPON_A_TIME_IN_FRONTEND: ArtworkCollection = {
+  folderName: 'once-upon-a-time-in-frontend',
+  artworks: [
+    {
+      fileName: 'once-upon-05',
+      title: 'once upon a time in frontend - slide 5',
+      ratio: 'landscape',
+    },
+    {
+      fileName: 'once-upon-01',
+      title: 'once upon a time in frontend - slide 1',
+      ratio: 'landscape',
+    },
+    {
+      fileName: 'once-upon-09',
+      title: 'once upon a time in frontend - slide 9',
+      ratio: 'landscape',
+    },
+    {
+      fileName: 'once-upon-02',
+      title: 'once upon a time in frontend - slide 2',
+      ratio: 'landscape',
+    },
+
+    {
+      fileName: 'once-upon-07',
+      title: 'once upon a time in frontend - slide 7',
+      ratio: 'landscape',
+    },
+    {
+      fileName: 'once-upon-04',
+      title: 'once upon a time in frontend - slide 4',
+      ratio: 'landscape',
+    },
+
+    {
+      fileName: 'once-upon-08',
+      title: 'once upon a time in frontend - slide 8',
+      ratio: 'landscape',
+    },
+    {
+      fileName: 'once-upon-06',
+      title: 'once upon a time in frontend - slide 6',
+      ratio: 'landscape',
+    },
+
+    {
+      fileName: 'once-upon-03',
+      title: 'once upon a time in frontend - slide 3',
+      ratio: 'landscape',
+    },
+    {
+      fileName: 'once-upon-10',
+      title: 'once upon a time in frontend - slide 10',
+      ratio: 'landscape',
+    },
+  ],
+}
+
+export const LETS_BUILD_A_LIGHTHOUSE_SLIDES: ArtworkCollection = {
+  folderName: 'lets-build-a-lighthouse',
+  artworks: [
+    { fileName: 'lighthouse-01', title: "let's build a lighthouse - slide 1", ratio: 'landscape' },
+    { fileName: 'lighthouse-02', title: "let's build a lighthouse - slide 2", ratio: 'landscape' },
+    { fileName: 'lighthouse-03', title: "let's build a lighthouse - slide 3", ratio: 'landscape' },
+    { fileName: 'lighthouse-04', title: "let's build a lighthouse - slide 4", ratio: 'landscape' },
+  ],
+}
+
+export const LETS_BUILD_A_LIGHTHOUSE_VOTES: ArtworkCollection = {
+  folderName: 'lets-build-a-lighthouse',
+  artworks: [
+    {
+      fileName: 'lighthouse-vote-01',
+      title: "let's build a lighthouse - vote 1",
+      ratio: 'portrait',
+    },
+    {
+      fileName: 'lighthouse-vote-02',
+      title: "let's build a lighthouse - vote 2",
+      ratio: 'portrait',
+    },
+    {
+      fileName: 'lighthouse-vote-03',
+      title: "let's build a lighthouse - vote 3",
+      ratio: 'portrait',
+    },
+    {
+      fileName: 'lighthouse-vote-04',
+      title: "let's build a lighthouse - vote 4",
+      ratio: 'portrait',
+    },
+  ],
+}
+
 export const ALL_COLLECTIONS: ArtworkCollection[] = [
   ILLUSTRATIONS,
   ANIMATIONS,
