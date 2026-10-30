@@ -51,7 +51,7 @@
       </div>
       <p class="text-body text-right font-dm mt-[5vw]">
         Vous pouvez en découvrir
-        <router-link :to="getRandomArtworkUrl()" class="text-marker cursor-pointer">
+        <router-link :to="nextRoute" class="text-marker cursor-pointer">
           une autre
         </router-link>
         ou revenir à la liste des
@@ -67,18 +67,28 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import { useHead } from '@vueuse/head'
 import { ILLUSTRATIONS } from '@/constants/images'
 import { getSketchAlt, getInkingAlt, getIllustrationAlt } from '@/utils/altText'
+import { useArtworkDetail } from '@/composables/useArtworkDetail'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import Image from '@/components/Image.vue'
 import Video from '@/components/Video.vue'
-const route = useRoute()
 
-const artwork = computed(() => {
-  return ILLUSTRATIONS.artworks.find((artwork) => artwork.fileName === route.params.id)
-})
+const { artwork, nextRoute } = useArtworkDetail(ILLUSTRATIONS, (artwork) => ({
+  title: artwork
+    ? `${artwork.title} - Illustration par Florian Leux (Toyso) | Processus de Création`
+    : 'Illustration - Florian Leux (Toyso) Portfolio',
+  description: artwork
+    ? `Découvrez le processus de création complet de l'illustration "${artwork.title}" par Florian Leux (Toyso) : du croquis au résultat final avec timelapse.`
+    : "Processus de création d'illustrations digitales par Florian Leux (Toyso).",
+  keywords: `${artwork?.title || 'illustration'}, processus création illustration, timelapse illustration, florian leux, toyso, illustration digitale`,
+  ogTitle: artwork
+    ? `${artwork.title} - Florian Leux (Toyso)`
+    : 'Illustration - Florian Leux (Toyso)',
+  ogDescription: artwork
+    ? `Processus de création de "${artwork.title}" par Florian Leux (Toyso) - croquis, encrage, couleur et timelapse`
+    : "Processus de création d'illustration",
+}))
 
 // Alt texts SEO pour chaque étape du processus
 const sketchAlt = computed(() => (artwork.value ? getSketchAlt(artwork.value.title) : ''))
@@ -90,70 +100,5 @@ const timelapseAlt = computed(() =>
   artwork.value
     ? `Timelapse création ${artwork.value.title} - Processus illustration par Florian Leux (Toyso)`
     : ''
-)
-
-const getRandomArtworkUrl = () => {
-  const otherArtworks = ILLUSTRATIONS.artworks.filter((art) => art.fileName !== route.params.id)
-  const list = otherArtworks.length > 0 ? otherArtworks : ILLUSTRATIONS.artworks
-  const randomArtwork = list[Math.floor(Math.random() * list.length)]
-  return {
-    name: 'illustration',
-    params: { id: randomArtwork?.fileName || ILLUSTRATIONS.artworks[0]!.fileName },
-  }
-}
-
-// Dynamic meta tags based on artwork
-useHead(
-  computed(() => ({
-    title: artwork.value
-      ? `${artwork.value.title} - Illustration par Florian Leux (Toyso) | Processus de Création`
-      : 'Illustration - Florian Leux (Toyso) Portfolio',
-    meta: [
-      {
-        name: 'description',
-        content: artwork.value
-          ? `Découvrez le processus de création complet de l'illustration "${artwork.value.title}" par Florian Leux (Toyso) : du croquis au résultat final avec timelapse.`
-          : "Processus de création d'illustrations digitales par Florian Leux (Toyso).",
-      },
-      {
-        name: 'keywords',
-        content: `${artwork.value?.title || 'illustration'}, processus création illustration, timelapse illustration, florian leux, toyso, illustration digitale`,
-      },
-      {
-        property: 'og:title',
-        content: artwork.value
-          ? `${artwork.value.title} - Florian Leux (Toyso)`
-          : 'Illustration - Florian Leux (Toyso)',
-      },
-      {
-        property: 'og:description',
-        content: artwork.value
-          ? `Processus de création de "${artwork.value.title}" par Florian Leux (Toyso) - croquis, encrage, couleur et timelapse`
-          : "Processus de création d'illustration",
-      },
-      {
-        property: 'og:image',
-        content: artwork.value
-          ? `https://florianleux.fr/illustrations/${artwork.value.fileName}.webp`
-          : 'https://florianleux.fr/sceau.png',
-      },
-      {
-        property: 'og:url',
-        content: `https://florianleux.fr/art/illustrations/${route.params.id}`,
-      },
-      {
-        name: 'twitter:image',
-        content: artwork.value
-          ? `https://florianleux.fr/illustrations/${artwork.value.fileName}.webp`
-          : 'https://florianleux.fr/sceau.png',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: `https://florianleux.fr/art/illustrations/${route.params.id}`,
-      },
-    ],
-  }))
 )
 </script>

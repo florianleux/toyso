@@ -19,6 +19,16 @@ interface LandscapeRow<T extends Artwork = Artwork> {
 
 export type ImageRow<T extends Artwork = Artwork> = PortraitRow<T> | LandscapeRow<T>
 
+// Mélange de Fisher-Yates, sans modifier le tableau d'origine
+export function shuffle<T>(array: readonly T[]): T[] {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!]
+  }
+  return shuffled
+}
+
 export function useImageLayout<T extends Artwork = Artwork>(illustrations: T[]) {
   const imageRows = computed<ImageRow<T>[]>(() => {
     const portraitIllustrations = illustrations.filter((img) => img.ratio === 'portrait')

@@ -9,7 +9,7 @@
       Cela me permet de m'exercer sur des sujets inédits et construire des réferences futures.
     </p>
 
-    <ImageGallery :image-rows="imageRows" :folder-name="STUDIES.folderName" has-links />
+    <ImageGallery :image-rows="imageRows" />
   </div>
 </template>
 
@@ -18,21 +18,11 @@ import { useHead } from '@vueuse/head'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { STUDIES } from '@/constants/images'
-import { useImageLayout } from '@/composables/useImageLayout'
-
-// Fonction pour mélanger un tableau
-function shuffleArray<T>(array: readonly T[]): T[] {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!]
-  }
-  return shuffled
-}
+import { shuffle, useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
 // Mélanger les études de manière aléatoire
-const shuffledStudies = shuffleArray(STUDIES.artworks)
-const { imageRows } = useImageLayout(shuffledStudies)
+const { imageRows } = useImageLayout(shuffle(resolveArtworks(STUDIES, { links: true })))
 
 useHead({
   title: "Planches d'études - Florian Leux (Toyso) ",

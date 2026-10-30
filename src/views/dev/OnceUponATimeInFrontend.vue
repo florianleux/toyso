@@ -20,11 +20,7 @@
             la convention technique interne annuelle de Back Market.
         </p>
 
-        <ImageGallery
-            :image-rows="imageRows"
-            :folder-name="ONCE_UPON_A_TIME_IN_FRONTEND.folderName"
-            :has-links="false"
-        />
+        <ImageGallery :image-rows="imageRows" />
     </div>
 </template>
 
@@ -34,8 +30,9 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { ONCE_UPON_A_TIME_IN_FRONTEND } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
-const { imageRows } = useImageLayout(ONCE_UPON_A_TIME_IN_FRONTEND.artworks)
+const { imageRows } = useImageLayout(resolveArtworks(ONCE_UPON_A_TIME_IN_FRONTEND))
 
 useHead({
     title: 'Once upon a time in frontend - Florian Leux | Keynote Frontend',

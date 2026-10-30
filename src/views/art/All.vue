@@ -13,7 +13,7 @@
       pour discuter de votre projet.
     </p>
 
-    <ImageGallery :image-rows="imageRows" :folder-name="'mixed'" :has-links="false" />
+    <ImageGallery :image-rows="imageRows" />
   </div>
 </template>
 
@@ -22,36 +22,11 @@ import { useHead } from '@vueuse/head'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { ALL_COLLECTIONS } from '@/constants/images'
-import { useImageLayout } from '@/composables/useImageLayout'
-import type { Artwork } from '@/types/artwork'
+import { shuffle, useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
-// Fonction pour mélanger un tableau
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j]!, shuffled[i]!]
-  }
-  return shuffled
-}
-
-// Ajouter le type de dossier à chaque artwork pour savoir d'où il vient
-interface ArtworkWithFolder extends Artwork {
-  folderName: string
-}
-
-// Combiner toutes les collections automatiquement et les mélanger
-const allArtworks: ArtworkWithFolder[] = shuffleArray(
-  ALL_COLLECTIONS.flatMap((collection) =>
-    collection.artworks.map((art) => ({
-      ...art,
-      folderName: collection.folderName,
-    }))
-  )
-)
-
-// Utiliser le layout automatique avec le type étendu
-const { imageRows } = useImageLayout(allArtworks)
+// Combiner toutes les collections et les mélanger
+const { imageRows } = useImageLayout(shuffle(ALL_COLLECTIONS.flatMap((c) => resolveArtworks(c))))
 
 // SEO
 useHead({

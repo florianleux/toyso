@@ -2,7 +2,14 @@
  * Génère des alt texts SEO-optimisés pour les images du portfolio
  */
 
-type ArtworkType = 'illustration' | 'animation' | 'traditional' | 'sketch' | 'inking'
+type ArtworkType =
+  | 'illustration'
+  | 'animation'
+  | 'traditional'
+  | 'sketch'
+  | 'inking'
+  | 'study'
+  | 'character'
 
 interface AltTextOptions {
   title: string
@@ -26,6 +33,8 @@ export function generateAltText({ title, type, context }: AltTextOptions): strin
     traditional: 'Dessin traditionnel aux feutres à alcool',
     sketch: 'Croquis préparatoire',
     inking: 'Encrage numérique',
+    study: "Planche d'études",
+    character: 'Character design',
   }
 
   const baseDescription = descriptions[type]
@@ -86,5 +95,27 @@ export function getInkingAlt(title: string): string {
     title,
     type: 'inking',
     context: 'Étape encrage',
+  })
+}
+
+/**
+ * Génère un alt text pour une planche d'études
+ */
+export function getStudyAlt(title: string): string {
+  return generateAltText({
+    title,
+    type: 'study',
+    context: 'Dessin sur Procreate',
+  })
+}
+
+/**
+ * Génère un alt text pour un personnage
+ */
+export function getCharacterAlt(title: string): string {
+  return generateAltText({
+    title,
+    type: 'character',
+    context: 'Création de personnage',
   })
 }
