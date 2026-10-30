@@ -31,11 +31,7 @@
             class="w-full h-auto object-cover mb-[1vw]"
         />
 
-        <ImageGallery
-            :image-rows="screenshotRows"
-            :folder-name="LA_HAUTE_TOUR_SCREENSHOTS.folderName"
-            :has-links="false"
-        />
+        <ImageGallery :image-rows="screenshotRows" />
     </div>
 </template>
 
@@ -46,8 +42,9 @@ import Image from '@/components/Image.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { LA_HAUTE_TOUR_SCREENSHOTS } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
-const { imageRows: screenshotRows } = useImageLayout(LA_HAUTE_TOUR_SCREENSHOTS.artworks)
+const { imageRows: screenshotRows } = useImageLayout(resolveArtworks(LA_HAUTE_TOUR_SCREENSHOTS))
 
 useHead({
     title: 'La Haute Tour - Florian Leux | Jeu web de culture générale',

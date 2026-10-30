@@ -17,8 +17,8 @@ export function usePersonSchema() {
           url: 'https://florianleux.fr',
           image: 'https://florianleux.fr/sceau.png',
           sameAs: [
-            'https://github.com/florianleux', // TODO: Vérifier l'URL exacte de ton GitHub
-            'https://www.linkedin.com/in/florian-leux', // TODO: Vérifier l'URL exacte
+            'https://github.com/florianleux',
+            'https://www.linkedin.com/in/florian-leux-255b9384/',
             'https://www.instagram.com/toyso', // TODO: Vérifier l'URL exacte
           ],
           jobTitle: ['Développeur Frontend Senior', 'Illustrateur Freelance'],

@@ -196,11 +196,14 @@ const handleSubmit = async (event: Event) => {
     // Encode form data
     const formDataEncoded = new FormData(form)
 
-    await fetch('/', {
+    const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formDataEncoded as any).toString(),
+      body: new URLSearchParams(formDataEncoded as unknown as Record<string, string>).toString(),
     })
+
+    // fetch ne rejette pas sur une erreur HTTP : sans ce check, un 4xx/5xx afficherait le succès
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
 
     formSubmitted.value = true
   } catch (error) {

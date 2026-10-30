@@ -8,11 +8,7 @@
       Cliquez sur une illustration pour voir le détail de son processus de création.
     </p>
 
-    <ImageGallery
-      :image-rows="imageRows"
-      :folder-name="ILLUSTRATIONS.folderName"
-      :has-links="true"
-    />
+    <ImageGallery :image-rows="imageRows" />
   </div>
 </template>
 
@@ -22,8 +18,9 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { ILLUSTRATIONS } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
-const { imageRows } = useImageLayout(ILLUSTRATIONS.artworks)
+const { imageRows } = useImageLayout(resolveArtworks(ILLUSTRATIONS, { links: true }))
 
 useHead({
   title: 'Illustrations Digitales - Florian Leux (Toyso) | Illustrateur Freelance Bordeaux',

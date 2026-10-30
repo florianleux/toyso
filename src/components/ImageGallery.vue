@@ -5,35 +5,22 @@
         v-if="row.type === 'portrait'"
         class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-[1vw] items-center"
       >
-        <template v-for="image in row.images" :key="image.fileName">
-          <router-link
-            v-if="hasLinks"
-            :to="getArtworkPath(image.fileName)"
-            class="artwork-link"
-            @mouseenter="handleMouseEnter"
-            @mouseleave="handleMouseLeave"
-          >
-            <Image
-              :src="getImagePath(image)"
-              :alt="getAltText(image.title)"
-              :ratio="image.ratio"
-              :class="'w-full h-auto object-cover'"
-            />
-          </router-link>
-          <div
-            v-else
-            class="artwork-link"
-            @mouseenter="handleMouseEnter"
-            @mouseleave="handleMouseLeave"
-          >
-            <Image
-              :src="getImagePath(image)"
-              :alt="getAltText(image.title)"
-              :ratio="image.ratio"
-              :class="'w-full h-auto object-cover'"
-            />
-          </div>
-        </template>
+        <component
+          :is="image.to ? RouterLink : 'div'"
+          v-for="image in row.images"
+          :key="image.fileName"
+          :to="image.to"
+          class="artwork-link"
+          @mouseenter="handleMouseEnter"
+          @mouseleave="handleMouseLeave"
+        >
+          <Image
+            :src="image.src"
+            :alt="image.alt"
+            :ratio="image.ratio"
+            class="w-full h-auto object-cover"
+          />
+        </component>
       </div>
 
       <div
@@ -48,61 +35,38 @@
               : item.images?.[0]?.fileName || itemIndex
           "
         >
-          <router-link
-            v-if="hasLinks && item.type === 'landscape' && item.image"
-            :to="getArtworkPath(item.image.fileName)"
+          <component
+            :is="item.image.to ? RouterLink : 'div'"
+            v-if="item.type === 'landscape' && item.image"
+            :to="item.image.to"
             class="artwork-link sm:col-span-2"
             @mouseenter="handleMouseEnter"
             @mouseleave="handleMouseLeave"
           >
             <Image
-              :src="getImagePath(item.image)"
-              :alt="getAltText(item.image.title)"
+              :src="item.image.src"
+              :alt="item.image.alt"
               :ratio="item.image.ratio"
-              :class="'w-full h-auto object-cover'"
+              class="w-full h-auto object-cover"
             />
-          </router-link>
-          <div
-            v-else-if="!hasLinks && item.type === 'landscape' && item.image"
-            class="artwork-link sm:col-span-2"
-            @mouseenter="handleMouseEnter"
-            @mouseleave="handleMouseLeave"
-          >
-            <Image
-              :src="getImagePath(item.image)"
-              :alt="getAltText(item.image.title)"
-              :ratio="item.image.ratio"
-              :class="'w-full h-auto object-cover'"
-            />
-          </div>
-          <template v-else v-for="img in item.images" :key="img.fileName">
-            <router-link
-              v-if="hasLinks"
-              :to="getArtworkPath(img.fileName)"
+          </component>
+          <template v-else>
+            <component
+              :is="img.to ? RouterLink : 'div'"
+              v-for="img in item.images"
+              :key="img.fileName"
+              :to="img.to"
               class="artwork-link"
               @mouseenter="handleMouseEnter"
               @mouseleave="handleMouseLeave"
             >
               <Image
-                :src="getImagePath(img)"
-                :alt="getAltText(img.title)"
+                :src="img.src"
+                :alt="img.alt"
                 :ratio="img.ratio"
                 class="w-full h-auto object-cover"
               />
-            </router-link>
-            <div
-              v-else
-              class="artwork-link"
-              @mouseenter="handleMouseEnter"
-              @mouseleave="handleMouseLeave"
-            >
-              <Image
-                :src="getImagePath(img)"
-                :alt="getAltText(img.title)"
-                :ratio="img.ratio"
-                class="w-full h-auto object-cover"
-              />
-            </div>
+            </component>
           </template>
         </template>
       </div>
@@ -111,62 +75,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onBeforeUnmount } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, onBeforeUnmount } from 'vue'
+import { RouterLink } from 'vue-router'
 import Image from '@/components/Image.vue'
-import type { Artwork } from '@/types/artwork'
-import { getIllustrationAlt, getAnimationAlt, getTraditionalDrawingAlt } from '@/utils/altText'
+import type { ResolvedArtwork } from '@/types/artwork'
+import type { ImageRow } from '@/composables/useImageLayout'
 import { HOVER_DELAY_MS } from '@/constants/animations'
 
-// Support Artwork with optional folderName extension
-type ArtworkWithFolder = Artwork & { folderName?: string }
-
-interface ImageRow {
-  type: 'portrait' | 'landscape'
-  images?: ArtworkWithFolder[]
-  items?: Array<{
-    type: 'landscape' | 'portrait'
-    image?: ArtworkWithFolder
-    images?: ArtworkWithFolder[]
-  }>
-}
-
-interface Props {
-  imageRows: ImageRow[]
-  folderName: string
-  hasLinks?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  hasLinks: false,
-})
-
-// Génère un alt text SEO-optimisé selon le type d'artwork
-const getAltText = (title: string): string => {
-  switch (props.folderName) {
-    case 'illustrations':
-      return getIllustrationAlt(title)
-    case 'animations':
-      return getAnimationAlt(title)
-    case 'traditional':
-      return getTraditionalDrawingAlt(title)
-    default:
-      return `${title} - Illustration par Florian Leux (Toyso)`
-  }
-}
-
-const route = useRoute()
-
-const getArtworkPath = (id: string) => {
-  return `${route.path}/${id}`
-}
-
-const getImagePath = (imageObj: ArtworkWithFolder) => {
-  // Si l'image a un folderName spécifique (pour la page "all"), l'utiliser
-  // Sinon utiliser le folderName de la galerie
-  const folder = imageObj.folderName || props.folderName
-  return `/${folder}/${imageObj.fileName}.webp`
-}
+defineProps<{
+  imageRows: ImageRow<ResolvedArtwork>[]
+}>()
 
 const isHovering = ref(false)
 const hoverTimeout = ref<number | null>(null)

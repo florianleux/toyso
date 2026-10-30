@@ -8,7 +8,7 @@
       Chaque animation est dessinée frame par frame sur Procreate.
     </p>
 
-    <ImageGallery :image-rows="imageRows" :folder-name="ANIMATIONS.folderName" />
+    <ImageGallery :image-rows="imageRows" />
   </div>
 </template>
 
@@ -18,8 +18,9 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { ANIMATIONS } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
-const { imageRows } = useImageLayout(ANIMATIONS.artworks)
+const { imageRows } = useImageLayout(resolveArtworks(ANIMATIONS))
 
 useHead({
   title: 'Animations 2D - Florian Leux (Toyso) | Animation Frame par Frame',

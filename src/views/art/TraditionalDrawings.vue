@@ -8,7 +8,7 @@
       J'utilise les feutres à alcools et l'encre.
     </p>
 
-    <ImageGallery :image-rows="imageRows" :folder-name="TRADITIONAL_DRAWINGS.folderName" />
+    <ImageGallery :image-rows="imageRows" />
   </div>
 </template>
 
@@ -18,8 +18,9 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { TRADITIONAL_DRAWINGS } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
-const { imageRows } = useImageLayout(TRADITIONAL_DRAWINGS.artworks)
+const { imageRows } = useImageLayout(resolveArtworks(TRADITIONAL_DRAWINGS))
 
 useHead({
   title: 'Dessins Traditionnels - Florian Leux (Toyso) | Feutres à Alcool et Encre',

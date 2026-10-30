@@ -1,7 +1,9 @@
-import type { ArtworkCollection } from '@/types/artwork'
+import type { ArtworkCollection } from '../types/artwork'
 
 export const ILLUSTRATIONS: ArtworkCollection = {
   folderName: 'illustrations',
+  altKind: 'illustration',
+  detail: { basePath: '/art/illustrations', routeName: 'illustration' },
   artworks: [
     { fileName: 'abyss', title: 'abyss', ratio: 'portrait' },
     { fileName: 'molitor', title: 'molitor', ratio: 'portrait' },
@@ -31,6 +33,7 @@ export const ILLUSTRATIONS: ArtworkCollection = {
 
 export const TRADITIONAL_DRAWINGS: ArtworkCollection = {
   folderName: 'traditional',
+  altKind: 'traditional',
   artworks: [
     { fileName: 'worker', title: 'worker', ratio: 'portrait' },
     { fileName: 'blue', title: 'blue jeleton', ratio: 'portrait' },
@@ -50,6 +53,7 @@ export const TRADITIONAL_DRAWINGS: ArtworkCollection = {
 
 export const ANIMATIONS: ArtworkCollection = {
   folderName: 'animations',
+  altKind: 'animation',
   artworks: [
     { fileName: 'sorcerer', title: 'Sorcerer', ratio: 'portrait' },
     { fileName: 'feur', title: 'Feur', ratio: 'portrait' },
@@ -61,6 +65,8 @@ export const ANIMATIONS: ArtworkCollection = {
 
 export const STUDIES: ArtworkCollection = {
   folderName: 'studies',
+  altKind: 'study',
+  detail: { basePath: '/art/studies', routeName: 'study' },
   artworks: [
     { fileName: 'angry', title: 'des gens en colère', ratio: 'landscape' },
     { fileName: 'assassins', title: 'des assassins', ratio: 'landscape' },
@@ -101,6 +107,8 @@ export const STUDIES: ArtworkCollection = {
 
 export const CHARACTERS: ArtworkCollection = {
   folderName: 'characters',
+  altKind: 'character',
+  detail: { basePath: '/art/characters', routeName: 'character' },
   artworks: [
     { fileName: 'ant', title: 'Salahzhar', ratio: 'portrait' },
     { fileName: 'cars', title: 'Rusty', ratio: 'landscape' },
@@ -127,6 +135,7 @@ export const CHARACTERS: ArtworkCollection = {
 
 export const ONCE_UPON_A_TIME_IN_FRONTEND: ArtworkCollection = {
   folderName: 'once-upon-a-time-in-frontend',
+  altKind: 'default',
   artworks: [
     {
       fileName: 'once-upon-05',
@@ -186,6 +195,7 @@ export const ONCE_UPON_A_TIME_IN_FRONTEND: ArtworkCollection = {
 
 export const LETS_BUILD_A_LIGHTHOUSE_SLIDES: ArtworkCollection = {
   folderName: 'lets-build-a-lighthouse',
+  altKind: 'default',
   artworks: [
     { fileName: 'lighthouse-01', title: "let's build a lighthouse - slide 1", ratio: 'landscape' },
     { fileName: 'lighthouse-02', title: "let's build a lighthouse - slide 2", ratio: 'landscape' },
@@ -196,6 +206,7 @@ export const LETS_BUILD_A_LIGHTHOUSE_SLIDES: ArtworkCollection = {
 
 export const LETS_BUILD_A_LIGHTHOUSE_VOTES: ArtworkCollection = {
   folderName: 'lets-build-a-lighthouse',
+  altKind: 'default',
   artworks: [
     {
       fileName: 'lighthouse-vote-01',
@@ -230,6 +241,7 @@ export const ALL_COLLECTIONS: ArtworkCollection[] = [
 
 export const LA_HAUTE_TOUR_SCREENSHOTS: ArtworkCollection = {
   folderName: 'la-haute-tour',
+  altKind: 'default',
   artworks: [
     { fileName: 'haute-tour-intro', title: "la haute tour - l'introduction", ratio: 'landscape' },
     { fileName: 'haute-tour-question', title: 'la haute tour - une question', ratio: 'landscape' },

@@ -37,11 +37,7 @@
             la convention technique interne annuelle de Back Market, en anglais devant un public de 75 personnes.
         </p>
 
-        <ImageGallery
-            :image-rows="slideRows"
-            :folder-name="LETS_BUILD_A_LIGHTHOUSE_SLIDES.folderName"
-            :has-links="false"
-        />
+        <ImageGallery :image-rows="slideRows" />
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-[1vw] my-[1vw]">
             <div
@@ -56,11 +52,7 @@
                 />
             </div>
         </div>
-        <ImageGallery
-            :image-rows="voteRows"
-            :folder-name="LETS_BUILD_A_LIGHTHOUSE_VOTES.folderName"
-            :has-links="false"
-        />
+        <ImageGallery :image-rows="voteRows" />
     </div>
 </template>
 
@@ -70,9 +62,10 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { LETS_BUILD_A_LIGHTHOUSE_SLIDES, LETS_BUILD_A_LIGHTHOUSE_VOTES } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
+import { resolveArtworks } from '@/utils/collection'
 
-const { imageRows: slideRows } = useImageLayout(LETS_BUILD_A_LIGHTHOUSE_SLIDES.artworks)
-const { imageRows: voteRows } = useImageLayout(LETS_BUILD_A_LIGHTHOUSE_VOTES.artworks)
+const { imageRows: slideRows } = useImageLayout(resolveArtworks(LETS_BUILD_A_LIGHTHOUSE_SLIDES))
+const { imageRows: voteRows } = useImageLayout(resolveArtworks(LETS_BUILD_A_LIGHTHOUSE_VOTES))
 
 const gifs = [
     { src: '/lets-build-a-lighthouse/lighthouse-anim-01.gif', alt: "Let's build a Lighthouse - démo 1" },

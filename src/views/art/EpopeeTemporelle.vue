@@ -44,10 +44,6 @@ import { useHead } from '@vueuse/head'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import Image from '@/components/Image.vue'
 import Video from '@/components/Video.vue'
-import { ANIMATIONS } from '@/constants/images'
-import { useImageLayout } from '@/composables/useImageLayout'
-
-const { imageRows } = useImageLayout(ANIMATIONS.artworks)
 
 useHead({
   title: "L'épopée temporelle - Florian Leux (Toyso) | Illustration pour Cyprien",
