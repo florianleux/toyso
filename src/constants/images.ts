@@ -227,3 +227,15 @@ export const ALL_COLLECTIONS: ArtworkCollection[] = [
   STUDIES,
   CHARACTERS,
 ]
+
+export const LA_HAUTE_TOUR_SCREENSHOTS: ArtworkCollection = {
+  folderName: 'la-haute-tour',
+  artworks: [
+    { fileName: 'haute-tour-intro', title: "la haute tour - l'introduction", ratio: 'landscape' },
+    { fileName: 'haute-tour-question', title: 'la haute tour - une question', ratio: 'landscape' },
+    { fileName: 'haute-tour-mimic', title: 'la haute tour - le mimic', ratio: 'landscape' },
+    { fileName: 'haute-tour-volumen', title: 'la haute tour - le volumen', ratio: 'landscape' },
+    { fileName: 'haute-tour-grimoire', title: 'la haute tour - le grimoire', ratio: 'landscape' },
+    { fileName: 'haute-tour-porte', title: 'la haute tour - la porte de la lune', ratio: 'landscape' },
+  ],
+}

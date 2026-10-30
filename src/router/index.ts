@@ -17,6 +17,7 @@ const DevHome = () => import('../views/dev/Home.vue')
 const Keynotes = () => import('../views/dev/Keynotes.vue')
 const OnceUponATimeInFrontend = () => import('../views/dev/OnceUponATimeInFrontend.vue')
 const LetsBuildbALighthouse = () => import('../views/dev/LetsBuildbALighthouse.vue')
+const LaHauteTour = () => import('../views/dev/LaHauteTour.vue')
 const NotFound = () => import('../views/NotFound.vue')
 
 const router = createRouter({
@@ -122,6 +123,12 @@ const router = createRouter({
       name: 'lets-build-a-lighthouse',
       component: LetsBuildbALighthouse,
       meta: { breadcrumb: "Let's build a Lighthouse", parent: 'keynotes' },
+    },
+    {
+      path: '/dev/la-haute-tour',
+      name: 'la-haute-tour',
+      component: LaHauteTour,
+      meta: { breadcrumb: 'La Haute Tour', parent: 'dev' },
     },
     {
       path: '/:pathMatch(.*)*',

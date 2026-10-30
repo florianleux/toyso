@@ -32,6 +32,7 @@ const routes = [
   '/art/studies',
   '/art/characters',
   '/dev',
+  '/dev/la-haute-tour',
   ...illustrationRoutes,
   ...studyRoutes,
   ...characterRoutes
