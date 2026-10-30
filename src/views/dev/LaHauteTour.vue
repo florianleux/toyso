@@ -6,7 +6,12 @@
         <div class="text-title mb-[5vw] text-highlight font-gasoek">La Haute Tour</div>
 
         <p class="mb-[35px] text-body font-dm">
-            Un RPG de culture générale, où le joueur gravit une tour de 6 étages et plus de 6000 questions, entre coffres,
+            Un
+            <a
+                href="https://lahautetour.florianleux.fr/"
+                target="_blank"
+                class="text-marker cursor-pointer"
+            >RPG de culture générale</a>, où le joueur gravit une tour de 6 étages et plus de 6000 questions, entre coffres,
             sorts, inventaire et combats de boss.
         </p>
 
@@ -16,12 +21,7 @@
         </p>
 
         <p class="mb-[35px] text-left text-body font-dm">
-            Je l'ai imaginé, conçu, illustré et développé avec Nuxt. Il se joue sur
-            <a
-                href="https://lahautetour.florianleux.fr/"
-                target="_blank"
-                class="text-marker cursor-pointer"
-            >lahautetour.florianleux.fr</a>.
+            Je l'ai imaginé, conçu, illustré et développé avec Nuxt.
         </p>
 
         <Image
