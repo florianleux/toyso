@@ -14,42 +14,21 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
+import { usePageMeta } from '@/composables/usePageMeta'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { STUDIES } from '@/constants/images'
 import { shuffle, useImageLayout } from '@/composables/useImageLayout'
-import { resolveArtworks } from '@/utils/collection'
+import { resolveArtworks, coverImage } from '@/utils/collection'
 
 // Mélanger les études de manière aléatoire
 const { imageRows } = useImageLayout(shuffle(resolveArtworks(STUDIES, { links: true })))
 
-useHead({
-  title: "Planches d'études - Florian Leux (Toyso) ",
-  meta: [
-    {
-      name: 'description',
-      content: "Planches d'études par Florian Leux (Toyso). Portfolio de planches d'études.",
-    },
-    {
-      name: 'keywords',
-      content:
-        "planches d'études, dessin automatique, florian leux, toyso, procreate, dessin sur tablette",
-    },
-    {
-      property: 'og:title',
-      content: "Planches d'études - Florian Leux (Toyso)",
-    },
-    {
-      property: 'og:url',
-      content: 'https://florianleux.fr/art/studies',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://florianleux.fr/art/studies',
-    },
-  ],
+usePageMeta({
+  title: "Planches d'études",
+  description: "Planches d'études par Florian Leux (Toyso). Portfolio de planches d'études.",
+  keywords:
+    "planches d'études, dessin automatique, florian leux, toyso, procreate, dessin sur tablette",
+  image: coverImage(STUDIES),
 })
 </script>

@@ -20,7 +20,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-[1vw]">
       <div class="col-span-1 relative w-full aspect-[16/9]">
         <Image
-          :src="`/epopee-temporelle/epopee-temporelle.webp`"
+          :src="ILLUSTRATION"
           :alt="`Illustration L'épopée temporelle S02E06`"
           :ratio="`landscape`"
           class="absolute inset-0 w-full h-full object-cover"
@@ -40,38 +40,19 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
+import { usePageMeta } from '@/composables/usePageMeta'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import Image from '@/components/Image.vue'
 import Video from '@/components/Video.vue'
 
-useHead({
-  title: "L'épopée temporelle - Florian Leux (Toyso) | Illustration pour Cyprien",
-  meta: [
-    {
-      name: 'description',
-      content:
-        "Illustration de Florian Leux (Toyso) pour l'épisode L'épopée temporelle de la saga audio Youtube de Cyprien.",
-    },
-    {
-      name: 'keywords',
-      content:
-        'illustration, épisode, épopée temporelle, saga audio, youtube, cyprien, florian leux, toyso',
-    },
-    {
-      property: 'og:title',
-      content: "L'épopée temporelle - Florian Leux (Toyso)",
-    },
-    {
-      property: 'og:url',
-      content: 'https://florianleux.fr/art/epopee-temporelle',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://florianleux.fr/art/epopee-temporelle',
-    },
-  ],
+const ILLUSTRATION = '/epopee-temporelle/epopee-temporelle.webp'
+
+usePageMeta({
+  title: "L'épopée temporelle, pour Cyprien",
+  description:
+    "Illustration de Florian Leux (Toyso) pour l'épisode L'épopée temporelle de la saga audio Youtube de Cyprien.",
+  keywords:
+    'illustration, épisode, épopée temporelle, saga audio, youtube, cyprien, florian leux, toyso',
+  image: ILLUSTRATION,
 })
 </script>

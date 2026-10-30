@@ -11,14 +11,17 @@ import {
   getTraditionalDrawingAlt,
 } from './altText'
 
-export const SITE_URL = 'https://florianleux.fr'
-
 export function findArtwork(collection: ArtworkCollection, id: unknown): Artwork | undefined {
   return collection.artworks.find((artwork) => artwork.fileName === id)
 }
 
 export function imageUrl(collection: ArtworkCollection, artwork: Artwork): string {
   return `/${collection.folderName}/${artwork.fileName}.webp`
+}
+
+// Image qui représente la collection quand on la partage : sa première œuvre
+export function coverImage(collection: ArtworkCollection): string {
+  return imageUrl(collection, collection.artworks[0]!)
 }
 
 export function altText(collection: ArtworkCollection, artwork: Artwork): string {

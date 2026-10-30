@@ -18,44 +18,23 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
+import { usePageMeta } from '@/composables/usePageMeta'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
-import { ALL_COLLECTIONS } from '@/constants/images'
+import { ALL_COLLECTIONS, ILLUSTRATIONS } from '@/constants/images'
 import { shuffle, useImageLayout } from '@/composables/useImageLayout'
-import { resolveArtworks } from '@/utils/collection'
+import { resolveArtworks, coverImage } from '@/utils/collection'
 
 // Combiner toutes les collections et les mélanger
 const { imageRows } = useImageLayout(shuffle(ALL_COLLECTIONS.flatMap((c) => resolveArtworks(c))))
 
 // SEO
-useHead({
-  title: 'Toutes mes créations - Florian Leux (Toyso) | Portfolio Complet',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'Portfolio complet de Florian Leux (Toyso) : illustrations digitales, animations 2D et dessins traditionnels. Découvrez toutes mes créations en un seul endroit.',
-    },
-    {
-      name: 'keywords',
-      content:
-        'portfolio florian leux, toyso portfolio, créations toyso, illustrations animations dessins',
-    },
-    {
-      property: 'og:title',
-      content: 'Toutes mes créations - Florian Leux (Toyso)',
-    },
-    {
-      property: 'og:url',
-      content: 'https://florianleux.fr/art/all',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://florianleux.fr/art/all',
-    },
-  ],
+usePageMeta({
+  title: 'Toutes mes créations – portfolio complet',
+  description:
+    'Portfolio complet de Florian Leux (Toyso) : illustrations digitales, animations 2D et dessins traditionnels. Découvrez toutes mes créations en un seul endroit.',
+  keywords:
+    'portfolio florian leux, toyso portfolio, créations toyso, illustrations animations dessins',
+  image: coverImage(ILLUSTRATIONS),
 })
 </script>

@@ -51,9 +51,7 @@
       </div>
       <p class="text-body text-right font-dm mt-[5vw]">
         Vous pouvez en découvrir
-        <router-link :to="nextRoute" class="text-marker cursor-pointer">
-          une autre
-        </router-link>
+        <router-link :to="nextRoute" class="text-marker cursor-pointer"> une autre </router-link>
         ou revenir à la liste des
         <router-link :to="{ name: 'illustrations' }" class="text-marker cursor-pointer">
           illustrations
@@ -75,19 +73,11 @@ import Image from '@/components/Image.vue'
 import Video from '@/components/Video.vue'
 
 const { artwork, nextRoute } = useArtworkDetail(ILLUSTRATIONS, (artwork) => ({
-  title: artwork
-    ? `${artwork.title} - Illustration par Florian Leux (Toyso) | Processus de Création`
-    : 'Illustration - Florian Leux (Toyso) Portfolio',
+  title: artwork ? `${artwork.title} – illustration` : 'Illustration',
   description: artwork
     ? `Découvrez le processus de création complet de l'illustration "${artwork.title}" par Florian Leux (Toyso) : du croquis au résultat final avec timelapse.`
     : "Processus de création d'illustrations digitales par Florian Leux (Toyso).",
   keywords: `${artwork?.title || 'illustration'}, processus création illustration, timelapse illustration, florian leux, toyso, illustration digitale`,
-  ogTitle: artwork
-    ? `${artwork.title} - Florian Leux (Toyso)`
-    : 'Illustration - Florian Leux (Toyso)',
-  ogDescription: artwork
-    ? `Processus de création de "${artwork.title}" par Florian Leux (Toyso) - croquis, encrage, couleur et timelapse`
-    : "Processus de création d'illustration",
 }))
 
 // Alt texts SEO pour chaque étape du processus

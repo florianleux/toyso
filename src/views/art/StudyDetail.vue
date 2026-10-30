@@ -20,9 +20,7 @@
       </div>
       <p class="text-body text-right font-dm mt-[3vh]">
         Vous pouvez en découvrir
-        <router-link :to="nextRoute" class="text-marker cursor-pointer"
-          >une autre</router-link
-        >
+        <router-link :to="nextRoute" class="text-marker cursor-pointer">une autre</router-link>
         ou revenir à la liste des<router-link
           :to="{ name: 'studies' }"
           class="text-marker cursor-pointer"
@@ -47,19 +45,11 @@ import Breadcrumb from '@/components/Breadcrumb.vue'
 import Image from '@/components/Image.vue'
 
 const { artwork, nextRoute } = useArtworkDetail(STUDIES, (artwork) => ({
-  title: artwork
-    ? `${artwork.title} - Planche d\'études par Florian Leux (Toyso) | Processus de Création`
-    : "Planche d'études - Florian Leux (Toyso) Portfolio",
+  title: artwork ? `${artwork.title} – planche d'études` : "Planche d'études",
   description: artwork
-    ? `Découvrez le processus de création complet de la planche d'études "${artwork.title}" par Florian Leux (Toyso) : du croquis au résultat final avec timelapse.`
+    ? `Planche d'études "${artwork.title}" par Florian Leux (Toyso) : des variations dessinées sur un même thème, sur Procreate.`
     : "Processus de création d'illustrations digitales par Florian Leux (Toyso).",
   keywords: `${artwork?.title || "planche d'études"}, processus création planche d'études, timelapse planche d'études, florian leux, toyso, planche d'études digitale`,
-  ogTitle: artwork
-    ? `${artwork.title} - Florian Leux (Toyso)`
-    : "Planche d'études - Florian Leux (Toyso)",
-  ogDescription: artwork
-    ? `Détails de la planche d'études "${artwork.title}" par Florian Leux (Toyso)`
-    : "Détails de la planche d'études",
 }))
 
 const artworkAlt = computed(() => (artwork.value ? altText(STUDIES, artwork.value) : ''))

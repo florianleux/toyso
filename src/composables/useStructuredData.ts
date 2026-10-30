@@ -1,4 +1,5 @@
 import { useHead } from '@vueuse/head'
+import { DEFAULT_SHARE_IMAGE, SITE_URL } from '@/constants/site'
 
 /**
  * Add structured data (JSON-LD) for a Person/Creator schema
@@ -14,8 +15,8 @@ export function usePersonSchema() {
           '@type': 'Person',
           name: 'Florian Leux',
           alternateName: 'Toyso',
-          url: 'https://florianleux.fr',
-          image: 'https://florianleux.fr/sceau.png',
+          url: SITE_URL,
+          image: `${SITE_URL}${DEFAULT_SHARE_IMAGE}`,
           sameAs: [
             'https://github.com/florianleux',
             'https://www.linkedin.com/in/florian-leux-255b9384/',
@@ -60,7 +61,7 @@ export function usePortfolioSchema() {
           name: 'Portfolio Illustrations Toyso',
           description:
             "Collection d'illustrations digitales, animations et dessins traditionnels par Toyso (Florian Leux)",
-          url: 'https://florianleux.fr/art',
+          url: `${SITE_URL}/art`,
           creator: {
             '@type': 'Person',
             name: 'Florian Leux',

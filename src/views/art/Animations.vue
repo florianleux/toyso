@@ -13,42 +13,21 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
+import { usePageMeta } from '@/composables/usePageMeta'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { ANIMATIONS } from '@/constants/images'
 import { useImageLayout } from '@/composables/useImageLayout'
-import { resolveArtworks } from '@/utils/collection'
+import { resolveArtworks, coverImage } from '@/utils/collection'
 
 const { imageRows } = useImageLayout(resolveArtworks(ANIMATIONS))
 
-useHead({
-  title: 'Animations 2D - Florian Leux (Toyso) | Animation Frame par Frame',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'Animations 2D frame par frame réalisées sur Procreate par Florian Leux (Toyso). Découvrez mes essais en animation digitale.',
-    },
-    {
-      name: 'keywords',
-      content:
-        'animation 2d, animation frame par frame, procreate animation, animation digitale, florian leux, toyso',
-    },
-    {
-      property: 'og:title',
-      content: 'Animations 2D - Florian Leux (Toyso)',
-    },
-    {
-      property: 'og:url',
-      content: 'https://florianleux.fr/art/animations',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://florianleux.fr/art/animations',
-    },
-  ],
+usePageMeta({
+  title: 'Animations 2D frame par frame',
+  description:
+    'Animations 2D frame par frame réalisées sur Procreate par Florian Leux (Toyso). Découvrez mes essais en animation digitale.',
+  keywords:
+    'animation 2d, animation frame par frame, procreate animation, animation digitale, florian leux, toyso',
+  image: coverImage(ANIMATIONS),
 })
 </script>

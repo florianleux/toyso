@@ -134,42 +134,16 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useHead } from '@vueuse/head'
+import { usePageMeta } from '@/composables/usePageMeta'
 import { usePersonSchema } from '@/composables/useStructuredData'
 
 // SEO
-useHead({
-  title: 'Contact - Florian Leux (Toyso) | Développeur & Illustrateur Freelance Bordeaux',
-  meta: [
-    {
-      name: 'description',
-      content:
-        "Contactez Florian Leux (Toyso) pour vos projets de développement web ou d'illustration. Freelance basé à Bordeaux, disponible en remote.",
-    },
-    {
-      name: 'keywords',
-      content:
-        'contact florian leux, contact toyso, devis développeur bordeaux, devis illustrateur bordeaux, freelance bordeaux contact',
-    },
-    {
-      property: 'og:title',
-      content: 'Contact - Florian Leux (Toyso)',
-    },
-    {
-      property: 'og:description',
-      content: "Contactez-moi pour vos projets de développement web ou d'illustration.",
-    },
-    {
-      property: 'og:url',
-      content: 'https://florianleux.fr/contact',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://florianleux.fr/contact',
-    },
-  ],
+usePageMeta({
+  title: 'Contact – dev & illustration freelance',
+  description:
+    "Contactez Florian Leux (Toyso) pour vos projets de développement web ou d'illustration. Freelance basé à Bordeaux, disponible en remote.",
+  keywords:
+    'contact florian leux, contact toyso, devis développeur bordeaux, devis illustrateur bordeaux, freelance bordeaux contact',
 })
 
 usePersonSchema()

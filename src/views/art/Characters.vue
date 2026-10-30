@@ -14,43 +14,22 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
+import { usePageMeta } from '@/composables/usePageMeta'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import ImageGallery from '@/components/ImageGallery.vue'
 import { CHARACTERS } from '@/constants/images'
 import { shuffle, useImageLayout } from '@/composables/useImageLayout'
-import { resolveArtworks } from '@/utils/collection'
+import { resolveArtworks, coverImage } from '@/utils/collection'
 
 // Mélanger les personnages de manière aléatoire
 const { imageRows } = useImageLayout(shuffle(resolveArtworks(CHARACTERS, { links: true })))
 
-useHead({
-  title: 'Character Design - Florian Leux (Toyso) ',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'Character design par Florian Leux (Toyso). Portfolio de personnages et character design.',
-    },
-    {
-      name: 'keywords',
-      content:
-        'character design, personnages, design de personnages, florian leux, toyso, procreate, dessin sur tablette',
-    },
-    {
-      property: 'og:title',
-      content: 'Character Design - Florian Leux (Toyso)',
-    },
-    {
-      property: 'og:url',
-      content: 'https://florianleux.fr/art/characters',
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://florianleux.fr/art/characters',
-    },
-  ],
+usePageMeta({
+  title: 'Character design',
+  description:
+    'Character design par Florian Leux (Toyso). Portfolio de personnages et character design.',
+  keywords:
+    'character design, personnages, design de personnages, florian leux, toyso, procreate, dessin sur tablette',
+  image: coverImage(CHARACTERS),
 })
 </script>

@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 import Sitemap from 'vite-plugin-sitemap'
 import { ILLUSTRATIONS, STUDIES, CHARACTERS } from './src/constants/images'
+import { SITE_URL } from './src/constants/site'
 import { detailPaths } from './src/utils/collection'
 
 const routes = [
@@ -34,7 +35,7 @@ export default defineConfig({
     vueDevTools(),
     tailwindcss(),
     Sitemap({
-      hostname: 'https://florianleux.fr',
+      hostname: SITE_URL,
       dynamicRoutes: routes,
       changefreq: 'monthly',
       priority: 0.7,
@@ -43,7 +44,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
 })
