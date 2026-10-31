@@ -2,7 +2,7 @@
   <Breadcrumb />
 
   <div class="mx-auto">
-    <div class="text-subtitle font-dm">une conférence sur</div>
+    <div class="text-subtitle font-dm">ma keynote</div>
     <h1 class="text-title mb-[5vw] text-highlight font-gasoek">Once upon a time in frontend</h1>
 
     <p class="mb-[35px] text-body font-dm">
