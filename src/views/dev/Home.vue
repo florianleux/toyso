@@ -38,9 +38,6 @@
       >
       originales.
     </p>
-    <p class="text-left sm:text-right text-body font-dm">
-      Du web design jusqu'à la dernière ligne de code, j'ai aussi réalisé ce site!<br />
-    </p>
     <p class="text-center text-subtitle font-dm">
       Vous avez un projet en tête ? <br />
       N'hésitez pas à
