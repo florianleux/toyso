@@ -18,6 +18,7 @@ const Keynotes = () => import('../views/dev/Keynotes.vue')
 const OnceUponATimeInFrontend = () => import('../views/dev/OnceUponATimeInFrontend.vue')
 const LetsBuildbALighthouse = () => import('../views/dev/LetsBuildbALighthouse.vue')
 const LaHauteTour = () => import('../views/dev/LaHauteTour.vue')
+const Ahoy = () => import('../views/dev/Ahoy.vue')
 const NotFound = () => import('../views/NotFound.vue')
 
 const router = createRouter({
@@ -129,6 +130,12 @@ const router = createRouter({
       name: 'la-haute-tour',
       component: LaHauteTour,
       meta: { breadcrumb: 'La Haute Tour', parent: 'dev' },
+    },
+    {
+      path: '/dev/ahoy',
+      name: 'ahoy',
+      component: Ahoy,
+      meta: { breadcrumb: 'Ahoy!', parent: 'dev' },
     },
     {
       path: '/:pathMatch(.*)*',

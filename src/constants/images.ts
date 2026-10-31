@@ -255,3 +255,16 @@ export const LA_HAUTE_TOUR_SCREENSHOTS: ArtworkCollection = {
     },
   ],
 }
+
+export const AHOY_SCREENSHOTS: ArtworkCollection = {
+  folderName: 'ahoy',
+  altKind: 'default',
+  artworks: [
+    { fileName: 'ahoy-placement', title: 'ahoy - la phase de placement', ratio: 'landscape' },
+    { fileName: 'ahoy-flotte', title: 'ahoy - la flotte placée', ratio: 'landscape' },
+    { fileName: 'ahoy-combat', title: 'ahoy - le début du combat', ratio: 'landscape' },
+    { fileName: 'ahoy-reglages', title: 'ahoy - les paramètres', ratio: 'landscape' },
+    { fileName: 'ahoy-adversaire', title: 'ahoy - le prochain adversaire', ratio: 'landscape' },
+    { fileName: 'ahoy-combat-avance', title: 'ahoy - le combat', ratio: 'landscape' },
+  ],
+}

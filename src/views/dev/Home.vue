@@ -19,8 +19,9 @@
       beaucoup de technos différentes.
     </p>
     <p class="text-left text-body font-dm">
-      J'ai imaginé, conçu et développé deux jeux vidéo pour navigateurs, Ahoy! et Facettes. J'en
-      développe en ce moment un troisième,
+      J'ai imaginé, conçu et développé deux jeux vidéo pour navigateurs,
+      <router-link :to="{ name: 'ahoy' }" class="text-marker cursor-pointer">Ahoy!</router-link>
+      et Facettes. J'en développe en ce moment un troisième,
       <router-link :to="{ name: 'la-haute-tour' }" class="text-marker cursor-pointer">
         La Haute Tour</router-link
       >, un jeu de culture générale sous forme de RPG.
