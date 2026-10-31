@@ -1,6 +1,5 @@
 /**
  * Tout ce qu'on peut demander à une collection d'œuvres.
- * Imports relatifs : ce module est aussi chargé par vite.config.ts (pas d'alias `@`).
  */
 import type { Artwork, ArtworkCollection, ResolvedArtwork } from '../types/artwork'
 import {

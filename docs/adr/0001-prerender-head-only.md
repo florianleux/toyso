@@ -14,6 +14,7 @@ Au build, un rendu SSR des vrais composants exécute les `usePageMeta` de chaque
 - Fichiers `<route>.html` et non `<route>/index.html` : Netlify les sert sans redirection vers un slash final, l'URL servie reste celle de la canonical.
 - Les URL hors sitemap reçoivent `dist/404.html` (NotFound pré-rendu, `noindex`) avec le statut 404, via `public/_redirects` (mis à jour le 2026-10-31, issue #3 : c'était `dist/spa.html` en 200).
 - Le build échoue si une route sort sans titre, canonical ou og:image, ou si `404.html` sort sans titre ou sans `noindex`.
+- Le body rendu sert aussi à dater chaque route dans le sitemap : ses vues et ses médias sont relevés avant d'être jetés (ajouté le 2026-10-31, issue #4, voir [l'ADR 0003](0003-sitemap-lastmod-git.md)).
 
 ## Alternatives écartées
 

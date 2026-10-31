@@ -10,7 +10,7 @@
 ### SEO Technique
 - ✅ Meta tags dynamiques sur toutes les pages (@vueuse/head)
 - ✅ Structured Data (JSON-LD) - Person & Portfolio Schema
-- ✅ Sitemap XML automatique (29 URLs)
+- ✅ Sitemap XML automatique (94 URLs), lastmod daté par git
 - ✅ Robots.txt
 - ✅ Lang="fr" + meta tags Open Graph + Twitter Cards
 - ✅ Canonical URLs sur toutes les pages
@@ -167,7 +167,7 @@ npm run preview          # Preview du build
 npm run type-check       # Vérifier TypeScript
 
 # Vérifier sitemap après build
-grep -o '<url>' dist/sitemap.xml | wc -l  # Compte les URLs (doit afficher 29)
+grep -o '<url>' dist/sitemap.xml | wc -l  # Compte les URLs (doit afficher 94)
 ```
 
 ---
@@ -210,6 +210,13 @@ Pour les robots IA et les aperçus de liens, l'extension Prerender de Netlify se
 - Le build échoue si une page sort sans titre, canonical ou og:image
 - Pour vérifier : `curl -s https://florianleux.fr/<route> | grep og:image`
 
+### D'où vient le lastmod du sitemap ?
+Du dernier commit sur les fichiers de la page : sa vue (`src/views/…`) et les médias de `public/` qu'elle affiche. Le code partagé (components, composables, `images.ts`) ne date aucune page. `scripts/prerender.ts` écrit `dist/sitemap.xml` (voir [l'ADR 0003](adr/0003-sitemap-lastmod-git.md)).
+
+- Un build sur un dépôt git superficiel échoue : les dates seraient fausses
+- Un média fixe d'un composant partagé (logo, placeholder) porte `data-no-lastmod`, sinon il date toutes les pages qui l'affichent
+- En local, un fichier modifié pas encore commité date sa page à l'heure du build
+
 ### Dois-je créer un blog ?
 **Optionnel.** Priorités :
 1. Google Search Console (10x impact)
@@ -240,7 +247,7 @@ La redirection concentre l'autorité SEO sur un seul domaine.
 
 Avant de deployer :
 - [x] Build fonctionne
-- [x] Sitemap généré (29 URLs)
+- [x] Sitemap généré (94 URLs)
 - [x] Robots.txt présent
 - [ ] URLs sociales vérifiées
 - [ ] Test responsive mobile

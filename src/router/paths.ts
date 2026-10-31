@@ -1,6 +1,5 @@
 /**
  * Toutes les URL publiques du site : le sitemap et le pré-rendu lisent cette liste.
- * Imports relatifs : ce module est aussi chargé par vite.config.ts (pas d'alias `@`).
  */
 import { CHARACTERS, ILLUSTRATIONS, STUDIES } from '../constants/images'
 import { detailPaths } from '../utils/collection'

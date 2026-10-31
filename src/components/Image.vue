@@ -2,6 +2,7 @@
   <img
     fetchpriority="high"
     :src="`/placeholders/placeholder-${ratio}.webp`"
+    data-no-lastmod
     v-show="isLoading"
     :class
   />

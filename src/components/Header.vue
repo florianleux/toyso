@@ -2,7 +2,7 @@
   <header class="flex justify-between items-center pt-[8px]">
     <div class="flex items-center gap-[3vw] sm:gap-4">
       <router-link :to="{ name: 'home' }">
-        <img src="/sceau.png" alt="Logo toyso"
+        <img src="/sceau.png" data-no-lastmod alt="Logo toyso"
           class="w-[100px] min-w-[100px] hover:scale-110 transition-transform duration-500 logo-header" />
       </router-link>
       <span class="hidden md:block mr-[5vw] text-body font-gasoek">florian <br />
