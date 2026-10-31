@@ -268,3 +268,24 @@ export const AHOY_SCREENSHOTS: ArtworkCollection = {
     { fileName: 'ahoy-combat-avance', title: 'ahoy - le combat', ratio: 'landscape' },
   ],
 }
+
+export const REFURBISHED_SCREENSHOTS: ArtworkCollection = {
+  folderName: 'refurbished',
+  altKind: 'default',
+  artworks: [
+    { fileName: 'refurbished-menu', title: 'refurbished - le menu', ratio: 'landscape' },
+    {
+      fileName: 'refurbished-reparation',
+      title: 'refurbished - la réparation',
+      ratio: 'landscape',
+    },
+    { fileName: 'refurbished-transport', title: 'refurbished - le transport', ratio: 'landscape' },
+    { fileName: 'refurbished-livraison', title: 'refurbished - la livraison', ratio: 'landscape' },
+    {
+      fileName: 'refurbished-buddy',
+      title: 'refurbished - le choix du personnage',
+      ratio: 'landscape',
+    },
+    { fileName: 'refurbished-mission', title: 'refurbished - la mission', ratio: 'landscape' },
+  ],
+}

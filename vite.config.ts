@@ -26,6 +26,7 @@ const routes = [
   '/dev/keynotes/lets-build-a-lighthouse',
   '/dev/la-haute-tour',
   '/dev/ahoy',
+  '/dev/refurbished',
   ...[ILLUSTRATIONS, STUDIES, CHARACTERS].flatMap(detailPaths),
 ]
 

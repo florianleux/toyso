@@ -24,7 +24,10 @@
       et Facettes. J'en développe en ce moment un troisième,
       <router-link :to="{ name: 'la-haute-tour' }" class="text-marker cursor-pointer">
         La Haute Tour</router-link
-      >, un jeu de culture générale sous forme de RPG.
+      >, un jeu de culture générale sous forme de RPG. Avec un collègue, j'ai aussi co-créé
+      <router-link :to="{ name: 'refurbished' }" class="text-marker cursor-pointer"
+        >Refurbished!</router-link
+      >, un jeu coopératif en 3D.
     </p>
 
     <p class="text-left sm:text-right text-body font-dm">

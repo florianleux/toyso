@@ -19,6 +19,7 @@ const OnceUponATimeInFrontend = () => import('../views/dev/OnceUponATimeInFronte
 const LetsBuildbALighthouse = () => import('../views/dev/LetsBuildbALighthouse.vue')
 const LaHauteTour = () => import('../views/dev/LaHauteTour.vue')
 const Ahoy = () => import('../views/dev/Ahoy.vue')
+const Refurbished = () => import('../views/dev/Refurbished.vue')
 const NotFound = () => import('../views/NotFound.vue')
 
 const router = createRouter({
@@ -136,6 +137,12 @@ const router = createRouter({
       name: 'ahoy',
       component: Ahoy,
       meta: { breadcrumb: 'Ahoy!', parent: 'dev' },
+    },
+    {
+      path: '/dev/refurbished',
+      name: 'refurbished',
+      component: Refurbished,
+      meta: { breadcrumb: 'Refurbished!', parent: 'dev' },
     },
     {
       path: '/:pathMatch(.*)*',
