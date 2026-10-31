@@ -5,7 +5,7 @@
       <div class="text-title text-highlight font-gasoek">page introuvable</div>
     </div>
 
-    <p class="text-justify sm:text-center text-body font-dm">
+    <p class="text-left sm:text-center text-body font-dm">
       La page que vous recherchez n'existe pas ou a été déplacée.
     </p>
 

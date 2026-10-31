@@ -6,7 +6,8 @@
         {{ crumb.label }}
       </router-link>
       <span v-else>{{ crumb.label }}</span>
-      <span class="text-(--color-highlight)" v-if="index < breadcrumbs.length - 1">&nbsp;•&nbsp;</span>
+      <!-- Espace final sécable : permet au fil d'Ariane de passer à la ligne sur petit écran -->
+      <span class="text-(--color-highlight)" v-if="index < breadcrumbs.length - 1">&nbsp;• </span>
     </template>
   </div>
 </template>

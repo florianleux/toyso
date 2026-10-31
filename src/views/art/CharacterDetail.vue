@@ -11,7 +11,7 @@
       <div class="grid grid-cols-1 gap-[16px]" :key="artwork.fileName">
         <div>
           <Image
-            class="max-w-[1000px] max-h-[85vh] mx-auto"
+            class="max-w-[min(100%,1000px)] max-h-[85vh] mx-auto"
             :src="`/characters/${artwork.fileName}.webp`"
             :alt="artworkAlt"
             :ratio="artwork.ratio"
