@@ -4,9 +4,9 @@
       <div class="col-span-12 text-center md:text-left flex flex-col gap-[6vh]">
         <div>
           <div class="text-subtitle font-dm">Bienvenue! Je m'appelle</div>
-          <div class="text-title text-center md:text-left text-highlight font-gasoek">
+          <h1 class="text-title text-center md:text-left text-highlight font-gasoek">
             florian leux
-          </div>
+          </h1>
         </div>
 
         <div>

@@ -7,7 +7,7 @@
     <div class="text-subtitle text-right font-dm"
       >pour illustrer un passage d'un épisode de sa saga audio</div
     >
-    <div class="text-title text-right text-highlight font-gasoek">l'épopée temporelle</div>
+    <h1 class="text-title text-right text-highlight font-gasoek">l'épopée temporelle</h1>
     <div class="text-right text-body font-dm my-[2vw]"
       ><a
         href="https://youtu.be/wRpCUd16FEU?list=PLBMP1TQgImqwEUXyyxDGTsgpPmSGi5v6w&t=364"

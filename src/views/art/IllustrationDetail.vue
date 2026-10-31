@@ -4,9 +4,9 @@
 
     <div v-if="artwork">
       <div class="text-subtitle font-dm">les étapes de création de</div>
-      <div class="text-title mb-[5vw] text-highlight font-gasoek lowercase">
+      <h1 class="text-title mb-[5vw] text-highlight font-gasoek lowercase">
         {{ artwork.title }}
-      </div>
+      </h1>
 
       <div
         class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-[16px]"
@@ -59,7 +59,7 @@
       </p>
     </div>
 
-    <div v-else class="text-center text-subtitle font-dm mt-[5vw]">Illustration non trouvée</div>
+    <h1 v-else class="text-center text-subtitle font-dm mt-[5vw]">Illustration non trouvée</h1>
   </div>
 </template>
 

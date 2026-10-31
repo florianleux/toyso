@@ -3,7 +3,7 @@
   <div class="mx-auto py-16 flex flex-col gap-[6vh]">
     <div>
       <div class="text-subtitle font-dm">voici mes</div>
-      <div class="text-title text-highlight font-gasoek">keynotes</div>
+      <h1 class="text-title text-highlight font-gasoek">keynotes</h1>
     </div>
     <p class="text-left text-body font-dm">
       J'aime aussi concevoir et illustrer des conférences techniques originales.

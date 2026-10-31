@@ -4,9 +4,9 @@
 
     <div v-if="artwork">
       <div class="text-subtitle font-dm">un personnage nommé </div>
-      <div class="text-title mb-[3vw] text-highlight font-gasoek lowercase">
+      <h1 class="text-title mb-[3vw] text-highlight font-gasoek lowercase">
         {{ artwork.title }}
-      </div>
+      </h1>
 
       <div class="grid grid-cols-1 gap-[16px]" :key="artwork.fileName">
         <div>
@@ -28,7 +28,7 @@
       </p>
     </div>
 
-    <div v-else class="text-center text-subtitle font-dm mt-[5vw]">Personnage non trouvé</div>
+    <h1 v-else class="text-center text-subtitle font-dm mt-[5vw]">Personnage non trouvé</h1>
   </div>
 </template>
 

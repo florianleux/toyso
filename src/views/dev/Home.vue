@@ -2,7 +2,7 @@
   <div class="mx-auto py-16 flex flex-col gap-[6vh]">
     <div>
       <div class="text-subtitle font-dm">je suis</div>
-      <div class="text-title text-highlight font-gasoek">développeur web</div>
+      <h1 class="text-title text-highlight font-gasoek">développeur web</h1>
     </div>
     <p class="text-left text-body font-dm">
       Je suis developpeur web depuis plus de 10 ans, mon activité principale est

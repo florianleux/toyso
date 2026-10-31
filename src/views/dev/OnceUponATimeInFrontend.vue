@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">une conférence sur</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">Once upon a time in frontend</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">Once upon a time in frontend</h1>
 
     <p class="mb-[35px] text-body font-dm">
       Une conférence illustrée sous la forme d'un livre de contes, sur la stack frontend de Back

@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">voici quelques essais en</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">animation 2D</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">animation 2D</h1>
     <p class="mb-[35px] text-right text-body font-dm">
       Chaque animation est dessinée frame par frame sur Procreate.
     </p>

@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">j'ai longtemps pratiqué le</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">dessin traditionnel</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">dessin traditionnel</h1>
     <p class="mb-[35px] text-right text-body font-dm">
       J'utilise les feutres à alcools et l'encre.
     </p>

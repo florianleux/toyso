@@ -2,7 +2,7 @@
   <div class="mx-auto py-16 flex flex-col gap-[6vh]">
     <div>
       <div class="text-subtitle font-dm">Oups!</div>
-      <div class="text-title text-highlight font-gasoek">page introuvable</div>
+      <h1 class="text-title text-highlight font-gasoek">page introuvable</h1>
     </div>
 
     <p class="text-left sm:text-center text-body font-dm">

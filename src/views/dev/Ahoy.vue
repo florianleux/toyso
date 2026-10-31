@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">à l'abordage avec</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">Ahoy!</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">Ahoy!</h1>
 
     <p class="mb-[35px] text-body font-dm">
       Une

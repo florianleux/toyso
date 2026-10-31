@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">j'aime créer des</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">personnages</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">personnages</h1>
     <p class="mb-[35px] text-right text-body font-dm">
       Je dessine des personnages variés pour donner vie aux univers de mes projets.<br />
       J'aime aussi revisiter des personnages célèbres par le biais de fanart.

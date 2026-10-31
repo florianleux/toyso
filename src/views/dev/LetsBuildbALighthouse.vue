@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">ma keynote</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">Let's build a Lighthouse</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">Let's build a Lighthouse</h1>
 
     <p class="mb-[35px] text-body font-dm">
       Une conférence immersive et interactive sur le score Lighthouse et les performances web. Le

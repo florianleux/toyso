@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">j'aime faire des</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">planches d'études</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">planches d'études</h1>
     <p class="mb-[35px] text-right text-body font-dm">
       Je choisis un thème au hasard et je dessine des variations sur ce sujet. <br />
       Cela me permet de m'exercer sur des sujets inédits et construire des réferences futures.

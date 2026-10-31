@@ -2,7 +2,7 @@
   <div class="mx-auto py-16 flex flex-col gap-[6vh]">
     <div>
       <div class="text-subtitle font-dm">je suis</div>
-      <div class="text-title text-highlight font-gasoek">illustrateur</div>
+      <h1 class="text-title text-highlight font-gasoek">illustrateur</h1>
     </div>
     <p class="text-left text-body font-dm">
       Je réalise principalement des

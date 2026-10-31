@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">toutes mes</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">créations</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">créations</h1>
     <p class="mb-[35px] text-right text-body font-dm">
       Toute la production graphique présente sur mon site, en vrac !<br />
       Cela vous plait ? N'hésitez pas à

@@ -3,7 +3,7 @@
 
   <div class="mx-auto">
     <div class="text-subtitle font-dm">voici une sélection de mes</div>
-    <div class="text-title mb-[5vw] text-highlight font-gasoek">illustrations</div>
+    <h1 class="text-title mb-[5vw] text-highlight font-gasoek">illustrations</h1>
     <p class="mb-[35px] text-right text-body font-dm">
       Cliquez sur une illustration pour voir le détail de son processus de création.
     </p>
