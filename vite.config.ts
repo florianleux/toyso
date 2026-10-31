@@ -28,6 +28,9 @@ export default defineConfig(({ isSsrBuild }) => ({
   ],
   build: {
     copyPublicDir: !isSsrBuild,
+    // Un seul CSS, lié dans le head : un CSS de route chargé par le JS fait échouer la navigation
+    // quand le prérendu Netlify bloque les CSS (option « Skip CSS files »), la page reste vide
+    cssCodeSplit: false,
   },
   resolve: {
     alias: {
