@@ -5,47 +5,33 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 import Sitemap from 'vite-plugin-sitemap'
-import { ILLUSTRATIONS, STUDIES, CHARACTERS } from './src/constants/images'
 import { SITE_URL } from './src/constants/site'
-import { detailPaths } from './src/utils/collection'
-
-const routes = [
-  '/',
-  '/contact',
-  '/art',
-  '/art/illustrations',
-  '/art/animations',
-  '/art/traditional-drawings',
-  '/art/all',
-  '/art/epopee-temporelle',
-  '/art/studies',
-  '/art/characters',
-  '/dev',
-  '/dev/keynotes',
-  '/dev/keynotes/once-upon-a-time-in-frontend',
-  '/dev/keynotes/lets-build-a-lighthouse',
-  '/dev/la-haute-tour',
-  '/dev/ahoy',
-  ...[ILLUSTRATIONS, STUDIES, CHARACTERS].flatMap(detailPaths),
-]
+import { SITE_PATHS } from './src/router/paths'
 
 // https://vite.dev/config/
-export default defineConfig({
+// Le build SSR ne sert qu'au pré-rendu du head (scripts/prerender.ts) : ni public/ ni sitemap
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     vue(),
     vueDevTools(),
     tailwindcss(),
-    Sitemap({
-      hostname: SITE_URL,
-      dynamicRoutes: routes,
-      changefreq: 'monthly',
-      priority: 0.7,
-      lastmod: new Date(),
-    }),
+    !isSsrBuild &&
+      Sitemap({
+        hostname: SITE_URL,
+        dynamicRoutes: SITE_PATHS,
+        // Pas de scan de dist/ : il y trouverait spa.html et index.html (/ en double)
+        extensions: [],
+        changefreq: 'monthly',
+        priority: 0.7,
+        lastmod: new Date(),
+      }),
   ],
+  build: {
+    copyPublicDir: !isSsrBuild,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-})
+}))

@@ -199,12 +199,14 @@ grep -o '<url>' dist/sitemap.xml | wc -l  # Compte les URLs (doit afficher 29)
 
 ## ❓ FAQ
 
-### Pourquoi pas de prerendering/SSR ?
-Le prerendering n'est pas nécessaire pour tes objectifs :
-- Google crawle parfaitement les SPAs Vue modernes
-- Pour "florian leux" et "toyso", tu seras #1 sans SSR
-- Le gain serait marginal (~5 positions sur mots-clés compétitifs)
-- Migration = 1-2 jours de dev pour peu de bénéfice
+### Pourquoi le head est pré-rendu au build ?
+Google exécute le JS et indexerait la SPA sans aide. Mais LinkedIn, Slack, X et Facebook lisent le HTML brut sans exécuter le JS : sans pré-rendu, chaque partage affichait une carte générique sans image.
+
+`yarn build-only` écrit donc une page `dist/<route>.html` par route du sitemap, avec titre, description, canonical et og déjà dans le `<head>` (voir `scripts/prerender.ts` et [l'ADR 0001](adr/0001-prerender-head-only.md)). Le body reste vide : le site reste une SPA classique.
+
+- Une nouvelle page doit être ajoutée dans `src/router/paths.ts` (sitemap + pré-rendu)
+- Le build échoue si une page sort sans titre, canonical ou og:image
+- Pour vérifier : `curl -s https://florianleux.fr/<route> | grep og:image`
 
 ### Dois-je créer un blog ?
 **Optionnel.** Priorités :
