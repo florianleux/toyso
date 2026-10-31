@@ -204,6 +204,8 @@ Google exécute le JS et indexerait la SPA sans aide. Mais LinkedIn, Slack, X et
 
 `yarn build-only` écrit donc une page `dist/<route>.html` par route du sitemap, avec titre, description, canonical et og déjà dans le `<head>` (voir `scripts/prerender.ts` et [l'ADR 0001](adr/0001-prerender-head-only.md)). Le body reste vide : le site reste une SPA classique.
 
+Pour les robots IA et les aperçus de liens, l'extension Prerender de Netlify sert en plus la page rendue avec son body ([l'ADR 0002](adr/0002-netlify-prerender-body.md)). Pour vérifier : `curl -s -A "GPTBot/1.0" https://florianleux.fr/<route> | grep "<h1"`.
+
 - Une nouvelle page doit être ajoutée dans `src/router/paths.ts` (sitemap + pré-rendu)
 - Le build échoue si une page sort sans titre, canonical ou og:image
 - Pour vérifier : `curl -s https://florianleux.fr/<route> | grep og:image`

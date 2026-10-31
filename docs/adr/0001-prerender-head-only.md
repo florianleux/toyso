@@ -22,6 +22,6 @@ Au build, un rendu SSR des vrais composants exécute les `usePageMeta` de chaque
 
 ## Conséquences
 
-- Le contenu des pages reste invisible aux robots qui n'exécutent pas le JS (Google l'exécute).
+- Le contenu des pages reste invisible aux robots qui n'exécutent pas le JS (Google l'exécute). Mis à jour le 2026-10-31 : l'extension Prerender de Netlify leur sert maintenant le body, voir [0002](0002-netlify-prerender-body.md).
 - Ajouter une page publique = l'ajouter dans `src/router/paths.ts`.
 - Passer plus tard au rendu complet reste possible : la liste des routes et l'entrée SSR sont réutilisables.
