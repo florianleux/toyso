@@ -19,7 +19,7 @@ export default defineConfig(({ isSsrBuild }) => ({
       Sitemap({
         hostname: SITE_URL,
         dynamicRoutes: SITE_PATHS,
-        // Pas de scan de dist/ : il y trouverait spa.html et index.html (/ en double)
+        // Pas de scan de dist/ : il y trouverait 404.html et index.html (/ en double)
         extensions: [],
         changefreq: 'monthly',
         priority: 0.7,

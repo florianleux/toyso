@@ -19,9 +19,6 @@ const ssrDir = resolve(import.meta.dirname, '../dist-ssr')
 const entry: ServerEntry = await import(pathToFileURL(resolve(ssrDir, 'entry-server.js')).href)
 // Lu avant d'écrire les pages : la route / réécrit dist/index.html
 const template = await readFile(resolve(distDir, 'index.html'), 'utf8')
-// Coquille sans méta pour les URL hors sitemap (public/_redirects) : sans elle, elles
-// hériteraient de la canonical de l'accueil
-await writeFile(resolve(distDir, 'spa.html'), template)
 
 const { pages, failures } = await entry.prerender(template)
 for (const { file, html } of pages) {

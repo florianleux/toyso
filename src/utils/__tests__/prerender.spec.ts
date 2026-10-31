@@ -34,15 +34,37 @@ describe('missingHeadTags', () => {
   ].join('')
 
   it('ne signale rien quand title, canonical et og:image sont présents', () => {
-    expect(missingHeadTags(complete)).toEqual([])
+    expect(missingHeadTags(complete, 'indexed')).toEqual([])
   })
 
   it('liste les balises absentes', () => {
-    expect(missingHeadTags('<title>Ant | Florian Leux</title>')).toEqual(['canonical', 'og:image'])
+    expect(missingHeadTags('<title>Ant | Florian Leux</title>', 'indexed')).toEqual([
+      'canonical',
+      'og:image',
+    ])
   })
 
   it('signale un title vide', () => {
-    expect(missingHeadTags(complete.replace('Ant | Florian Leux', ''))).toEqual(['title'])
+    expect(missingHeadTags(complete.replace('Ant | Florian Leux', ''), 'indexed')).toEqual([
+      'title',
+    ])
+  })
+
+  describe('page 404', () => {
+    const notFound = [
+      '<title>Page introuvable | Florian Leux</title>',
+      '<meta name="robots" content="noindex, nofollow">',
+    ].join('')
+
+    it('demande un title et noindex, sans canonical ni og:image', () => {
+      expect(missingHeadTags(notFound, 'notFound')).toEqual([])
+    })
+
+    it('signale une page 404 indexable', () => {
+      expect(missingHeadTags('<title>Page introuvable | Florian Leux</title>', 'notFound')).toEqual(
+        ['robots noindex']
+      )
+    })
   })
 })
 

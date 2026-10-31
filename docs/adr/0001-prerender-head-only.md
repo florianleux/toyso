@@ -12,8 +12,8 @@ Au build, un rendu SSR des vrais composants exécute les `usePageMeta` de chaque
 
 - `usePageMeta` reste la seule source de méta (pas de table route → méta séparée).
 - Fichiers `<route>.html` et non `<route>/index.html` : Netlify les sert sans redirection vers un slash final, l'URL servie reste celle de la canonical.
-- Les URL hors sitemap reçoivent `dist/spa.html`, le template sans méta, via `public/_redirects`.
-- Le build échoue si une route sort sans titre, canonical ou og:image.
+- Les URL hors sitemap reçoivent `dist/404.html` (NotFound pré-rendu, `noindex`) avec le statut 404, via `public/_redirects` (mis à jour le 2026-10-31, issue #3 : c'était `dist/spa.html` en 200).
+- Le build échoue si une route sort sans titre, canonical ou og:image, ou si `404.html` sort sans titre ou sans `noindex`.
 
 ## Alternatives écartées
 

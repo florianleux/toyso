@@ -18,15 +18,30 @@ export function insertHead(template: string, head: string): string {
   return template.replace('</head>', `${head}</head>`)
 }
 
-// Garde du build : une page partagée sans ces balises redonne la carte générique
+const TITLE = /<title[^>]*>[^<]+<\/title>/
+
+// Garde du build : une page partagée sans ces balises redonne la carte générique,
+// et une page 404 sans noindex serait indexée
 const REQUIRED_TAGS = {
-  title: /<title[^>]*>[^<]+<\/title>/,
-  canonical: /<link(?=[^>]*\brel="canonical")(?=[^>]*\bhref="[^"]+")[^>]*>/,
-  'og:image': /<meta(?=[^>]*\bproperty="og:image")(?=[^>]*\bcontent="[^"]+")[^>]*>/,
+  indexed: {
+    title: TITLE,
+    canonical: /<link(?=[^>]*\brel="canonical")(?=[^>]*\bhref="[^"]+")[^>]*>/,
+    'og:image': /<meta(?=[^>]*\bproperty="og:image")(?=[^>]*\bcontent="[^"]+")[^>]*>/,
+  },
+  notFound: {
+    title: TITLE,
+    'robots noindex': /<meta(?=[^>]*\bname="robots")(?=[^>]*\bcontent="[^"]*noindex)[^>]*>/,
+  },
 }
 
-export function missingHeadTags(head: string): string[] {
-  return Object.entries(REQUIRED_TAGS)
+// Une page à écrire dans dist/ : la route rendue et les balises exigées
+export interface PrerenderTarget {
+  path: string
+  kind: keyof typeof REQUIRED_TAGS
+}
+
+export function missingHeadTags(head: string, kind: PrerenderTarget['kind']): string[] {
+  return Object.entries(REQUIRED_TAGS[kind])
     .filter(([, pattern]) => !pattern.test(head))
     .map(([tag]) => tag)
 }
